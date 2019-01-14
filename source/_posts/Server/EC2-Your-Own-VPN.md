@@ -3,7 +3,7 @@ layout: post
 title: AWS EC2로 나만의 VPN 만들기
 date: 2018-04-13 20:48:00 +0900
 description: Template description
-thumbnail: /thumbnails/ec2-vpn.jpg
+thumbnail: /thumbnails/aws-ec2-vpn.jpg
 category: 'server'
 tags:
 - ec2

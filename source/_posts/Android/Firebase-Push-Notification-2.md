@@ -4,7 +4,7 @@ title: Google Firebase를 사용하여 Android(Kotlin)에 푸쉬 알림 보내�
 date: 2018-01-08 19:34:20 +0900
 updated: 2019-01-02 16:10:38 +0900
 description: Template description
-thumbnail: /thumbnails/kotlin-firebase.jpg
+thumbnail: /thumbnails/firebase-cloud-messaging.jpg
 category: 'android'
 tags:
 - android

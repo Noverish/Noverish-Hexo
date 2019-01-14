@@ -3,7 +3,7 @@ layout: post
 title: Firebase를 사용하여 Android에 푸쉬 알림 보내기 - 클라이언트 편
 date: 2018-01-07 16:49:19 +0900
 updated: 2019-01-02 14:43:39 +0900
-thumbnail: /thumbnails/kotlin-firebase.jpg
+thumbnail: /thumbnails/firebase-cloud-messaging.jpg
 category: 'android'
 tags:
 - android

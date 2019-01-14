@@ -3,7 +3,8 @@ layout: post
 title: Android에서 네이버 지도 SDK 사용하기
 date: 2018-07-18 14:41:00 +0900
 description: Template description
-thumbnail: /thumbnails/android-naver-map.jpg
+thumbnail: /thumbnails/naver-map.jpg
+titleImage: ./title-image.jpg
 category: 'android'
 tags:
 - android

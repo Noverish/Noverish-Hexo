@@ -93,4 +93,11 @@ module.exports = function (hexo) {
         const hasThumbnail = hexo.extend.helper.get('has_thumbnail').bind(this)(post);
         return this.url_for(hasThumbnail ? post.thumbnail : 'images/thumbnail.svg');
     });
+
+    hexo.extend.helper.register('get_title_image', function (post) {
+        if (post.hasOwnProperty('titleImage'))
+            return post['titleImage'];
+        else
+            return hexo.extend.helper.get('get_thumbnail').bind(this)(post);
+    });
 }

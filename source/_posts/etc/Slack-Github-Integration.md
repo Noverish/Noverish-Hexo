@@ -3,7 +3,7 @@ layout: post
 title: 슬랙과 깃허브 연동하기
 date: 2018-07-26 14:15:00 +0900
 description: Template description
-thumbnail: /thumbnails/slack-github.jpg
+thumbnail: /thumbnails/slack.jpg
 category: 'etc'
 tags:
 - slack

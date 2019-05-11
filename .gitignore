@@ -1,4 +1,5 @@
 .idea/
+.deploy_git/
 
 # Created by https://www.gitignore.io/api/node,hexo,macos,webstorm+iml
 # Edit at https://www.gitignore.io/?templates=node,hexo,macos,webstorm+iml

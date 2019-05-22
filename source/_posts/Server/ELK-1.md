@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ELK Stack - ElasticSearch 편
+title: ELK Stack - Elasticsearch 편
 date: 2019-05-12 09:18:00 +0900
 description: Template description
 thumbnail: /thumbnails/elk.png
@@ -19,7 +19,7 @@ twitter_text: template twitter_text
 ## 목차
 [1. 설치하기](#1-설치하기)    
 [1.1. Java 설치](#1-1-Java-설치)    
-[1.2. ElasticSearch 설치](#1-2-ElasticSearch-설치)    
+[1.2. Elasticsearch 설치](#1-2-Elasticsearch-설치)    
 [2. 실행하기](#2-실행하기)    
 [3. 기본 사용법](#3-기본-사용법)    
 
@@ -29,7 +29,7 @@ twitter_text: template twitter_text
 
 ## 1.1. Java 설치
 
-ElasticSearch는 Java를 사용하므로 먼저 Java를 설치하셔야 합니다.
+Elasticsearch는 Java를 사용하므로 먼저 Java를 설치하셔야 합니다.
 
 *2019년 4월 16일부터 oracle-jdk를 다운로드 받으려면 무조건 License를 가지고 있어야 합니다. 따라서 OpenJDK를 설치하도록 하겠습니다*
 
@@ -43,9 +43,9 @@ $ javac -version
 $ java -version
 ```
 
-## 1.2. ElasticSearch 설치
+## 1.2. Elasticsearch 설치
 
-#### 1) ElasticSearch를 다운로드 받습니다.
+#### 1) Elasticsearch를 다운로드 받습니다.
 
 ```shell
 $ wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.0.deb
@@ -54,14 +54,21 @@ $ wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.0.
 다른 버전의 설치 링크를 알고 싶으시다면 <https://www.elastic.co/kr/downloads/past-releases>를 방문하시면 됩니다.
 URL의 `6.5.0` 부분을 원하시는 버전으로 바꾸시면 그 버전이 다운로드 됩니다.
 
-#### 2) dpkg 명령어를 이용해 ElasticSearch를 설치합니다.
+#### 2) dpkg 명령어를 이용해 Elasticsearch를 설치합니다.
 
 ```shell
 $ sudo dpkg -i elasticsearch-6.5.0.deb
 ```
 
-이 명령어를 통해 `/usr/share/elasticsearch` 에 설치 됩니다.
-`/etc/elasticsearch` 에는 설정 파일이, `/etc/init.d/elasticsearch` 에는 실행 파일이 만들어 집니다.
+Elasticsearch는 다음과 같은 위치에 설치 됩니다.
+
+내용             | 위치
+-----------------|--------------------------
+설치 경로        | /usr/share/elasticsearch
+설정 파일 경로   | /etc/elasticsearch
+데이터 저장 경로 | /var/lib/elasticsearch
+로그 저장 경로   | /var/log/elasticsearch
+실행 파일 경로   | /etc/init.d/elasticsearch
 
 #### 3) 서버가 시작 될 때 자동으로 시작되게 설정합니다.
 
@@ -69,7 +76,7 @@ $ sudo dpkg -i elasticsearch-6.5.0.deb
 $ sudo systemctl enable elasticsearch.service
 ```
 
-*4) option : ElasticSearch 삭제 방법*
+*4) option : Elasticsearch 삭제 방법*
 ```shell
 $ sudo dpkg --purge elasticsearch
 $ find / -name elasticsearch -exec rm -r "{}" \;
@@ -78,23 +85,23 @@ $ find / -name elasticsearch -exec rm -r "{}" \;
 # 2. 실행하기
 
 ```shell
-# ElasticSearch 시작 명령어
+# Elasticsearch 시작 명령어
 $ sudo service elasticsearch start
 
-# ElasticSearch 중지 명령어
+# Elasticsearch 중지 명령어
 $ sudo service elasticsearch stop
 ```
 
 아래의 명령어를 통해 정상적으로 실행이 되었는지 알 수 있습니다.
-ElasticSearch가 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나서 시도해 주시길 바랍니다.
+Elasticsearch가 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나서 시도해 주시길 바랍니다.
 
 ```shell
-$ curl -XGET http://localhost:9200
+$ curl http://localhost:9200
 ```
 
 # 3. 데이터 넣기
 
-ElasticSearch에 대한 사용법은 다른 포스트에서 다루기로 하고 우리는 일단 ELK 스택을 실습해 보는 것을 목표로 하므로 일단 데이터를 넣어보는 것만 하겠습니다.
+Elasticsearch에 대한 사용법은 다른 포스트에서 다루기로 하고 우리는 일단 ELK 스택을 실습해 보는 것을 목표로 하므로 일단 데이터를 넣어보는 것만 하겠습니다.
 
 #### 1) index 만들기
 
@@ -120,5 +127,5 @@ $ curl -XPOST http://localhost:9200/records/_doc/_bulk?pretty --data-binary @bul
 
 ---
 
-이로써 우리는 ElasticSearch를 구동하고 거기에 100개의 상품 판매 목록 데이터를 집어 넣었습니다.
+이로써 우리는 Elasticsearch를 구동하고 거기에 100개의 상품 판매 목록 데이터를 집어 넣었습니다.
 그러면 다음 포스트에서 Kibana로 이 데이터를 시각화 하는 방법에 대해 알아보도록 하겠습니다.

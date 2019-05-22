@@ -146,3 +146,14 @@ $ curl -XPUT http://localhost:9200/sold_items/_doc/jwnAsGoBGP2VtaGUAAJb?pretty -
 ```shell
 $ curl -XPOST http://localhost:9200/sold_items/_delete_by_query?pretty -d @delete_query.json -H "Content-Type:application/json"
 ```
+
+### 3.5) 모든 Document를 Index에서 삭제하는 방법입니다.
+
+```shell
+$ curl -XPOST 'http://localhost:9200/records/_doc/_delete_by_query?conflicts=proceed&pretty' -H "Content-Type:application/json" -d'
+{
+  "query": {
+    "match_all": {}
+  }
+}'
+```

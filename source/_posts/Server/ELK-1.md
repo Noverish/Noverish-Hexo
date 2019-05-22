@@ -127,5 +127,5 @@ $ curl -XPOST http://localhost:9200/records/_doc/_bulk?pretty --data-binary @bul
 
 ---
 
-이로써 우리는 Elasticsearch를 구동하고 거기에 100개의 상품 판매 목록 데이터를 집어 넣었습니다.
+이로써 우리는 Elasticsearch를 구동하고 거기에 1000개의 상품 판매 목록 데이터를 집어 넣었습니다.
 그러면 다음 포스트에서 Kibana로 이 데이터를 시각화 하는 방법에 대해 알아보도록 하겠습니다.

@@ -17,11 +17,12 @@ twitter_text: template twitter_text
 이 글은 Ubuntu 18.04.2 LTS 사용자를 대상으로 작성했습니다.
 
 ## 목차
-[1. 설치하기](#1-설치하기)    
-[2. 실행하기](#2-실행하기)    
-[3. Elasticsearch와 연동하기](#3-Elasticsearch와-연동하기)    
+[1. Kibana 설치](#1-Kibana-설치)    
+[2. Elasticsearch와 연동하기](#2-Elasticsearch와-연동하기)    
+[3. 실행하기](#3-실행하기)    
 [4. 로그 보기](#4-로그-보기)    
-[5. 80번 포트로 실행시키기](#5-80번-포트로-실행시키기)    
+[5. Elasticsearch 데이터 보기](#5-Elasticsearch-데이터-보기)    
+[6. 80번 포트로 실행시키기](#6-80번-포트로-실행시키기)    
 
 ---
 
@@ -134,13 +135,37 @@ $ journalctl -u kibana.service -e
 logging.dest: /var/log/kibana.log
 ```
 
-# 5. 80번 포트로 실행시키기
+# 5. Elasticsearch 데이터 보기
+
+<img src="image1.png" width="400">
+
+1. Management - Index Pattern을 클릭합니다.
+
+<img src="image2.png" width="600">
+
+2. Index Pattenr을 `records`라고 입력하고 다음으로 넘어갑니다.
+
+<img src="image3.png" width="600">
+
+3. Time filter field name을 `time`이라고 설정하고 완료합니다.
+
+![image4](image4.png)
+
+4. Discover에 들어가서 우측 상단의 시간을 적절히 조정하시면 우리가 저번에 넣었던 데이터 1000개를 볼 수 있습니다.
+
+# 6. 80번 포트로 실행시키기
 
 `/etc/kibana/kibana.yml`에서 포트를 그냥 80번으로 변경한 뒤 실행하면 그 포트를 사용하지 못한다는 에러가 발생합니다.
 `sudo service kibana start` 명령어가 Kibana를 root 권한으로 실행시키지 않아서 발생하는 에러 입니다.
 따라서 service가 Kibana를 root 권한으로 실행시키도록 수정해야 합니다.
 
 ```shell
+$ sudo vi /etc/kibana/kibana.yml
+
+server.port: 80
+
+로 변경
+
 $ sudo vi /etc/systemd/system/kibana.service
 
 User=root

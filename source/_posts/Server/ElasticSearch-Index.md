@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ElasticSearch - Index 편
-date: 2019-05-13 20:06:00 +0900
+date: 2019-04-13 20:06:00 +0900
 description: Template description
 thumbnail: /thumbnails/elasticsearch.png
 category: 'server'

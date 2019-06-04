@@ -1,16 +1,16 @@
 ---
 layout: post
-title: ELK Stack - Kibana 편
+title: Elastic Stack - Kibana 편
 date: 2019-05-21 22:25:00 +0900
 description: Template description
-thumbnail: /thumbnails/elk.png
+thumbnail: /thumbnails/elastic-stack.png
 category: 'server'
 tags:
 - elk
 twitter_text: template twitter_text
 ---
 
-정형 및 비정형 데이터를 시각화하고 분석하는데 용이한 ELK Stack을 사용하는 법을 알아보겠습니다.
+정형 및 비정형 데이터를 시각화하고 분석하는데 용이한 Elastic Stack을 사용하는 법을 알아보겠습니다.
 
 <!-- more -->
 

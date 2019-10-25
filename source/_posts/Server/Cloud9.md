@@ -10,7 +10,7 @@ tags:
 twitter_text: template twitter_text
 ---
 
-클라우드 IDE인 Cloud9을 통해 언제 어디서나 내 환경에서 개발하는 방법을 알아보겠습니다.
+클라우드 IDE인 Cloud9을 통해 언제 어디서나 웹 브라우저를 통해 내 환경에서 개발하는 방법을 알아보겠습니다.
 
 <!-- more -->
 

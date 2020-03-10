@@ -6,7 +6,7 @@
     "version": "3.8.0"
   },
   "scripts": {
-    "server": "sudo ./node_modules/.bin/hexo server -p 80",
+    "server": "./node_modules/.bin/hexo server -p 8700",
     "generate": "./node_modules/.bin/hexo generate",
     "clean": "./node_modules/.bin/hexo clean",
     "deploy": "./node_modules/.bin/hexo clean && ./node_modules/.bin/hexo deploy"

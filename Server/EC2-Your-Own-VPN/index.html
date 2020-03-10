@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>AWS EC2로 나만의 Proxy 서버 만들기 - Hyunsub&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="Template description">
+<meta name="keywords" content="ec2,proxy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AWS EC2로 나만의 Proxy 서버 만들기">
+<meta property="og:url" content="https://blog.hyunsub.kim/Server/EC2-Your-Own-VPN/index.html">
+<meta property="og:site_name" content="Hyunsub&#39;s Blog">
+<meta property="og:description" content="Template description">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/EC2-Your-Own-VPN/000.jpg">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/EC2-Your-Own-VPN/001.jpg">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/EC2-Your-Own-VPN/002.jpg">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/EC2-Your-Own-VPN/003.jpg">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/EC2-Your-Own-VPN/004.jpg">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/EC2-Your-Own-VPN/005.jpg">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/EC2-Your-Own-VPN/006.jpg">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/EC2-Your-Own-VPN/007.jpg">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/EC2-Your-Own-VPN/008.jpg">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/EC2-Your-Own-VPN/009.jpg">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/EC2-Your-Own-VPN/010.jpg">
+<meta property="og:updated_time" content="2020-03-10T09:25:28.144Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AWS EC2로 나만의 Proxy 서버 만들기">
+<meta name="twitter:description" content="Template description">
+<meta name="twitter:image" content="https://blog.hyunsub.kim/Server/EC2-Your-Own-VPN/000.jpg">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="AWS EC2로 나만의 Proxy 서버 만들기" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+                <a class="navbar-item" href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="http://github.com/Noverish/Noverish-Hexo">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/thumbnails/aws-ec2-vpn.jpg" alt="AWS EC2로 나만의 Proxy 서버 만들기">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-04-13T11:48:00.000Z">2018-04-13</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/server/">server</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7 minutes read (About 982 words)
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                AWS EC2로 나만의 Proxy 서버 만들기
+            
+        </h1>
+        <div class="content">
+            <p>복잡한 서버 설정 없이 Proxy Server를 만드는 법을 알아봅시다.</p>
+<a id="more"></a>
+
+<hr>
+<p>우리는 세상 살면서 여러가지 이유로 해외 IP로 접속해야 하는 사이트가 존재합니다.
+그게 무슨 사이트인지는 굳이 언급하지 않도록 하겠습니다 ㅎㅎ.
+시중에 있는 무료 Proxy는 너무 속도가 느리고 그렇다고 유료 Proxy을 쓰자니 돈이 좀 아까운 느낍이 듭니다.
+그래서 EC2로 Proxy Server를 만드는 법을 알려드리도록 하겠습니다.</p>
+<h1 id="1-해외-Region에서-EC2-만들기"><a href="#1-해외-Region에서-EC2-만들기" class="headerlink" title="1. 해외 Region에서 EC2 만들기"></a>1. 해외 Region에서 EC2 만들기</h1><p>이건 쉬우므로 건너 뛰도록 하겠습니다.</p>
+<h1 id="2-Mac에서-VPN-사용하기"><a href="#2-Mac에서-VPN-사용하기" class="headerlink" title="2. Mac에서 VPN 사용하기"></a>2. Mac에서 VPN 사용하기</h1><p>먼저 터미널을 켜주신 후 pem 파일이 있는 폴더로 가서 아래 명령어를 입력합니다.
+아래 <code>1.2.3.4</code>를 본인 EC2의 IP로 바꿔주시길 바랍니다.</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> ssh -i key_pair.pem -D 8080 -C -N user@1.2.3.4</span><br></pre></td></tr></table></figure>
+
+<p>위 명령어를 입력한 후 뭔가 실행된 상태로 되어 있으면 정상적으로 proxy tunnel을 생성한겁니다.
+앞으로 접속하는 모든 사이트의 패킷들은 이 tunnel을 통과합니다.</p>
+<h2 id="2-1-환경설정에서-Proxy-기능-켜고-끄기"><a href="#2-1-환경설정에서-Proxy-기능-켜고-끄기" class="headerlink" title="2.1. 환경설정에서 Proxy 기능 켜고 끄기"></a>2.1. 환경설정에서 Proxy 기능 켜고 끄기</h2><p>네트워크 환경설정에 들어갑니다.</p>
+<img src="000.jpg" width="600">
+
+<p><code>고급</code> 버튼을 누릅니다.</p>
+<img src="001.jpg" width="600">
+
+<p>위 그림처럼 따라하시면 됩니다.</p>
+<img src="002.jpg" width="600">
+
+<p><code>적용</code> 버튼을 누르면 Proxy 기능이 켜집니다.</p>
+<p>Proxy를 끌 때는 저 설정에 들어가서 <code>SOCKS 프록시</code>를 체크해제 하시고 적용하시면 됩니다.</p>
+<h2 id="2-2-Command로-Proxy-기능-켜고-끄기"><a href="#2-2-Command로-Proxy-기능-켜고-끄기" class="headerlink" title="2.2. Command로 Proxy 기능 켜고 끄기"></a>2.2. Command로 Proxy 기능 켜고 끄기</h2><p>근데 이렇게 일일이 환경설정 들어가서 Proxy를 키거나 끄면 너무 귀찮으니까 터미널에서 명령어로 처리하는 법을 알아봅시다.</p>
+<p>먼저 본인이 지금 사용하고 있는 네트워크 인터페이스 이름을 알아내야 합니다.
+그러기 위해서 아래 명령어를 입력해 그 리스트를 알아냅니다.</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> networksetup -listnetworkserviceorder</span><br></pre></td></tr></table></figure>
+
+<img src="003.jpg" width="600">
+
+<p>저는 위와 같은 결과가 나왔습니다.
+저는 제 맥북을 와이파이로 쓰고 있으므로 저 <code>Wi-Fi</code>가 제 와이파이 네트워크 인터페이스 이름입니다.
+기타 다른 네트워크 어댑터를 쓰고 있다면 그에 맞는 인터페이스 이름을 찾으시면 됩니다.</p>
+<p>이제 이 이름을 바탕으로 아래 명령어를 실행하시면 됩니다.</p>
+<p>VPN 켤 때</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> networksetup -setsocksfirewallproxy "Wi-Fi" localhost 8080</span><br></pre></td></tr></table></figure>
+
+<p>VPN 끌 때</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> networksetup -setsocksfirewallproxystate "Wi-Fi" off</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-Windows에서-VPN-사용하기"><a href="#4-Windows에서-VPN-사용하기" class="headerlink" title="4. Windows에서 VPN 사용하기"></a>4. Windows에서 VPN 사용하기</h1><p>제가 아는 선에서는 Mac과 달리 Windows에서 모든 패킷을 Proxy로 우회하는 방법이 없습니다.
+만약 그런 방법이 있다면 제보해 주시길 바랍니다.</p>
+<p>먼저 putty와 같이 ssh tunnel을 유지시키는 <code>MyEnTunnel</code>을 인터넷에서 다운받습니다.</p>
+<img src="004.jpg" width="600">
+
+<p>위와 같이 아이피 주소, 유저 네임, 비밀번호를 입력하고, <code>Enable Dynamic SOCKS</code>를 체크하시고 저 포트를 8080로 바꿔줍니다.</p>
+<img src="005.jpg" width="300">
+
+<p>그리고 <code>Connect</code> 버튼을 누르면 위와 같은 메시지가 뜰텐데 그냥 Yes 누르시면 됩니다.</p>
+<img src="006.jpg" width="600">
+
+<p>status 탭에 이렇게 로그가 뜰텐데 Connectino stable이라고 뜨면 성공적으로 ssh tunnel을 만든겁니다.</p>
+<p>그리고 프로그램들을 가상 네트워크 인터페이스 상에 실행시켜줄 <code>SocksCap64</code>를 인터넷에서 다운받습니다.</p>
+<img src="007.jpg" width="600">
+
+<p>여기서 <code>예</code>를 누르면 자동으로 웹 브로우저 목록을 불러옵니다.</p>
+<img src="008.jpg" width="600">
+
+<p>뭐라는지 잘 모르겠지만 Accept를 눌러줍시다.</p>
+<img src="009.jpg" width="600">
+
+<p>이와 같은 화면에서 좌상단의 Proxy 버튼을 누릅니다.</p>
+<img src="010.jpg" width="600">
+
+<p>여기서 127.0.0.1과 8080을 입력한 다음에 저장하고 이 프로그램상에서 웹브라우저를 실행시키시면 됩니다.</p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/ec2/">ec2</a>, <a class="has-link-grey -link" href="/tags/proxy/">proxy</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/iOS/Auto-Layout/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">iOS 오토 레이아웃 파헤치기</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/etc/Chrome-Custom-Search-Engine/">
+                <span class="level-item">크롬에서 나만의 검색 엔진 사용하기</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="/images/profile.jpg" alt="Hyunsub Kim">
+                    
+                    <p class="is-size-4 is-block">
+                        Hyunsub Kim
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        (noverish)
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Seoul, Korea</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        23
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        6
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        33
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/noverish">
+                Follow</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Home" href="http://hyunsub.kim">
+                
+                <i class="fas fa-home"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/noverish">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="https://facebook.com/profile.php?id=100008644627377">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="https://twitter.com/noverish">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Discord" href="https://discord.com">
+                
+                <i class="fab fa-discord"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Links
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="http://hyunsub.kim" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Résumé</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hyunsub.kim</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/noverish" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Github</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://facebook.com/profile.php?id=100008644627377" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Facebook</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">facebook.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://twitter.com/noverish" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Twitter</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">twitter.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://discord.com" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Discord</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">discord.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/android/">
+            <span class="level-start">
+                <span class="level-item">android</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/etc/">
+            <span class="level-start">
+                <span class="level-item">etc</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/ios/">
+            <span class="level-start">
+                <span class="level-item">ios</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/node/">
+            <span class="level-start">
+                <span class="level-item">node</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/server/">
+            <span class="level-start">
+                <span class="level-item">server</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/swift/">
+            <span class="level-start">
+                <span class="level-item">swift</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Tag Cloud
+        </h3>
+        <a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/apex/" style="font-size: 10px;">apex</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/aws/" style="font-size: 12.5px;">aws</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/cloud9/" style="font-size: 10px;">cloud9</a> <a href="/tags/clova-speech-synthesis/" style="font-size: 10px;">clova-speech-synthesis</a> <a href="/tags/cocoapod/" style="font-size: 10px;">cocoapod</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/ecs/" style="font-size: 10px;">ecs</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/elk/" style="font-size: 15px;">elk</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/fcm/" style="font-size: 12.5px;">fcm</a> <a href="/tags/firebase/" style="font-size: 12.5px;">firebase</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/ios/" style="font-size: 17.5px;">ios</a> <a href="/tags/kotlin/" style="font-size: 15px;">kotlin</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/naver/" style="font-size: 12.5px;">naver</a> <a href="/tags/node/" style="font-size: 12.5px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/slack/" style="font-size: 10px;">slack</a> <a href="/tags/sse/" style="font-size: 10px;">sse</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/tip/" style="font-size: 10px;">tip</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/uitableview/" style="font-size: 10px;">uitableview</a> <a href="/tags/view/" style="font-size: 10px;">view</a>
+    </div>
+</div>
+
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="AWS EC2로 나만의 Proxy 서버 만들기" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Hyunsub Kim&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {matchFontHeight: false},
+        SVG: {matchFontHeight: false},
+        CommonHTML: {matchFontHeight: false}
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

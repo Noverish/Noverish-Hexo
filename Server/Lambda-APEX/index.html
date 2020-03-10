@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>APEX로 AWS Lambda 개발하기 - Hyunsub&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="Template description">
+<meta name="keywords" content="aws,lambda,apex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="APEX로 AWS Lambda 개발하기">
+<meta property="og:url" content="https://blog.hyunsub.kim/Server/Lambda-APEX/index.html">
+<meta property="og:site_name" content="Hyunsub&#39;s Blog">
+<meta property="og:description" content="Template description">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/Lambda-APEX/001.jpg">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/Lambda-APEX/002.jpg">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/Lambda-APEX/003.jpg">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/Lambda-APEX/004.jpg">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/Lambda-APEX/005.jpg">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/Lambda-APEX/006.jpg">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/Lambda-APEX/008.jpg">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/Lambda-APEX/006.jpg">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/Lambda-APEX/009.jpg">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/Lambda-APEX/010.jpg">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/Lambda-APEX/011.jpg">
+<meta property="og:updated_time" content="2020-03-10T09:25:28.188Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="APEX로 AWS Lambda 개발하기">
+<meta name="twitter:description" content="Template description">
+<meta name="twitter:image" content="https://blog.hyunsub.kim/Server/Lambda-APEX/001.jpg">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="APEX로 AWS Lambda 개발하기" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+                <a class="navbar-item" href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="http://github.com/Noverish/Noverish-Hexo">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/thumbnails/apex.jpg" alt="APEX로 AWS Lambda 개발하기">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-02-27T07:10:24.000Z">2018-02-27</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/server/">server</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    12 minutes read (About 1791 words)
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                APEX로 AWS Lambda 개발하기
+            
+        </h1>
+        <div class="content">
+            <p>APEX라는 프로그램을 사용하여 AWS Lambda를 개발해 서버리스 백엔드를 구현해 보자.</p>
+<a id="more"></a>
+
+<h3 id="1-APEX-설치하기"><a href="#1-APEX-설치하기" class="headerlink" title="1. APEX 설치하기"></a>1. APEX 설치하기</h3><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sudo sh</span><br></pre></td></tr></table></figure>
+
+<p>macOS, Linux, or OpenBSD에서 위의 명령어를 실행시키면 자동으로 설치가 됩니다.</p>
+<hr>
+<h3 id="2-APEX에-AWS-권한-부여하기"><a href="#2-APEX에-AWS-권한-부여하기" class="headerlink" title="2. APEX에 AWS 권한 부여하기"></a>2. APEX에 AWS 권한 부여하기</h3><p>APEX가 Lambda 함수들을 만들고/지우고/수정하고/실행할 수 있도록 권한을 줘야 합니다.</p>
+<p>먼저 APEX가 필요로 하는 권한을 묶은 커스텀 정책을 만듭시다.</p>
+<p><img src="001.jpg" alt="image001">
+<a href="https://console.aws.amazon.com/iam/home#/policies" target="_blank" rel="noopener">AWS IAM</a>로 들어가서 <code>정책 생성</code>을 누릅니다.</p>
+<hr>
+<p><img src="002.jpg" alt="image002">
+json편집기에 들어가서 밑의 json을 그대로 입력해 줍시다.
+그리고 <code>Review Policy</code>를 누릅니다.</p>
+<figure class="highlight json hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="hljs-attr">"Version"</span>: <span class="hljs-string">"2012-10-17"</span>,</span><br><span class="line">  <span class="hljs-attr">"Statement"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="hljs-attr">"Action"</span>: [</span><br><span class="line">        <span class="hljs-string">"iam:CreateRole"</span>,</span><br><span class="line">        <span class="hljs-string">"iam:CreatePolicy"</span>,</span><br><span class="line">        <span class="hljs-string">"iam:AttachRolePolicy"</span>,</span><br><span class="line">        <span class="hljs-string">"iam:PassRole"</span>,</span><br><span class="line">        <span class="hljs-string">"lambda:GetFunction"</span>,</span><br><span class="line">        <span class="hljs-string">"lambda:ListFunctions"</span>,</span><br><span class="line">        <span class="hljs-string">"lambda:CreateFunction"</span>,</span><br><span class="line">        <span class="hljs-string">"lambda:DeleteFunction"</span>,</span><br><span class="line">        <span class="hljs-string">"lambda:InvokeFunction"</span>,</span><br><span class="line">        <span class="hljs-string">"lambda:GetFunctionConfiguration"</span>,</span><br><span class="line">        <span class="hljs-string">"lambda:UpdateFunctionConfiguration"</span>,</span><br><span class="line">        <span class="hljs-string">"lambda:UpdateFunctionCode"</span>,</span><br><span class="line">        <span class="hljs-string">"lambda:CreateAlias"</span>,</span><br><span class="line">        <span class="hljs-string">"lambda:UpdateAlias"</span>,</span><br><span class="line">        <span class="hljs-string">"lambda:GetAlias"</span>,</span><br><span class="line">        <span class="hljs-string">"lambda:ListAliases"</span>,</span><br><span class="line">        <span class="hljs-string">"lambda:ListVersionsByFunction"</span>,</span><br><span class="line">        <span class="hljs-string">"logs:FilterLogEvents"</span>,</span><br><span class="line">        <span class="hljs-string">"cloudwatch:GetMetricStatistics"</span></span><br><span class="line">      ],</span><br><span class="line">      <span class="hljs-attr">"Effect"</span>: <span class="hljs-string">"Allow"</span>,</span><br><span class="line">      <span class="hljs-attr">"Resource"</span>: <span class="hljs-string">"*"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="003.jpg" alt="image003">
+정책의 이름을 <code>APEX-Policy</code>로 짓고 정책을 생성합니다.</p>
+<hr>
+<p><img src="004.jpg" alt="image004">
+그리고 사용자에 이 정책을 추가합니다.
+기존 사용자에 정책을 추가하셔도 되고, 새로운 사용자를 만드셔도 됩니다.
+사용자를 만들거나 정책을 추가하는 방법은 설명하지 않도록 하겠습니다.</p>
+<hr>
+<p>아까 정책을 추가한 사용자의 정보들을 아래의 위치한 파일에 추가합니다.
+<code>access_key_id</code>와 <code>secret_access_key</code>는 따로 설명하지 않도록 하겠습니다.</p>
+<p>~/.aws/credentials</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[example]</span><br><span class="line">aws_access_key_id = xxxxxxxx</span><br><span class="line">aws_secret_access_key = xxxxxxxxxxxxxxxxxxxxxxxx</span><br></pre></td></tr></table></figure>
+
+<p>~/.aws/config</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[profile example]</span><br><span class="line">output = json</span><br><span class="line">region = ap-northeast-2</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>아래의 명령어를 실행합니다.
+위에서 입력한 프로필 이름에 따라 아래의 <code>example</code>을 바꿔주시기 바랍니다.
+이렇게 하면 APEX가 <code>AWS_PROFILE</code> 환경변수에 접근해서 AWS 기능들을 사용할 수 있게 됩니다.</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> export AWS_PROFILE=example</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="3-프로젝트-만들기"><a href="#3-프로젝트-만들기" class="headerlink" title="3. 프로젝트 만들기"></a>3. 프로젝트 만들기</h3><p>프로젝트 폴더를 생성하고 <code>apex init</code>를 입력하고 프로젝트의 이름과 설명을 입력하면 프로젝트가 생성됩니다.</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> mkdir APEX-Test &amp;&amp; cd APEX-Test</span><br><span class="line"><span class="hljs-meta">$</span> apex init</span><br></pre></td></tr></table></figure>
+
+<img src="005.jpg" width="500">
+
+<p>프로젝트의 이름은 <code>APEX-Test</code><br>프로젝트의 설명은 그냥 <code>.</code>으로 했습니다.</p>
+<p><img src="006.jpg" alt="image006">
+이제 프로젝트 폴더를 보면 json파일과 hello라는 함수가 만들어져 있습니다.</p>
+<hr>
+<h3 id="4-프로젝트-구조-살펴보기"><a href="#4-프로젝트-구조-살펴보기" class="headerlink" title="4. 프로젝트 구조 살펴보기"></a>4. 프로젝트 구조 살펴보기</h3><h4 id="project-json"><a href="#project-json" class="headerlink" title="project.json"></a>project.json</h4><p>먼저 <code>project.json</code> 파일을 살펴보겠습니다.</p>
+<p><img src="008.jpg" alt="image008"></p>
+<p><code>role</code>은 배포할 함수의 role을 지정해 줍니다. 이 role은 APEX가 자동으로 생성한 것입니다.<br><code>memory</code>는 배포할 함수의 메모리 제한(MB)를 나타냅니다.<br><code>timeout</code>은 배포할 함수의 시간 제한(s)을 나타냅니다.<br><code>environment</code>는 배포할 함수에서 사용할 환경 변수를 나타냅니다.<br>위의 값들을 자유롭게 본인의 프로젝트에 맞게 변경하시면 됩니다.<br>이 밖에도 다양한 field들이 있습니다.</p>
+<p>APEX에서는</p>
+<ol>
+<li><code>project.dev.json</code>, <code>project.prod.json</code>과 같이 다중 환경에서 개발 할 수 있는 기능</li>
+<li>각각의 함수 폴더 안에 <code>function.json</code>을 넣어서 함수 마다 다른 환경을 만들어 줄 수 있는 기능</li>
+</ol>
+<p>등 을 제공하고 있습니다.</p>
+<p>자세한 정보는 <a href="http://apex.run/#structuring-projects" target="_blank" rel="noopener">프로젝트 구조 (영문)</a>를 참고해 주세요</p>
+<hr>
+<h4 id="폴더-구조"><a href="#폴더-구조" class="headerlink" title="폴더 구조"></a>폴더 구조</h4><p><img src="006.jpg" alt="image006"></p>
+<p>모든 함수는 <code>functions</code> 폴더안에 존재해야합니다.<br><code>functions</code> 폴더 밖에 만들어 둔 파일이나 폴더들은 APEX 에서는 무시합니다.</p>
+<p><code>functions</code> 폴더의 바로 sub폴더들의 이름이 람다 함수의 이름이 됩니다.<br>특별한 설정을 하지 않는 이상 sub 폴더 안의 <code>index.js</code>가 람다 함수의 실행 파일이 됩니다.<br>각각의 sub 폴더 안에서는 밖에 있는 파일에 접근 할 수 없습니다.<br>함수를 배포 할 때에는 sub 폴더 안의 파일들만을 묶어서 배포하기 때문입니다.    </p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">project.json</span><br><span class="line"></span><br><span class="line">package.json</span><br><span class="line">node_modules</span><br><span class="line">└── ...</span><br><span class="line"></span><br><span class="line">fun0</span><br><span class="line">└── index.js</span><br><span class="line"></span><br><span class="line">functions</span><br><span class="line">├── global.js</span><br><span class="line">├── fun1</span><br><span class="line">│    ├── index.js</span><br><span class="line">│    ├── package.json</span><br><span class="line">│    └── node_modules</span><br><span class="line">│         └── ...</span><br><span class="line">└── fun2</span><br><span class="line">     ├── asdf.js</span><br><span class="line">     └── index.js</span><br></pre></td></tr></table></figure>
+
+<p>위의 프로젝트 구조를 예시로 들어보겠습니다.    </p>
+<ol>
+<li>프로젝트에는 2개의 함수가 존재합니다. (<code>fun1</code>, <code>fun2</code>)</li>
+<li>APEX에서 함수를 배포할 때에는 <code>fun0</code>은 무시합니다.</li>
+<li><code>fun1</code>, <code>fun2</code> 함수를 실행 시키면 각각의 <code>index.js</code>가 실행됩니다.</li>
+<li><code>fun1/index.js</code> 에서는 <code>fun1/node_modules</code>에 접근할 수 있습니다.</li>
+<li><code>fun2/index.js</code> 에서는 <code>fun2/asdf.js</code>에 접근할 수 있습니다.</li>
+<li><code>fun2</code> 에서는 <code>global.js</code>에 접근할 수 없습니다.</li>
+<li><code>fun2</code> 에서는 모든 <code>node_mudules</code>에 접근할 수 없습니다.</li>
+</ol>
+<p>만약에 모든 함수에 공통적으로 사용하고 싶은 npm module이 있어도
+모든 함수 각각의 폴더 안에 <code>node_mudules</code>를 넣어야 합니다!</p>
+<p>이를 해결 하기 위한 방법중에 하나는 <code>WebPack</code>을 사용하는 것인데 다음 시간에 알려드리도록 하겠습니다.</p>
+<hr>
+<h3 id="5-함수-생성하기"><a href="#5-함수-생성하기" class="headerlink" title="5. 함수 생성하기"></a>5. 함수 생성하기</h3><p>그냥 단순하게 functions에 폴더 하나 만들어 주고 그 안에 index.js 파일을 만들어 주시면 됩니다.</p>
+<p><img src="009.jpg" alt="image009"></p>
+<p>예시로 <code>test</code> 폴더를 만들고 그 안에 <code>index.js</code> 파일을 만들어서 test라는 함수를 만들었습니다.
+<code>index.js</code>에는 아래의 코드를 넣었습니다.</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'test1234'</span>)</span><br><span class="line">exports.handle = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e, ctx, cb</span>) </span>&#123;</span><br><span class="line">  cb(<span class="hljs-literal">null</span>, &#123; <span class="hljs-attr">test</span>: <span class="hljs-string">'test'</span> &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>기본적인 람다 코드 작성법이나 설명은 하지 않도록 하겠습니다.</p>
+<hr>
+<h3 id="6-함수-배포하고-실행하기"><a href="#6-함수-배포하고-실행하기" class="headerlink" title="6. 함수 배포하고 실행하기"></a>6. 함수 배포하고 실행하기</h3><p><code>apex deploy</code>는 functions 폴더에 있는 함수들을 모두 배포하는 작업을 합니다.<br><code>apex deploy {name}</code>처럼 특정 한 함수만 배포 할 수도 있고,<br><code>apex deploy prefix*</code>, <code>apex deploy *suffix</code>처럼 <code>*</code>을 사용하여 특정 접두어나 접미어를 가진 함수들만 배포 할 수도 있습니다.    </p>
+<p><code>apex invoke {name}</code>은 {name}이란 이름을 가진 함수를 실행하는 작업을 합니다.    </p>
+<p><img src="010.jpg" alt="image010">
+아까 만들었던 test 함수를 배포하고 실행한 결과입니다.<br><a href="https://ap-northeast-2.console.aws.amazon.com/lambda/home?region=ap-northeast-2#/functions" target="_blank" rel="noopener">AWS Lambda Console</a>
+에 들어가보시면 <code>APEX-Test_test</code>라는 함수가 만들어 진 것을 볼 수 있습니다.</p>
+<hr>
+<p><img src="011.jpg" alt="image011">
+<code>apex logs {name}</code>를 통해 함수의 로그를 확인 할 수 있습니다.<br>우리가 만들었던 <code>test</code>함수에서 콘솔에 출력했던 <code>test1234</code>를 확인 할 수 있습니다.<br>이 명령어를 통해서 <code>apex invoke</code>를 통해 실행된 것의 로그만 확인 할 수 있는 것이 아니라
+모든 로그를 확인할 수 있습니다.</p>
+<p>log 명령어는 최근 5분 안에 발생했던 로그만 보여줍니다.
+더 오래된 명령어를 보고 싶거나 다른 기능의 설명은
+<a href="http://apex.run/#viewing-log-output" target="_blank" rel="noopener">여기</a>에 있습니다.</p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/apex/">apex</a>, <a class="has-link-grey -link" href="/tags/aws/">aws</a>, <a class="has-link-grey -link" href="/tags/lambda/">lambda</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/etc/Chrome-Custom-Search-Engine/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">크롬에서 나만의 검색 엔진 사용하기</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/Server/ECS-AutoScaling/">
+                <span class="level-item">EC2 Container Service(ECS) 사용하기 + AutoScaling</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="/images/profile.jpg" alt="Hyunsub Kim">
+                    
+                    <p class="is-size-4 is-block">
+                        Hyunsub Kim
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        (noverish)
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Seoul, Korea</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        23
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        6
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        33
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/noverish">
+                Follow</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Home" href="http://hyunsub.kim">
+                
+                <i class="fas fa-home"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/noverish">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="https://facebook.com/profile.php?id=100008644627377">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="https://twitter.com/noverish">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Discord" href="https://discord.com">
+                
+                <i class="fab fa-discord"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Links
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="http://hyunsub.kim" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Résumé</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hyunsub.kim</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/noverish" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Github</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://facebook.com/profile.php?id=100008644627377" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Facebook</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">facebook.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://twitter.com/noverish" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Twitter</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">twitter.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://discord.com" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Discord</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">discord.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/android/">
+            <span class="level-start">
+                <span class="level-item">android</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/etc/">
+            <span class="level-start">
+                <span class="level-item">etc</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/ios/">
+            <span class="level-start">
+                <span class="level-item">ios</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/node/">
+            <span class="level-start">
+                <span class="level-item">node</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/server/">
+            <span class="level-start">
+                <span class="level-item">server</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/swift/">
+            <span class="level-start">
+                <span class="level-item">swift</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Tag Cloud
+        </h3>
+        <a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/apex/" style="font-size: 10px;">apex</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/aws/" style="font-size: 12.5px;">aws</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/cloud9/" style="font-size: 10px;">cloud9</a> <a href="/tags/clova-speech-synthesis/" style="font-size: 10px;">clova-speech-synthesis</a> <a href="/tags/cocoapod/" style="font-size: 10px;">cocoapod</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/ecs/" style="font-size: 10px;">ecs</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/elk/" style="font-size: 15px;">elk</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/fcm/" style="font-size: 12.5px;">fcm</a> <a href="/tags/firebase/" style="font-size: 12.5px;">firebase</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/ios/" style="font-size: 17.5px;">ios</a> <a href="/tags/kotlin/" style="font-size: 15px;">kotlin</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/naver/" style="font-size: 12.5px;">naver</a> <a href="/tags/node/" style="font-size: 12.5px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/slack/" style="font-size: 10px;">slack</a> <a href="/tags/sse/" style="font-size: 10px;">sse</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/tip/" style="font-size: 10px;">tip</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/uitableview/" style="font-size: 10px;">uitableview</a> <a href="/tags/view/" style="font-size: 10px;">view</a>
+    </div>
+</div>
+
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="APEX로 AWS Lambda 개발하기" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Hyunsub Kim&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {matchFontHeight: false},
+        SVG: {matchFontHeight: false},
+        CommonHTML: {matchFontHeight: false}
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

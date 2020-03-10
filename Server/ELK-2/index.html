@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>Elastic Stack - Kibana 편 - Hyunsub&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="Template description">
+<meta name="keywords" content="elk">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Elastic Stack - Kibana 편">
+<meta property="og:url" content="https://blog.hyunsub.kim/Server/ELK-2/index.html">
+<meta property="og:site_name" content="Hyunsub&#39;s Blog">
+<meta property="og:description" content="Template description">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/ELK-2/image1.png">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/ELK-2/image2.png">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/ELK-2/image3.png">
+<meta property="og:image" content="https://blog.hyunsub.kim/Server/ELK-2/image4.png">
+<meta property="og:updated_time" content="2020-03-10T09:25:28.184Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Elastic Stack - Kibana 편">
+<meta name="twitter:description" content="Template description">
+<meta name="twitter:image" content="https://blog.hyunsub.kim/Server/ELK-2/image1.png">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="Elastic Stack - Kibana 편" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+                <a class="navbar-item" href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="http://github.com/Noverish/Noverish-Hexo">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/thumbnails/elastic-stack.png" alt="Elastic Stack - Kibana 편">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-05-21T13:25:00.000Z">2019-05-21</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/server/">server</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    6 minutes read (About 957 words)
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Elastic Stack - Kibana 편
+            
+        </h1>
+        <div class="content">
+            <p>정형 및 비정형 데이터를 시각화하고 분석하는데 용이한 Elastic Stack을 사용하는 법을 알아보겠습니다.</p>
+<a id="more"></a>
+
+<p>이 글은 Ubuntu 18.04.2 LTS 사용자를 대상으로 작성했습니다.</p>
+<h2 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h2><p><a href="#1-Kibana-설치">1. Kibana 설치</a><br><a href="#2-Elasticsearch와-연동하기">2. Elasticsearch와 연동하기</a><br><a href="#3-실행하기">3. 실행하기</a><br><a href="#4-로그-보기">4. 로그 보기</a><br><a href="#5-Elasticsearch-데이터-보기">5. Elasticsearch 데이터 보기</a><br><a href="#6-80번-포트로-실행시키기">6. 80번 포트로 실행시키기</a>    </p>
+<hr>
+<h1 id="1-Kibana-설치"><a href="#1-Kibana-설치" class="headerlink" title="1. Kibana 설치"></a>1. Kibana 설치</h1><h4 id="1-Kibana를-다운로드-받습니다"><a href="#1-Kibana를-다운로드-받습니다" class="headerlink" title="1) Kibana를 다운로드 받습니다."></a>1) Kibana를 다운로드 받습니다.</h4><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> wget https://artifacts.elastic.co/downloads/kibana/kibana-6.5.0-amd64.deb</span><br></pre></td></tr></table></figure>
+
+<p>다른 버전의 설치 링크를 알고 싶으시다면 <a href="https://www.elastic.co/kr/downloads/past-releases" target="_blank" rel="noopener">https://www.elastic.co/kr/downloads/past-releases</a>를 방문하시면 됩니다.
+URL의 <code>6.5.0</code> 부분을 원하시는 버전으로 바꾸시면 그 버전이 다운로드 됩니다.</p>
+<p><em>Kibana 6.0.0 이상의 버전은 64bit 운영체제만 지원합니다</em></p>
+<h4 id="2-dpkg-명령어를-이용해-Kibana를-설치합니다"><a href="#2-dpkg-명령어를-이용해-Kibana를-설치합니다" class="headerlink" title="2) dpkg 명령어를 이용해 Kibana를 설치합니다."></a>2) dpkg 명령어를 이용해 Kibana를 설치합니다.</h4><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> sudo dpkg -i kibana-6.5.0-amd64.deb</span><br></pre></td></tr></table></figure>
+
+<p>Kibana는 다음과 같은 위치에 설치 됩니다.</p>
+<table>
+<thead>
+<tr>
+<th>내용</th>
+<th>위치</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>설치 경로</td>
+<td>/usr/share/kibana</td>
+</tr>
+<tr>
+<td>설정 파일 경로</td>
+<td>/etc/kibana</td>
+</tr>
+<tr>
+<td>데이터 저장 경로</td>
+<td>/var/lib/kibana</td>
+</tr>
+<tr>
+<td>실행 파일 경로</td>
+<td>/etc/init.d/kibana</td>
+</tr>
+</tbody></table>
+<h4 id="3-서버가-시작-될-때-자동으로-시작되게-설정합니다"><a href="#3-서버가-시작-될-때-자동으로-시작되게-설정합니다" class="headerlink" title="3) 서버가 시작 될 때 자동으로 시작되게 설정합니다."></a>3) 서버가 시작 될 때 자동으로 시작되게 설정합니다.</h4><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> sudo systemctl enable kibana.service</span><br></pre></td></tr></table></figure>
+
+<p><em>4) option : Kibana 삭제 방법</em></p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> sudo dpkg --purge kibana</span><br><span class="line"><span class="hljs-meta">$</span> find / -name kibana -exec rm -r "&#123;&#125;" \;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-Elasticsearch와-연동하기"><a href="#2-Elasticsearch와-연동하기" class="headerlink" title="2. Elasticsearch와 연동하기"></a>2. Elasticsearch와 연동하기</h1><p>Elasticsearch와 Kibana를 같은 서버에서 구동하면 딱히 설정할 게 없지만
+다른 서버에서 구동하면 <code>/etc/kibana/kibana.yml</code>을 수정해야 합니다.</p>
+<p>파일에서 아래의 부분을 본인의 Elasticsearch 서버의 주소로 바꾸시고 앞의 주석 처리를 없앱니다.</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#elasticsearch.url: &quot;http://localhost:9200&quot;</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-실행하기"><a href="#3-실행하기" class="headerlink" title="3. 실행하기"></a>3. 실행하기</h1><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> Kibana 시작 명령어</span><br><span class="line"><span class="hljs-meta">$</span> sudo service kibana start</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span> Kibana 중지 명령어</span><br><span class="line"><span class="hljs-meta">$</span> sudo service kibana stop</span><br></pre></td></tr></table></figure>
+
+<p>아래 링크에 웹브라우저로 접속해서 정상적으로 실행이 되었는지 알 수 있습니다.
+Kibana 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나서 시도해 주시길 바랍니다.</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> curl -v http://localhost:5601</span><br></pre></td></tr></table></figure>
+
+<p>아래와 같이 뜨면 실행이 되고 있다는 뜻입니다.</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Note: Unnecessary use of -X or --request, GET is already inferred.</span><br><span class="line">* Rebuilt URL to: http://localhost:5601/</span><br><span class="line">*   Trying 127.0.0.1...</span><br><span class="line">* TCP_NODELAY set</span><br><span class="line">* Connected to localhost (127.0.0.1) port 5601 (#0)</span><br><span class="line">&gt; GET / HTTP/1.1</span><br><span class="line">&gt; Host: localhost:5601</span><br><span class="line">&gt; User-Agent: curl/7.58.0</span><br><span class="line">&gt; Accept: */*</span><br><span class="line">&gt; </span><br><span class="line">&lt; HTTP/1.1 302 Found</span><br><span class="line">&lt; location: /app/kibana</span><br><span class="line">&lt; kbn-name: kibana</span><br><span class="line">&lt; kbn-xpack-sig: fd6e658a000b1fdd8c1408d85da429b6</span><br><span class="line">&lt; cache-control: no-cache</span><br><span class="line">&lt; content-length: 0</span><br><span class="line">&lt; connection: close</span><br><span class="line">&lt; Date: Tue, 21 May 2019 13:45:43 GMT</span><br><span class="line">&lt; </span><br><span class="line">* Closing connection 0</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-로그-보기"><a href="#4-로그-보기" class="headerlink" title="4. 로그 보기"></a>4. 로그 보기</h1><p>Kibana는 기본적으로 로그를 파일에 저장하는 것이 아니라 stdout에 출력하므로 로그를 보시려면 다른 방법을 사용해야 합니다
+Kibana의 로그를 보고 싶다면 아래의 명령어를 입력하시면 됩니다.</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> journalctl -u kibana.service -e</span><br></pre></td></tr></table></figure>
+
+<p>또는 Kibana의 설정파일을 수정하시면 됩니다.</p>
+<p>/etc/kibana/kibana.yml</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logging.dest: /var/log/kibana.log</span><br></pre></td></tr></table></figure>
+
+<h1 id="5-Elasticsearch-데이터-보기"><a href="#5-Elasticsearch-데이터-보기" class="headerlink" title="5. Elasticsearch 데이터 보기"></a>5. Elasticsearch 데이터 보기</h1><img src="image1.png" width="400">
+
+<ol>
+<li>Management - Index Pattern을 클릭합니다.</li>
+</ol>
+<img src="image2.png" width="600">
+
+<ol start="2">
+<li>Index Pattenr을 <code>records</code>라고 입력하고 다음으로 넘어갑니다.</li>
+</ol>
+<img src="image3.png" width="600">
+
+<ol start="3">
+<li>Time filter field name을 <code>time</code>이라고 설정하고 완료합니다.</li>
+</ol>
+<p><img src="image4.png" alt="image4"></p>
+<ol start="4">
+<li>Discover에 들어가서 우측 상단의 시간을 적절히 조정하시면 우리가 저번에 넣었던 데이터 1000개를 볼 수 있습니다.</li>
+</ol>
+<h1 id="6-80번-포트로-실행시키기"><a href="#6-80번-포트로-실행시키기" class="headerlink" title="6. 80번 포트로 실행시키기"></a>6. 80번 포트로 실행시키기</h1><p><code>/etc/kibana/kibana.yml</code>에서 포트를 그냥 80번으로 변경한 뒤 실행하면 그 포트를 사용하지 못한다는 에러가 발생합니다.
+<code>sudo service kibana start</code> 명령어가 Kibana를 root 권한으로 실행시키지 않아서 발생하는 에러 입니다.
+따라서 service가 Kibana를 root 권한으로 실행시키도록 수정해야 합니다.</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> sudo vi /etc/kibana/kibana.yml</span><br><span class="line"></span><br><span class="line">server.port: 80</span><br><span class="line"></span><br><span class="line">로 변경</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">$</span> sudo vi /etc/systemd/system/kibana.service</span><br><span class="line"></span><br><span class="line">User=root</span><br><span class="line">Group=root</span><br><span class="line"></span><br><span class="line">로 변경</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">$</span> sudo systemctl daemon-reload</span><br><span class="line"><span class="hljs-meta">$</span> sudo service kibana start</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/elk/">elk</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/Server/Cloud9/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">AWS Cloud9 사용해보기</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/Server/ELK-1/">
+                <span class="level-item">Elastic Stack - Elasticsearch 편</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="/images/profile.jpg" alt="Hyunsub Kim">
+                    
+                    <p class="is-size-4 is-block">
+                        Hyunsub Kim
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        (noverish)
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Seoul, Korea</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        23
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        6
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        33
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/noverish">
+                Follow</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Home" href="http://hyunsub.kim">
+                
+                <i class="fas fa-home"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/noverish">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="https://facebook.com/profile.php?id=100008644627377">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="https://twitter.com/noverish">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Discord" href="https://discord.com">
+                
+                <i class="fab fa-discord"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Links
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="http://hyunsub.kim" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Résumé</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hyunsub.kim</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/noverish" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Github</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://facebook.com/profile.php?id=100008644627377" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Facebook</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">facebook.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://twitter.com/noverish" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Twitter</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">twitter.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://discord.com" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Discord</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">discord.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/android/">
+            <span class="level-start">
+                <span class="level-item">android</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/etc/">
+            <span class="level-start">
+                <span class="level-item">etc</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/ios/">
+            <span class="level-start">
+                <span class="level-item">ios</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/node/">
+            <span class="level-start">
+                <span class="level-item">node</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/server/">
+            <span class="level-start">
+                <span class="level-item">server</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/swift/">
+            <span class="level-start">
+                <span class="level-item">swift</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Tag Cloud
+        </h3>
+        <a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/apex/" style="font-size: 10px;">apex</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/aws/" style="font-size: 12.5px;">aws</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/cloud9/" style="font-size: 10px;">cloud9</a> <a href="/tags/clova-speech-synthesis/" style="font-size: 10px;">clova-speech-synthesis</a> <a href="/tags/cocoapod/" style="font-size: 10px;">cocoapod</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/ecs/" style="font-size: 10px;">ecs</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/elk/" style="font-size: 15px;">elk</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/fcm/" style="font-size: 12.5px;">fcm</a> <a href="/tags/firebase/" style="font-size: 12.5px;">firebase</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/ios/" style="font-size: 17.5px;">ios</a> <a href="/tags/kotlin/" style="font-size: 15px;">kotlin</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/naver/" style="font-size: 12.5px;">naver</a> <a href="/tags/node/" style="font-size: 12.5px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/slack/" style="font-size: 10px;">slack</a> <a href="/tags/sse/" style="font-size: 10px;">sse</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/tip/" style="font-size: 10px;">tip</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/uitableview/" style="font-size: 10px;">uitableview</a> <a href="/tags/view/" style="font-size: 10px;">view</a>
+    </div>
+</div>
+
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="Elastic Stack - Kibana 편" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Hyunsub Kim&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {matchFontHeight: false},
+        SVG: {matchFontHeight: false},
+        CommonHTML: {matchFontHeight: false}
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

@@ -2,18 +2,23 @@
 <html lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Category: android - Hyunsub&#39;s Blog</title>
+<title>내 서버에 Https 적용하기 (Nginx) - Hyunsub&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hyunsub&#39;s Blog">
-<meta property="og:url" content="https://blog.hyunsub.kim/categories/android/index.html">
+    <meta name="description" content="Template description">
+<meta name="keywords" content="https,letsencrypt,nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="내 서버에 Https 적용하기 (Nginx)">
+<meta property="og:url" content="https://blog.hyunsub.kim/Server/HTTPS/index.html">
 <meta property="og:site_name" content="Hyunsub&#39;s Blog">
+<meta property="og:description" content="Template description">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-03-11T10:45:36.238Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hyunsub&#39;s Blog">
+<meta name="twitter:title" content="내 서버에 Https 적용하기 (Nginx)">
+<meta name="twitter:description" content="Template description">
 
 
 
@@ -81,7 +86,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Hyunsub&#39;s Blog" height="28">
+                <img src="/images/logo.svg" alt="내 서버에 Https 적용하기 (Nginx)" height="28">
             
             </a>
         </div>
@@ -127,40 +132,28 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/categories">Categories</a></li>
-            
-            <li class="is-active"><a href="#" aria-current="page">android</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card card-preview">
     
-    <div class="card-image card-preview-image">
-        <a href="/Android/Naver-Map/" class="image is-7by1">
-            <img class="thumbnail" src="/thumbnails/naver-map.jpg" alt="Android에서 네이버 지도 SDK 사용하기">
-        </a>
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/thumbnails/letsencrypt.jpg" alt="내 서버에 Https 적용하기 (Nginx)">
+        </span>
     </div>
     
-    <div class="card-content card-preview-content article ">
+    <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-07-18T05:41:00.000Z">2018-07-18</time>
+                <time class="level-item has-text-grey" datetime="2020-03-10T10:36:00.000Z">2020-03-10</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/android/">android</a>
+                <a class="has-link-grey -link" href="/categories/server/">server</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    12 minutes read (About 1736 words)
+                    7 minutes read (About 1081 words)
                 </span>
                 
             </div>
@@ -168,21 +161,65 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/Android/Naver-Map/">Android에서 네이버 지도 SDK 사용하기</a>
+                내 서버에 Https 적용하기 (Nginx)
             
         </h1>
         <div class="content">
-            <p>Android에서 네이버 지도 SDK 사용하기</p>
+            <p>무료 HTTPS 인증서 발급 기관인 Let’s Encrypt를 통해 내 서버에 Https를 적용하는 법을 알아보겠습니다.</p>
+<a id="more"></a>
+
+<h2 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h2><p><a href="#1-Certbot-설치">1. Certbot 설치</a><br><a href="#2-인증서-발급">2. 인증서 발급</a><br><a href="#3-Nginx-설정">3. Nginx 설정</a><br><a href="#4-인증서-갱신">4. 인증서 갱신</a><br><a href="#5-Crontab에-등록">5. Crontab에 등록</a><br><a href="#6-내-사이트-테스트">6. 내 사이트 테스트</a></p>
+<hr>
+<p>인증서를 얻기 위해서는 해당 서버에 SSH로 접속해야 합니다.</p>
+<h1 id="1-Certbot-설치"><a href="#1-Certbot-설치" class="headerlink" title="1. Certbot 설치"></a>1. Certbot 설치</h1><p>Certbot은 Let’s Encrypt의 인증서 발급을 편하게 도와주는 도구 입니다.
+Certbot을 설치하기 위해서는 다음과 같은 명령어를 입력해 주시길 바랍니다.</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> sudo apt-get update</span><br><span class="line"><span class="hljs-meta">$</span> sudo apt-get install software-properties-common</span><br><span class="line"><span class="hljs-meta">$</span> sudo add-apt-repository universe</span><br><span class="line"><span class="hljs-meta">$</span> sudo add-apt-repository ppa:certbot/certbot</span><br><span class="line"><span class="hljs-meta">$</span> sudo apt-get update</span><br><span class="line"><span class="hljs-meta">$</span> sudo apt-get install certbot</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-인증서-발급"><a href="#2-인증서-발급" class="headerlink" title="2. 인증서 발급"></a>2. 인증서 발급</h1><p>인증서 발급은 인증 기관(여기서는 Let’s Encrypt)이 인증서 발급을 요청한 서버가 실제로 이 도메인을 소유하고 있는 지를 검증하기 위해
+요청 도메인의 특정 Path에 특정 내용을 담아보라고 요구합니다.</p>
+<p>예를 들어 hyunsub.kim에 대한 인증서를 요청하면 인증 기관은 http://hyunsub.kim/1q2w3e4r에 ‘asdfqwer’를 담아보라고 요구하고 이 것을 수행하면 이 도메인을 소유하고 있다고 판단하는 것입니다.</p>
+<p>따라서 certbot이 이러한 작업을 할 수 있도록 명령어를 입력하는데 크게 2가지 경우가 있습니다.</p>
+<h2 id="2-1-80-포트에-돌아가는-웹-서버를-잠시-정지-시킬-수-있는-경우"><a href="#2-1-80-포트에-돌아가는-웹-서버를-잠시-정지-시킬-수-있는-경우" class="headerlink" title="2.1. 80 포트에 돌아가는 웹 서버를 잠시 정지 시킬 수 있는 경우"></a>2.1. 80 포트에 돌아가는 웹 서버를 잠시 정지 시킬 수 있는 경우</h2><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> sudo certbot certonly -d www.example.com --standalone</span><br></pre></td></tr></table></figure>
+
+<p>certbot이 독자적인 웹 서버를 80 포트에 돌려서 위의 인증 기관의 요구 사항을 수행합니다.</p>
+<h2 id="2-2-80-포트에-돌아가는-웹-서버를-잠시-정지-시킬-수-없는-경우"><a href="#2-2-80-포트에-돌아가는-웹-서버를-잠시-정지-시킬-수-없는-경우" class="headerlink" title="2.2. 80 포트에 돌아가는 웹 서버를 잠시 정지 시킬 수 없는 경우"></a>2.2. 80 포트에 돌아가는 웹 서버를 잠시 정지 시킬 수 없는 경우</h2><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> sudo certbot certonly -d www.example.com --webroot -w /var/www/example</span><br></pre></td></tr></table></figure>
+
+<p>만약에 80 포트에 돌아가는 웹 서버를 정지할 수 없는 경우 webroot 폴더 경로를 지정해 주면서 인증 기관의 요구 사항을 수행하게 합니다.</p>
+<p>여기서 w 옵션의 값으로 들어간 /var/www/example 폴더가 webroot 폴더인데 예를 들어 /var/www/example/tmp.txt 에 파일을 생성하면
+http://<a href="http://www.example.com/tmp.txt로" target="_blank" rel="noopener">www.example.com/tmp.txt로</a> 접근할 수 있게 웹 서버 설정이 된 폴더를 webroot 폴더라고 합니다.</p>
+<h2 id="2-3-Finally"><a href="#2-3-Finally" class="headerlink" title="2.3. Finally"></a>2.3. Finally</h2><p>위의 명령어를 입력하고 나면 아래의 경로에 두 파일이 만들어집니다.</p>
+<ul>
+<li>/etc/letsencrypt/live/{도메인 주소}/fullchain.pem (인증서 + 공개키 파일)</li>
+<li>/etc/letsencrypt/live/{도메인 주소}/privkey.pem (개인키 파일)</li>
+</ul>
+<p>이제 이 두 파일을 Nginx에 적용시켜 보겠습니다.</p>
+<h1 id="3-Nginx-설정"><a href="#3-Nginx-설정" class="headerlink" title="3. Nginx 설정"></a>3. Nginx 설정</h1><figure class="highlight nginx hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-section">server</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">listen</span>       <span class="hljs-number">80</span> default;</span><br><span class="line">  <span class="hljs-attribute">server_name</span>  home.hyunsub.kim;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-attribute">location</span> / &#123;</span><br><span class="line">    <span class="hljs-attribute">return</span> <span class="hljs-number">301</span> https://home.hyunsub.kim<span class="hljs-variable">$request_uri</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-section">server</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">listen</span>       <span class="hljs-number">443</span> ssl default;</span><br><span class="line">  <span class="hljs-attribute">server_name</span>  home.hyunsub.kim;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-attribute">ssl_certificate</span>      /etc/letsencrypt/archive/home.hyunsub.kim/fullchain1.pem;</span><br><span class="line">  <span class="hljs-attribute">ssl_certificate_key</span>  /etc/letsencrypt/archive/home.hyunsub.kim/privkey1.pem;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-attribute">location</span> / &#123;</span><br><span class="line">    <span class="hljs-attribute">root</span>   /usr/share/nginx/html;</span><br><span class="line">    <span class="hljs-attribute">index</span>  index.html;</span><br><span class="line">    <span class="hljs-attribute">try_files</span> <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span>/ /index.html;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-인증서-갱신"><a href="#4-인증서-갱신" class="headerlink" title="4. 인증서 갱신"></a>4. 인증서 갱신</h1><p>Let’s Encrypt 인증서는 3개월 후에 만료되므로 주기적으로 갱신시켜주어야 합니다.</p>
+<p>인증서 갱신은 인증서 발급과 같은 과정을 거치기 때문에 80 포트를 쓸 수 있냐 없냐로 나뉘어서 명령어를 입력해야 합니다.</p>
+<h2 id="4-1-80-포트에-돌아가는-웹-서버를-잠시-정지-시킬-수-있는-경우"><a href="#4-1-80-포트에-돌아가는-웹-서버를-잠시-정지-시킬-수-있는-경우" class="headerlink" title="4.1. 80 포트에 돌아가는 웹 서버를 잠시 정지 시킬 수 있는 경우"></a>4.1. 80 포트에 돌아가는 웹 서버를 잠시 정지 시킬 수 있는 경우</h2><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> sudo certbot renew --pre-hook "service nginx stop" --post-hook "service nginx start"</span><br><span class="line"><span class="hljs-meta">$</span> sudo certbot renew --pre-hook "service nginx stop" --post-hook "service nginx start" --dry-run # 갱신 테스트</span><br></pre></td></tr></table></figure>
+
+<p>prehook, posthook을 통해 갱신 전에 웹 서버를 잠시 정지시키고 인증서 갱신한 다음 다시 웹 서버를 실행시킵니다.</p>
+<h2 id="4-2-80-포트에-돌아가는-웹-서버를-잠시-정지-시킬-수-없는-경우"><a href="#4-2-80-포트에-돌아가는-웹-서버를-잠시-정지-시킬-수-없는-경우" class="headerlink" title="4.2. 80 포트에 돌아가는 웹 서버를 잠시 정지 시킬 수 없는 경우"></a>4.2. 80 포트에 돌아가는 웹 서버를 잠시 정지 시킬 수 없는 경우</h2><p>하는 중…</p>
+<h1 id="5-Crontab에-등록"><a href="#5-Crontab에-등록" class="headerlink" title="5. Crontab에 등록"></a>5. Crontab에 등록</h1><p>Crontab에 다음과 같이 추가해서 주기적으로 인증서 갱신을 하도록 합니다.</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 0 1 * * sudo certbot renew ...</span><br></pre></td></tr></table></figure>
+
+<p>매달 1일 0시에 인증서를 갱신한다는 의미입니다.</p>
+<p>하지만 인증서 갱신은 인증서 만료 30일 전부터 가능한다는 점 알아두셔야 합니다.</p>
+<h1 id="6-내-사이트-테스트"><a href="#6-내-사이트-테스트" class="headerlink" title="6. 내 사이트 테스트"></a>6. 내 사이트 테스트</h1><p>아래 사이트를 통해 내 사이트의 HTTPS를 검증할 수 있습니다.</p>
+<p><a href="https://www.ssllabs.com/ssltest/" target="_blank" rel="noopener">https://www.ssllabs.com/ssltest/</a></p>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/Android/Naver-Map/#more">Read More</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/https/">https</a>, <a class="has-link-grey -link" href="/tags/letsencrypt/">letsencrypt</a>, <a class="has-link-grey -link" href="/tags/nginx/">nginx</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -192,123 +229,19 @@
 
 
 
-
-
-
-    <div class="card card-preview">
-    
-    <div class="card-image card-preview-image">
-        <a href="/Android/Firebase-Push-Notification-2/" class="image is-7by1">
-            <img class="thumbnail" src="/thumbnails/firebase-cloud-messaging.jpg" alt="Google Firebase를 사용하여 Android(Kotlin)에 푸쉬 알림 보내기 - 서버(Node.js) 편">
-        </a>
-    </div>
-    
-    <div class="card-content card-preview-content article ">
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-01-08T10:34:20.000Z">2018-01-08</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/android/">android</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    3 minutes read (About 378 words)
-                </span>
-                
-            </div>
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/Node/eslint/">
+                <span class="level-item">ESLint + Typescript</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/Android/Firebase-Push-Notification-2/">Google Firebase를 사용하여 Android(Kotlin)에 푸쉬 알림 보내기 - 서버(Node.js) 편</a>
-            
-        </h1>
-        <div class="content">
-            <p><strong>Updated - 2019-01-02 16:10:38</strong></p>
-<p>Node.js와 Google Firebase를 사용하여 Android에 푸쉬 알림 보내는 방법을 알아보자 (서버 편)</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/Android/Firebase-Push-Notification-2/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
         
     </div>
 </div>
-
-
-
-
-
-
-
-
-    <div class="card card-preview">
-    
-    <div class="card-image card-preview-image">
-        <a href="/Android/Firebase-Push-Notification-1/" class="image is-7by1">
-            <img class="thumbnail" src="/thumbnails/firebase-cloud-messaging.jpg" alt="Firebase를 사용하여 Android에 푸쉬 알림 보내기 - 클라이언트 편">
-        </a>
-    </div>
-    
-    <div class="card-content card-preview-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-01-07T07:49:19.000Z">2018-01-07</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/android/">android</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    6 minutes read (About 971 words)
-                </span>
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/Android/Firebase-Push-Notification-1/">Firebase를 사용하여 Android에 푸쉬 알림 보내기 - 클라이언트 편</a>
-            
-        </h1>
-        <div class="content">
-            <p><strong>Updated - 2019-01-02 14:43:39</strong></p>
-<p>Firebase를 사용하여 Android에 푸쉬 알림 보내는 방법을 알아보자 (클라이언트 편)</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/Android/Firebase-Push-Notification-1/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
 
 
 </div>
@@ -580,7 +513,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Hyunsub&#39;s Blog" height="28">
+                    <img src="/images/logo.svg" alt="내 서버에 Https 적용하기 (Nginx)" height="28">
                 
                 </a>
                 <p class="is-size-7">

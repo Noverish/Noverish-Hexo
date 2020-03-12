@@ -1,11 +1,15 @@
 # Version of the Icarus theme that is currently used
-version: 2.3.0
+version: 2.6.0
 # Path or URL to the website's icon
-favicon:
+favicon: /images/favicon.svg
+# Additional HTML meta tags in an array.
+meta: 
+# canonical_url of your site
+canonical_url: 
 # Path or URL to RSS atom.xml
 rss: 
 # Path or URL to the website's logo to be shown on the left of the navigation bar or footer
-logo:
+logo: /images/logo.svg
 # Open Graph metadata
 # https://hexo.io/docs/helpers.html#open-graph
 open_graph:
@@ -32,7 +36,7 @@ navbar:
     links:
         Download on GitHub:
             icon: fab fa-github
-            url: 'http://github.com/Noverish/Noverish-Hexo'
+            url: 'https://github.com/Noverish/Noverish-Hexo'
 # Footer section link settings
 footer:
     # Links to be shown on the right of the footer section
@@ -45,28 +49,59 @@ footer:
             url: 'https://creativecommons.org/licenses/by/4.0/'
         Download on GitHub:
             icon: fab fa-github
-            url: 'http://github.com/ppoffice/hexo-theme-icarus'
+            url: 'https://github.com/ppoffice/hexo-theme-icarus'
 # Article display settings
 article:
-    # Code highlight theme
-    # https://github.com/highlightjs/highlight.js/tree/master/src/styles
-    highlight: atom-one-dark
+    # Code highlight settings
+    highlight:
+        # Code highlight themes
+        # https://github.com/highlightjs/highlight.js/tree/master/src/styles
+        theme: atom-one-dark
+        # Show code copying button
+        clipboard: true
+        # Default folding status of the code blocks. Can be "", "folded", "unfolded"
+        fold: unfolded
     # Whether to show article thumbnail images
     thumbnail: true
     # Whether to show estimate article reading time
     readtime: true
 # Search plugin settings
-# http://ppoffice.github.io/hexo-theme-icarus/categories/Configuration/Search-Plugins
+# https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Search
 search:
     # Name of the search plugin
     type: insight
 # Comment plugin settings
-# http://ppoffice.github.io/hexo-theme-icarus/categories/Configuration/Comment-Plugins
+# https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Comment
 comment:
     # Name of the comment plugin
-    type:
+    type: 
+# Donation entries
+# https://ppoffice.github.io/hexo-theme-icarus/categories/Donation/
+donate:
+    -
+        # Donation entry name
+        type: alipay
+        # Qrcode image URL
+        qrcode: ''
+    -
+        # Donation entry name
+        type: wechat
+        # Qrcode image URL
+        qrcode: ''
+    -
+        # Donation entry name
+        type: paypal
+        # Paypal business ID or email address
+        business: ''
+        # Currency code
+        currency_code: USD
+    -
+        # Donation entry name
+        type: patreon
+        # URL to the Patreon page
+        url: ''
 # Share plugin settings
-# http://ppoffice.github.io/hexo-theme-icarus/categories/Configuration/Share-Plugins
+# https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Share
 share:
     # Share plugin name
     type: 
@@ -76,15 +111,15 @@ sidebar:
     # left sidebar settings
     left:
         # Whether the left sidebar is sticky when page scrolls
-        # http://ppoffice.github.io/hexo-theme-icarus/Configuration/Theme/make-a-sidebar-sticky-when-page-scrolls/
+        # https://ppoffice.github.io/hexo-theme-icarus/Configuration/Theme/make-a-sidebar-sticky-when-page-scrolls/
         sticky: false
     # right sidebar settings
     right:
         # Whether the right sidebar is sticky when page scrolls
-        # http://ppoffice.github.io/hexo-theme-icarus/Configuration/Theme/make-a-sidebar-sticky-when-page-scrolls/
+        # https://ppoffice.github.io/hexo-theme-icarus/Configuration/Theme/make-a-sidebar-sticky-when-page-scrolls/
         sticky: false
 # Sidebar widget settings
-# http://ppoffice.github.io/hexo-theme-icarus/categories/Widgets/
+# https://ppoffice.github.io/hexo-theme-icarus/categories/Widgets/
 widgets:
     -
         # Widget name
@@ -101,13 +136,15 @@ widgets:
         avatar: /images/profile.jpg
         # Email address for the Gravatar to be shown in the profile widget
         gravatar: 
+        # Whether to show avatar image rounded or square
+        avatar_rounded: true
         # Path or URL for the follow button
         follow_link: 'https://github.com/noverish'
         # Links to be shown on the bottom of the profile widget
         social_links:
             Home:
                 icon: fas fa-home
-                url: 'http://hyunsub.kim'
+                url: 'https://hyunsub.kim'
             Github:
                 icon: fab fa-github
                 url: 'https://github.com/noverish'
@@ -167,37 +204,38 @@ plugins:
     # Enable page animations
     animejs: true
     # Enable the lightGallery and Justified Gallery plugins
-    # http://ppoffice.github.io/hexo-theme-icarus/Plugins/General/gallery-plugin/
+    # https://ppoffice.github.io/hexo-theme-icarus/Plugins/General/gallery-plugin/
     gallery: true
     # Enable the Outdated Browser plugin
     # http://outdatedbrowser.com/
     outdated-browser: true
     # Enable the MathJax plugin
-    # http://ppoffice.github.io/hexo-theme-icarus/Plugins/General/mathjax-plugin/
+    # https://ppoffice.github.io/hexo-theme-icarus/Plugins/General/mathjax-plugin/
     mathjax: true
     # Show the back to top button on mobile devices
     back-to-top: true
     # Google Analytics plugin settings
-    # http://ppoffice.github.io/hexo-theme-icarus/Plugins/General/site-analytics-plugin/#Google-Analytics
+    # https://ppoffice.github.io/hexo-theme-icarus/Plugins/General/site-analytics-plugin/#Google-Analytics
     google-analytics:
         # Google Analytics tracking id
         tracking_id: 
     # Baidu Analytics plugin settings
-    # http://ppoffice.github.io/hexo-theme-icarus/Plugins/General/site-analytics-plugin/#Baidu-Analytics
+    # https://ppoffice.github.io/hexo-theme-icarus/Plugins/General/site-analytics-plugin/#Baidu-Analytics
     baidu-analytics:
         # Baidu Analytics tracking id
         tracking_id: 
     # Hotjar user feedback plugin
-    # http://ppoffice.github.io/hexo-theme-icarus/Plugins/General/site-analytics-plugin/#Hotjar
+    # https://ppoffice.github.io/hexo-theme-icarus/Plugins/General/site-analytics-plugin/#Hotjar
     hotjar:
         # Hotjar site id
         site_id: 
     # Show a loading progress bar at top of the page
     progressbar: true
-    # Show the copy button in the highlighted code area
-    clipboard: true
+    # BuSuanZi site/page view counter
+    # https://busuanzi.ibruce.info
+    busuanzi: false
 # CDN provider settings
-# http://ppoffice.github.io/hexo-theme-icarus/Configuration/Theme/speed-up-your-site-with-custom-cdn/
+# https://ppoffice.github.io/hexo-theme-icarus/Configuration/Theme/speed-up-your-site-with-custom-cdn/
 providers:
     # Name or URL of the JavaScript and/or stylesheet CDN provider
     cdn: jsdelivr

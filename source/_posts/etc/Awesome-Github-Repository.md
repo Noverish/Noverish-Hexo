@@ -101,6 +101,9 @@ twitter_text: template twitter_text
 - [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript) - 클린코드를 만들기 위한 예제 모음 ([한국어판](https://github.com/qkraudghgh/clean-code-javascript-ko))
 - [React Developer Roadmap](https://github.com/adam-golab/react-developer-roadmap) - React 개발자의 로드맵
 - [Didact](https://github.com/pomber/didact) - Step-by-step 으로 나만의 리액트를 만들 수 있음
+- [취업 준비를 위해 공부한 내용을 정리하는 레포](https://github.com/qkraudghgh/coding-interview)
+- [Technical Interview Guidelines for Beginners](https://github.com/JaeYeopHan/Interview_Question_for_Beginner)
+- [신입 개발자 전공 지식 & 기술 면접 백과사전](https://github.com/gyoogle/tech-interview-for-developer)
 
 ## Visulization
 

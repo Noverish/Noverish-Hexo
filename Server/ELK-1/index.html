@@ -1,28 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-<title>Elastic Stack - Elasticsearch 편 - Hyunsub&#39;s Blog</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<html  lang="en">
+<head>
+    <meta charset="utf-8" />
 
+<meta name="generator" content="Hexo 4.2.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>Elastic Stack - Elasticsearch 편 - Hyunsub&#39;s Blog</title>
 
 
     <meta name="description" content="Template description">
-<meta name="keywords" content="elk">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Elastic Stack - Elasticsearch 편">
 <meta property="og:url" content="https://blog.hyunsub.kim/Server/ELK-1/index.html">
 <meta property="og:site_name" content="Hyunsub&#39;s Blog">
 <meta property="og:description" content="Template description">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-03-10T09:25:28.184Z">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog.hyunsub.kim/thumbnails/elastic-stack.png">
+<meta property="article:published_time" content="2019-05-12T00:18:00.000Z">
+<meta property="article:modified_time" content="2020-03-10T09:25:28.184Z">
+<meta property="article:author" content="Hyunsub Kim">
+<meta property="article:tag" content="elk">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Elastic Stack - Elasticsearch 편">
-<meta name="twitter:description" content="Template description">
+<meta name="twitter:image" content="https://blog.hyunsub.kim/thumbnails/elastic-stack.png">
 
 
 
 
+
+
+
+<link rel="icon" href="/images/favicon.svg">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
@@ -33,48 +42,34 @@
 
     
     
-    
-    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
-    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
 
     
     
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
-    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
 
     
     
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
 
-
     
     
     
     
-
 <link rel="stylesheet" href="/css/back-to-top.css">
 
-
-    
-    
-
     
     
     
     
-
     
     
-<link rel="stylesheet" href="/css/progressbar.css">
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
-
     
     
-    
-
     
 
 
@@ -94,23 +89,27 @@
             
             <div class="navbar-start">
                 
-                <a class="navbar-item" href="/">Home</a>
+                <a class="navbar-item"
+                href="/">Home</a>
                 
-                <a class="navbar-item" href="/archives">Archives</a>
+                <a class="navbar-item"
+                href="/archives">Archives</a>
                 
-                <a class="navbar-item" href="/categories">Categories</a>
+                <a class="navbar-item"
+                href="/categories">Categories</a>
                 
-                <a class="navbar-item" href="/tags">Tags</a>
+                <a class="navbar-item"
+                href="/tags">Tags</a>
                 
-                <a class="navbar-item" href="/about">About</a>
+                <a class="navbar-item"
+                href="/about">About</a>
                 
             </div>
             
             <div class="navbar-end">
                 
                     
-                    
-                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="http://github.com/Noverish/Noverish-Hexo">
+                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/Noverish/Noverish-Hexo">
                         
                         <i class="fab fa-github"></i>
                         
@@ -131,10 +130,11 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main"><div class="card">
+                <div class="column is-8-tablet is-9-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
     
     <div class="card-image">
-        <span class="image is-7by1">
+        <span  class="image is-7by1">
             <img class="thumbnail" src="/thumbnails/elastic-stack.png" alt="Elastic Stack - Elasticsearch 편">
         </span>
     </div>
@@ -156,6 +156,7 @@
                     5 minutes read (About 698 words)
                 </span>
                 
+                
             </div>
         </div>
         
@@ -173,13 +174,13 @@
 <hr>
 <h1 id="1-설치하기"><a href="#1-설치하기" class="headerlink" title="1. 설치하기"></a>1. 설치하기</h1><h2 id="1-1-Java-설치"><a href="#1-1-Java-설치" class="headerlink" title="1.1. Java 설치"></a>1.1. Java 설치</h2><p>Elasticsearch는 Java를 사용하므로 먼저 Java를 설치하셔야 합니다.</p>
 <p><em>2019년 4월 16일부터 oracle-jdk를 다운로드 받으려면 무조건 License를 가지고 있어야 합니다. 따라서 OpenJDK를 설치하도록 하겠습니다</em></p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> 1. OpenJDK를 설치합니다.</span><br><span class="line"><span class="hljs-meta">$</span> sudo apt-get install -y openjdk-8-jre</span><br><span class="line"><span class="hljs-meta">$</span> sudo apt-get install -y openjdk-8-jdk</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span> 2. 설치가 잘 되었나 확인합니다.</span><br><span class="line"><span class="hljs-meta">$</span> javac -version</span><br><span class="line"><span class="hljs-meta">$</span> java -version</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. OpenJDK를 설치합니다.</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install -y openjdk-8-jre</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install -y openjdk-8-jdk</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 설치가 잘 되었나 확인합니다.</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> javac -version</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> java -version</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="1-2-Elasticsearch-설치"><a href="#1-2-Elasticsearch-설치" class="headerlink" title="1.2. Elasticsearch 설치"></a>1.2. Elasticsearch 설치</h2><h4 id="1-Elasticsearch를-다운로드-받습니다"><a href="#1-Elasticsearch를-다운로드-받습니다" class="headerlink" title="1) Elasticsearch를 다운로드 받습니다."></a>1) Elasticsearch를 다운로드 받습니다.</h4><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.0.deb</span><br></pre></td></tr></table></figure>
+<h2 id="1-2-Elasticsearch-설치"><a href="#1-2-Elasticsearch-설치" class="headerlink" title="1.2. Elasticsearch 설치"></a>1.2. Elasticsearch 설치</h2><h4 id="1-Elasticsearch를-다운로드-받습니다"><a href="#1-Elasticsearch를-다운로드-받습니다" class="headerlink" title="1) Elasticsearch를 다운로드 받습니다."></a>1) Elasticsearch를 다운로드 받습니다.</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.0.deb</span></span><br></pre></td></tr></table></figure>
 
-<p>다른 버전의 설치 링크를 알고 싶으시다면 <a href="https://www.elastic.co/kr/downloads/past-releases" target="_blank" rel="noopener">https://www.elastic.co/kr/downloads/past-releases</a>를 방문하시면 됩니다.
+<p>다른 버전의 설치 링크를 알고 싶으시다면 <a href="https://www.elastic.co/kr/downloads/past-releases">https://www.elastic.co/kr/downloads/past-releases</a>를 방문하시면 됩니다.
 URL의 <code>6.5.0</code> 부분을 원하시는 버전으로 바꾸시면 그 버전이 다운로드 됩니다.</p>
-<h4 id="2-dpkg-명령어를-이용해-Elasticsearch를-설치합니다"><a href="#2-dpkg-명령어를-이용해-Elasticsearch를-설치합니다" class="headerlink" title="2) dpkg 명령어를 이용해 Elasticsearch를 설치합니다."></a>2) dpkg 명령어를 이용해 Elasticsearch를 설치합니다.</h4><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> sudo dpkg -i elasticsearch-6.5.0.deb</span><br></pre></td></tr></table></figure>
+<h4 id="2-dpkg-명령어를-이용해-Elasticsearch를-설치합니다"><a href="#2-dpkg-명령어를-이용해-Elasticsearch를-설치합니다" class="headerlink" title="2) dpkg 명령어를 이용해 Elasticsearch를 설치합니다."></a>2) dpkg 명령어를 이용해 Elasticsearch를 설치합니다.</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo dpkg -i elasticsearch-6.5.0.deb</span></span><br></pre></td></tr></table></figure>
 
 <p>Elasticsearch는 다음과 같은 위치에 설치 됩니다.</p>
 <table>
@@ -210,24 +211,24 @@ URL의 <code>6.5.0</code> 부분을 원하시는 버전으로 바꾸시면 그 �
 <td>/etc/init.d/elasticsearch</td>
 </tr>
 </tbody></table>
-<h4 id="3-서버가-시작-될-때-자동으로-시작되게-설정합니다"><a href="#3-서버가-시작-될-때-자동으로-시작되게-설정합니다" class="headerlink" title="3) 서버가 시작 될 때 자동으로 시작되게 설정합니다."></a>3) 서버가 시작 될 때 자동으로 시작되게 설정합니다.</h4><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> sudo systemctl enable elasticsearch.service</span><br></pre></td></tr></table></figure>
+<h4 id="3-서버가-시작-될-때-자동으로-시작되게-설정합니다"><a href="#3-서버가-시작-될-때-자동으로-시작되게-설정합니다" class="headerlink" title="3) 서버가 시작 될 때 자동으로 시작되게 설정합니다."></a>3) 서버가 시작 될 때 자동으로 시작되게 설정합니다.</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl <span class="built_in">enable</span> elasticsearch.service</span></span><br></pre></td></tr></table></figure>
 
 <p><em>4) option : Elasticsearch 삭제 방법</em></p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> sudo dpkg --purge elasticsearch</span><br><span class="line"><span class="hljs-meta">$</span> find / -name elasticsearch -exec rm -r "&#123;&#125;" \;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo dpkg --purge elasticsearch</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> find / -name elasticsearch -<span class="built_in">exec</span> rm -r <span class="string">"&#123;&#125;"</span> \;</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="2-실행하기"><a href="#2-실행하기" class="headerlink" title="2. 실행하기"></a>2. 실행하기</h1><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> Elasticsearch 시작 명령어</span><br><span class="line"><span class="hljs-meta">$</span> sudo service elasticsearch start</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span> Elasticsearch 중지 명령어</span><br><span class="line"><span class="hljs-meta">$</span> sudo service elasticsearch stop</span><br></pre></td></tr></table></figure>
+<h1 id="2-실행하기"><a href="#2-실행하기" class="headerlink" title="2. 실행하기"></a>2. 실행하기</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Elasticsearch 시작 명령어</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo service elasticsearch start</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Elasticsearch 중지 명령어</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo service elasticsearch stop</span></span><br></pre></td></tr></table></figure>
 
 <p>아래의 명령어를 통해 정상적으로 실행이 되었는지 알 수 있습니다.
 Elasticsearch가 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나서 시도해 주시길 바랍니다.</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> curl http://localhost:9200</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl http://localhost:9200</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="3-데이터-넣기"><a href="#3-데이터-넣기" class="headerlink" title="3. 데이터 넣기"></a>3. 데이터 넣기</h1><p>Elasticsearch에 대한 사용법은 다른 포스트에서 다루기로 하고 우리는 일단 ELK 스택을 실습해 보는 것을 목표로 하므로 일단 데이터를 넣어보는 것만 하겠습니다.</p>
-<h4 id="1-index-만들기"><a href="#1-index-만들기" class="headerlink" title="1) index 만들기"></a>1) index 만들기</h4><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> curl -XPUT http://localhost:9200/records?pretty</span><br></pre></td></tr></table></figure>
+<h4 id="1-index-만들기"><a href="#1-index-만들기" class="headerlink" title="1) index 만들기"></a>1) index 만들기</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl -XPUT http://localhost:9200/records?pretty</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="2-mapping-넣기"><a href="#2-mapping-넣기" class="headerlink" title="2) mapping 넣기"></a>2) mapping 넣기</h4><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> curl -XPUT http://localhost:9200/records/_mapping/_doc?pretty -d @mapping.txt -H "Content-Type:application/json"</span><br></pre></td></tr></table></figure>
+<h4 id="2-mapping-넣기"><a href="#2-mapping-넣기" class="headerlink" title="2) mapping 넣기"></a>2) mapping 넣기</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl -XPUT http://localhost:9200/records/_mapping/_doc?pretty -d @mapping.txt -H <span class="string">"Content-Type:application/json"</span></span></span><br></pre></td></tr></table></figure>
 
 <p><a href="./mapping.txt">mapping.txt</a></p>
-<h4 id="3-document-넣기"><a href="#3-document-넣기" class="headerlink" title="3) document 넣기"></a>3) document 넣기</h4><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> curl -XPOST http://localhost:9200/records/_doc/_bulk?pretty --data-binary @bulk.txt -H "Content-Type:application/x-ndjson"</span><br></pre></td></tr></table></figure>
+<h4 id="3-document-넣기"><a href="#3-document-넣기" class="headerlink" title="3) document 넣기"></a>3) document 넣기</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl -XPOST http://localhost:9200/records/_doc/_bulk?pretty --data-binary @bulk.txt -H <span class="string">"Content-Type:application/x-ndjson"</span></span></span><br></pre></td></tr></table></figure>
 
 <p><a href="./bulk.txt">bulk.txt</a></p>
 <hr>
@@ -240,12 +241,12 @@ Elasticsearch가 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/elk/">elk</a>
+                    <a class="has-link-grey -link" href="/tags/elk/" rel="tag">elk</a>
                 </div>
             </div>
         </div>
         
-        
+        <!--  -->
         
     </div>
 </div>
@@ -283,15 +284,18 @@ Elasticsearch가 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-3 column-right ">
+<div class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-3 column-right ">
     
         
 <div class="card widget">
     <div class="card-content">
         <nav class="level">
-            <div class="level-item has-text-centered">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
                 <div>
-                    <img class="image is-128x128 has-mb-6" src="/images/profile.jpg" alt="Hyunsub Kim">
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="/images/profile.jpg" alt="Hyunsub Kim">
+                    </figure>
                     
                     <p class="is-size-4 is-block">
                         Hyunsub Kim
@@ -317,9 +321,11 @@ Elasticsearch가 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나
                     <p class="heading">
                         Posts
                     </p>
-                    <p class="title has-text-weight-normal">
-                        24
-                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            24
+                        </p>
+                    </a>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
@@ -327,9 +333,11 @@ Elasticsearch가 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나
                     <p class="heading">
                         Categories
                     </p>
-                    <p class="title has-text-weight-normal">
-                        6
-                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            6
+                        </p>
+                    </a>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
@@ -337,45 +345,54 @@ Elasticsearch가 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나
                     <p class="heading">
                         Tags
                     </p>
-                    <p class="title has-text-weight-normal">
-                        36
-                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            36
+                        </p>
+                    </a>
                 </div>
             </div>
         </nav>
+        
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/noverish">
+            <a class="level-item button is-link is-rounded" href="https://github.com/noverish" target="_blank" rel="noopener">
                 Follow</a>
         </div>
         
         
+        
         <div class="level is-mobile">
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Home" href="http://hyunsub.kim">
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Home" href="https://hyunsub.kim">
                 
                 <i class="fas fa-home"></i>
                 
             </a>
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/noverish">
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Github" href="https://github.com/noverish">
                 
                 <i class="fab fa-github"></i>
                 
             </a>
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="https://facebook.com/profile.php?id=100008644627377">
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Facebook" href="https://facebook.com/profile.php?id=100008644627377">
                 
                 <i class="fab fa-facebook"></i>
                 
             </a>
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="https://twitter.com/noverish">
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Twitter" href="https://twitter.com/noverish">
                 
                 <i class="fab fa-twitter"></i>
                 
             </a>
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Discord" href="https://discord.com">
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Discord" href="https://discord.com">
                 
                 <i class="fab fa-discord"></i>
                 
@@ -388,9 +405,7 @@ Elasticsearch가 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나
     
         
     
-        
-
-<div class="card widget">
+        <div class="card widget">
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
@@ -399,7 +414,7 @@ Elasticsearch가 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나
         <ul class="menu-list">
         
             <li>
-                <a class="level is-mobile" href="http://hyunsub.kim" target="_blank">
+                <a class="level is-mobile" href="http://hyunsub.kim" target="_blank" rel="noopener">
                     <span class="level-left">
                         <span class="level-item">Résumé</span>
                     </span>
@@ -410,7 +425,7 @@ Elasticsearch가 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나
             </li>
         
             <li>
-                <a class="level is-mobile" href="https://github.com/noverish" target="_blank">
+                <a class="level is-mobile" href="https://github.com/noverish" target="_blank" rel="noopener">
                     <span class="level-left">
                         <span class="level-item">Github</span>
                     </span>
@@ -421,7 +436,7 @@ Elasticsearch가 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나
             </li>
         
             <li>
-                <a class="level is-mobile" href="https://facebook.com/profile.php?id=100008644627377" target="_blank">
+                <a class="level is-mobile" href="https://facebook.com/profile.php?id=100008644627377" target="_blank" rel="noopener">
                     <span class="level-left">
                         <span class="level-item">Facebook</span>
                     </span>
@@ -432,7 +447,7 @@ Elasticsearch가 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나
             </li>
         
             <li>
-                <a class="level is-mobile" href="https://twitter.com/noverish" target="_blank">
+                <a class="level is-mobile" href="https://twitter.com/noverish" target="_blank" rel="noopener">
                     <span class="level-left">
                         <span class="level-item">Twitter</span>
                     </span>
@@ -443,7 +458,7 @@ Elasticsearch가 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나
             </li>
         
             <li>
-                <a class="level is-mobile" href="https://discord.com" target="_blank">
+                <a class="level is-mobile" href="https://discord.com" target="_blank" rel="noopener">
                     <span class="level-left">
                         <span class="level-item">Discord</span>
                     </span>
@@ -457,7 +472,6 @@ Elasticsearch가 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나
         </div>
     </div>
 </div>
-
 
     
         
@@ -522,8 +536,7 @@ Elasticsearch가 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나
     </div>
 </div>
     
-        
-<div class="card widget">
+        <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
             Tag Cloud
@@ -531,7 +544,6 @@ Elasticsearch가 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나
         <a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/apex/" style="font-size: 10px;">apex</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/aws/" style="font-size: 12.5px;">aws</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/cloud9/" style="font-size: 10px;">cloud9</a> <a href="/tags/clova-speech-synthesis/" style="font-size: 10px;">clova-speech-synthesis</a> <a href="/tags/cocoapod/" style="font-size: 10px;">cocoapod</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/ecs/" style="font-size: 10px;">ecs</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/elk/" style="font-size: 15px;">elk</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/fcm/" style="font-size: 12.5px;">fcm</a> <a href="/tags/firebase/" style="font-size: 12.5px;">firebase</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/ios/" style="font-size: 17.5px;">ios</a> <a href="/tags/kotlin/" style="font-size: 15px;">kotlin</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/letsencrypt/" style="font-size: 10px;">letsencrypt</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/naver/" style="font-size: 12.5px;">naver</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/node/" style="font-size: 12.5px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/slack/" style="font-size: 10px;">slack</a> <a href="/tags/sse/" style="font-size: 10px;">sse</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/tip/" style="font-size: 10px;">tip</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/uitableview/" style="font-size: 10px;">uitableview</a> <a href="/tags/view/" style="font-size: 10px;">view</a>
     </div>
 </div>
-
     
     
 </div>
@@ -550,16 +562,17 @@ Elasticsearch가 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나
                 </a>
                 <p class="is-size-7">
                 &copy; 2020 Hyunsub Kim&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
                 </p>
             </div>
             <div class="level-end">
             
                 <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
                 
-                
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
                         
                         <i class="fab fa-creative-commons"></i>
                         
@@ -567,7 +580,7 @@ Elasticsearch가 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
                         
                         <i class="fab fa-creative-commons-by"></i>
                         
@@ -575,7 +588,7 @@ Elasticsearch가 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
                         
                         <i class="fab fa-github"></i>
                         
@@ -593,22 +606,37 @@ Elasticsearch가 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나
 <script>moment.locale("en");</script>
 
 
-    
-    
-    
-    <script src="/js/animation.js"></script>
-    
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'https://blog.hyunsub.kim',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
 
-    
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
-    <script src="/js/gallery.js" defer></script>
-    
 
-    
-    
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
 
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
@@ -628,21 +656,29 @@ Elasticsearch가 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나
 </script>
 
 
-    
-    
 <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     MathJax.Hub.Config({
-        'HTML-CSS': {matchFontHeight: false},
-        SVG: {matchFontHeight: false},
-        CommonHTML: {matchFontHeight: false}
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
     });
 });
 </script>
 
-    
-    
 
 <a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
@@ -650,24 +686,16 @@ document.addEventListener('DOMContentLoaded', function () {
 <script src="/js/back-to-top.js" defer></script>
 
 
-    
-    
 
-    
-    
-    
-    
 
-    
-    
-    
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
-    <script src="/js/clipboard.js" defer></script>
-    
 
-    
+
+
+
+
+
+
+
 
 
 <script src="/js/main.js" defer></script>
@@ -676,7 +704,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">

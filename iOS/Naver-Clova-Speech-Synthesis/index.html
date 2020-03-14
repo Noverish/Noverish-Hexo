@@ -1,34 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-<head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-<title>iOS에서 Naver Clova Speech Synthesis(CSS) 사용하기 - Hyunsub&#39;s Blog</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<html  lang="en">
+<head>
+    <meta charset="utf-8" />
 
+<meta name="generator" content="Hexo 4.2.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>iOS에서 Naver Clova Speech Synthesis(CSS) 사용하기 - Hyunsub&#39;s Blog</title>
 
 
     <meta name="description" content="Template description">
-<meta name="keywords" content="swift,ios,naver,clova-speech-synthesis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS에서 Naver Clova Speech Synthesis(CSS) 사용하기">
 <meta property="og:url" content="https://blog.hyunsub.kim/iOS/Naver-Clova-Speech-Synthesis/index.html">
 <meta property="og:site_name" content="Hyunsub&#39;s Blog">
 <meta property="og:description" content="Template description">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="https://blog.hyunsub.kim/iOS/Naver-Clova-Speech-Synthesis/001.jpg">
-<meta property="og:image" content="https://blog.hyunsub.kim/iOS/Naver-Clova-Speech-Synthesis/002.jpg">
-<meta property="og:image" content="https://blog.hyunsub.kim/iOS/Naver-Clova-Speech-Synthesis/003.jpg">
-<meta property="og:image" content="https://blog.hyunsub.kim/iOS/Naver-Clova-Speech-Synthesis/004.jpg">
-<meta property="og:image" content="https://blog.hyunsub.kim/iOS/Naver-Clova-Speech-Synthesis/005.jpg">
-<meta property="og:updated_time" content="2020-03-10T09:25:28.272Z">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog.hyunsub.kim/thumbnails/clova.jpg">
+<meta property="article:published_time" content="2017-11-21T03:54:38.000Z">
+<meta property="article:modified_time" content="2020-03-10T09:25:28.272Z">
+<meta property="article:author" content="Hyunsub Kim">
+<meta property="article:tag" content="swift">
+<meta property="article:tag" content="ios">
+<meta property="article:tag" content="naver">
+<meta property="article:tag" content="clova-speech-synthesis">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS에서 Naver Clova Speech Synthesis(CSS) 사용하기">
-<meta name="twitter:description" content="Template description">
-<meta name="twitter:image" content="https://blog.hyunsub.kim/iOS/Naver-Clova-Speech-Synthesis/001.jpg">
+<meta name="twitter:image" content="https://blog.hyunsub.kim/thumbnails/clova.jpg">
 
 
 
 
+
+
+
+<link rel="icon" href="/images/favicon.svg">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
@@ -39,48 +45,34 @@
 
     
     
-    
-    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
-    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
 
     
     
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
-    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
 
     
     
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
 
-
     
     
     
     
-
 <link rel="stylesheet" href="/css/back-to-top.css">
 
-
-    
-    
-
     
     
     
     
-
     
     
-<link rel="stylesheet" href="/css/progressbar.css">
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
-
     
     
-    
-
     
 
 
@@ -100,23 +92,27 @@
             
             <div class="navbar-start">
                 
-                <a class="navbar-item" href="/">Home</a>
+                <a class="navbar-item"
+                href="/">Home</a>
                 
-                <a class="navbar-item" href="/archives">Archives</a>
+                <a class="navbar-item"
+                href="/archives">Archives</a>
                 
-                <a class="navbar-item" href="/categories">Categories</a>
+                <a class="navbar-item"
+                href="/categories">Categories</a>
                 
-                <a class="navbar-item" href="/tags">Tags</a>
+                <a class="navbar-item"
+                href="/tags">Tags</a>
                 
-                <a class="navbar-item" href="/about">About</a>
+                <a class="navbar-item"
+                href="/about">About</a>
                 
             </div>
             
             <div class="navbar-end">
                 
                     
-                    
-                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="http://github.com/Noverish/Noverish-Hexo">
+                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/Noverish/Noverish-Hexo">
                         
                         <i class="fab fa-github"></i>
                         
@@ -137,10 +133,11 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main"><div class="card">
+                <div class="column is-8-tablet is-9-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
     
     <div class="card-image">
-        <span class="image is-7by1">
+        <span  class="image is-7by1">
             <img class="thumbnail" src="/thumbnails/clova.jpg" alt="iOS에서 Naver Clova Speech Synthesis(CSS) 사용하기">
         </span>
     </div>
@@ -162,6 +159,7 @@
                     3 minutes read (About 518 words)
                 </span>
                 
+                
             </div>
         </div>
         
@@ -177,14 +175,14 @@
 <p><img src="001.jpg" alt="image001"></p>
 <p>1. <code>CSSTest</code>라는 이름의 프로젝트를 만듭니다. 여기서 Bundle Identifier는 뒤에서 쓰이니 기억해둡시다.</p>
 <p><img src="002.jpg" alt="image002"></p>
-<p>2. <a href="https://developers.naver.com/main/" target="_blank" rel="noopener">네이버 개발자 센터</a>에 가서 새로운 어플리케이션을 등록하는 페이지로 갑니다.</p>
+<p>2. <a href="https://developers.naver.com/main/">네이버 개발자 센터</a>에 가서 새로운 어플리케이션을 등록하는 페이지로 갑니다.</p>
 <p><img src="003.jpg" alt="image003"></p>
 <p>3. 휴대폰 인증을 하고 회사 이름은 아무거나 적어줍시다.</p>
 <p><img src="004.jpg" alt="image004"></p>
 <p>4. 어플리케이션 이름은 아무거나 적어도 상관 없습니다. 저는 <code>CSSTest</code> 라고 적었습니다. 그리고 사용 API에 <code>Clova Speech Synthesis</code>를 선택하고 iOS환경을 추가해서 1번의 Bundle Identifier를 적습니다.</p>
 <p><img src="005.jpg" alt="image005"></p>
 <p>5. 그러고 나면 이렇게 Client ID와 Client Secret이 보이는 페이지로 넘어갑니다. 이 두 개는 뒤에서 쓰이니 기억해둡시다.</p>
-<figure class="highlight swift hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> UIKit</span><br><span class="line"><span class="hljs-keyword">import</span> Alamofire</span><br><span class="line"><span class="hljs-keyword">import</span> AVFoundation</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ViewController</span>: <span class="hljs-title">UIViewController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">let</span> <span class="hljs-type">URL</span> = <span class="hljs-string">"https://openapi.naver.com/v1/voice/tts.bin"</span></span><br><span class="line">    <span class="hljs-keyword">let</span> headers: <span class="hljs-type">HTTPHeaders</span> = [</span><br><span class="line">        <span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"application/x-www-form-urlencoded; charset=UTF-8"</span>,</span><br><span class="line">        <span class="hljs-string">"X-Naver-Client-Id"</span>: <span class="hljs-string">"아까 봤던 Client ID"</span>,</span><br><span class="line">        <span class="hljs-string">"X-Naver-Client-Secret"</span>: <span class="hljs-string">"아까 봤던 Client Secret"</span></span><br><span class="line">    ]</span><br><span class="line">    <span class="hljs-keyword">let</span> parameters: <span class="hljs-type">Parameters</span> = [</span><br><span class="line">        <span class="hljs-string">"speaker"</span>: <span class="hljs-string">"clara"</span>,</span><br><span class="line">        <span class="hljs-string">"speed"</span>: <span class="hljs-number">0</span>,</span><br><span class="line">        <span class="hljs-string">"text"</span>: <span class="hljs-string">"hello, world."</span></span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">var</span> player = <span class="hljs-type">AVPlayer</span>()</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">viewDidLoad</span><span class="hljs-params">()</span></span> &#123;</span><br><span class="line">        <span class="hljs-keyword">super</span>.viewDidLoad()</span><br><span class="line"></span><br><span class="line">        <span class="hljs-type">Alamofire</span>.request(<span class="hljs-type">URL</span>, method: .post, parameters: parameters, headers: headers).response &#123; response <span class="hljs-keyword">in</span></span><br><span class="line">            <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> data = response.data <span class="hljs-keyword">as</span> <span class="hljs-type">NSData</span>? <span class="hljs-keyword">else</span> &#123; <span class="hljs-keyword">return</span> &#125;</span><br><span class="line"></span><br><span class="line">            <span class="hljs-keyword">let</span> audioFileURL = <span class="hljs-keyword">self</span>.save(data: data, fileName: <span class="hljs-string">"css.mp3"</span>)</span><br><span class="line">            <span class="hljs-keyword">let</span> playerItem = <span class="hljs-type">AVPlayerItem</span>(url: audioFileURL <span class="hljs-keyword">as</span> <span class="hljs-type">URL</span>)</span><br><span class="line">            <span class="hljs-keyword">self</span>.player = <span class="hljs-type">AVPlayer</span>(playerItem:playerItem)</span><br><span class="line">            <span class="hljs-keyword">self</span>.player.play()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">save</span><span class="hljs-params">(data: NSData, fileName: String)</span></span> -&gt; <span class="hljs-type">NSURL</span> &#123;</span><br><span class="line">        <span class="hljs-keyword">let</span> path = <span class="hljs-type">NSSearchPathForDirectoriesInDomains</span>(.documentDirectory, .userDomainMask, <span class="hljs-literal">true</span>)[<span class="hljs-number">0</span>] <span class="hljs-keyword">as</span> <span class="hljs-type">String</span></span><br><span class="line">        <span class="hljs-keyword">let</span> fullPath:<span class="hljs-type">String</span> = (path <span class="hljs-keyword">as</span> <span class="hljs-type">NSString</span>).appendingPathComponent(fileName)</span><br><span class="line">        data.write(toFile: fullPath, atomically: <span class="hljs-literal">true</span>)</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-type">NSURL</span>(fileURLWithPath: fullPath)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">import</span> Alamofire</span><br><span class="line"><span class="keyword">import</span> AVFoundation</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="type">URL</span> = <span class="string">"https://openapi.naver.com/v1/voice/tts.bin"</span></span><br><span class="line">    <span class="keyword">let</span> headers: <span class="type">HTTPHeaders</span> = [</span><br><span class="line">        <span class="string">"Content-Type"</span>: <span class="string">"application/x-www-form-urlencoded; charset=UTF-8"</span>,</span><br><span class="line">        <span class="string">"X-Naver-Client-Id"</span>: <span class="string">"아까 봤던 Client ID"</span>,</span><br><span class="line">        <span class="string">"X-Naver-Client-Secret"</span>: <span class="string">"아까 봤던 Client Secret"</span></span><br><span class="line">    ]</span><br><span class="line">    <span class="keyword">let</span> parameters: <span class="type">Parameters</span> = [</span><br><span class="line">        <span class="string">"speaker"</span>: <span class="string">"clara"</span>,</span><br><span class="line">        <span class="string">"speed"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="string">"text"</span>: <span class="string">"hello, world."</span></span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> player = <span class="type">AVPlayer</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line"></span><br><span class="line">        <span class="type">Alamofire</span>.request(<span class="type">URL</span>, method: .post, parameters: parameters, headers: headers).response &#123; response <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">guard</span> <span class="keyword">let</span> data = response.data <span class="keyword">as</span> <span class="type">NSData?</span> <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">let</span> audioFileURL = <span class="keyword">self</span>.save(data: data, fileName: <span class="string">"css.mp3"</span>)</span><br><span class="line">            <span class="keyword">let</span> playerItem = <span class="type">AVPlayerItem</span>(url: audioFileURL <span class="keyword">as</span> <span class="type">URL</span>)</span><br><span class="line">            <span class="keyword">self</span>.player = <span class="type">AVPlayer</span>(playerItem:playerItem)</span><br><span class="line">            <span class="keyword">self</span>.player.play()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">save</span><span class="params">(data: NSData, fileName: String)</span></span> -&gt; <span class="type">NSURL</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> path = <span class="type">NSSearchPathForDirectoriesInDomains</span>(.documentDirectory, .userDomainMask, <span class="literal">true</span>)[<span class="number">0</span>] <span class="keyword">as</span> <span class="type">String</span></span><br><span class="line">        <span class="keyword">let</span> fullPath:<span class="type">String</span> = (path <span class="keyword">as</span> <span class="type">NSString</span>).appendingPathComponent(fileName)</span><br><span class="line">        data.write(toFile: fullPath, atomically: <span class="literal">true</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="type">NSURL</span>(fileURLWithPath: fullPath)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>6. 아까 만들었던 프로젝트의 <code>ViewController</code>에 위와 같이 적어줍시다.</p>
 <p><code>X-Naver-Client-Id</code>와 <code>X-Naver-Client-Secret</code>에 위에서 봤던 Client ID와 Client Secret을 각각 적어줍니다.</p>
@@ -198,12 +196,12 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/clova-speech-synthesis/">clova-speech-synthesis</a>, <a class="has-link-grey -link" href="/tags/ios/">ios</a>, <a class="has-link-grey -link" href="/tags/naver/">naver</a>, <a class="has-link-grey -link" href="/tags/swift/">swift</a>
+                    <a class="has-link-grey -link" href="/tags/clova-speech-synthesis/" rel="tag">clova-speech-synthesis</a>, <a class="has-link-grey -link" href="/tags/ios/" rel="tag">ios</a>, <a class="has-link-grey -link" href="/tags/naver/" rel="tag">naver</a>, <a class="has-link-grey -link" href="/tags/swift/" rel="tag">swift</a>
                 </div>
             </div>
         </div>
         
-        
+        <!--  -->
         
     </div>
 </div>
@@ -216,9 +214,9 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/Android/Firebase-Push-Notification-1/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/iOS/Facebook-Login/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Firebase를 사용하여 Android에 푸쉬 알림 보내기 - 클라이언트 편</span>
+                <span class="level-item">Facebook으로 로그인하기</span>
             </a>
         </div>
         
@@ -241,15 +239,18 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-3 column-right ">
+<div class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-3 column-right ">
     
         
 <div class="card widget">
     <div class="card-content">
         <nav class="level">
-            <div class="level-item has-text-centered">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
                 <div>
-                    <img class="image is-128x128 has-mb-6" src="/images/profile.jpg" alt="Hyunsub Kim">
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="/images/profile.jpg" alt="Hyunsub Kim">
+                    </figure>
                     
                     <p class="is-size-4 is-block">
                         Hyunsub Kim
@@ -275,9 +276,11 @@
                     <p class="heading">
                         Posts
                     </p>
-                    <p class="title has-text-weight-normal">
-                        24
-                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            24
+                        </p>
+                    </a>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
@@ -285,9 +288,11 @@
                     <p class="heading">
                         Categories
                     </p>
-                    <p class="title has-text-weight-normal">
-                        6
-                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            6
+                        </p>
+                    </a>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
@@ -295,45 +300,54 @@
                     <p class="heading">
                         Tags
                     </p>
-                    <p class="title has-text-weight-normal">
-                        36
-                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            36
+                        </p>
+                    </a>
                 </div>
             </div>
         </nav>
+        
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/noverish">
+            <a class="level-item button is-link is-rounded" href="https://github.com/noverish" target="_blank" rel="noopener">
                 Follow</a>
         </div>
         
         
+        
         <div class="level is-mobile">
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Home" href="http://hyunsub.kim">
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Home" href="https://hyunsub.kim">
                 
                 <i class="fas fa-home"></i>
                 
             </a>
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/noverish">
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Github" href="https://github.com/noverish">
                 
                 <i class="fab fa-github"></i>
                 
             </a>
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="https://facebook.com/profile.php?id=100008644627377">
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Facebook" href="https://facebook.com/profile.php?id=100008644627377">
                 
                 <i class="fab fa-facebook"></i>
                 
             </a>
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="https://twitter.com/noverish">
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Twitter" href="https://twitter.com/noverish">
                 
                 <i class="fab fa-twitter"></i>
                 
             </a>
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Discord" href="https://discord.com">
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Discord" href="https://discord.com">
                 
                 <i class="fab fa-discord"></i>
                 
@@ -346,9 +360,7 @@
     
         
     
-        
-
-<div class="card widget">
+        <div class="card widget">
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
@@ -357,7 +369,7 @@
         <ul class="menu-list">
         
             <li>
-                <a class="level is-mobile" href="http://hyunsub.kim" target="_blank">
+                <a class="level is-mobile" href="http://hyunsub.kim" target="_blank" rel="noopener">
                     <span class="level-left">
                         <span class="level-item">Résumé</span>
                     </span>
@@ -368,7 +380,7 @@
             </li>
         
             <li>
-                <a class="level is-mobile" href="https://github.com/noverish" target="_blank">
+                <a class="level is-mobile" href="https://github.com/noverish" target="_blank" rel="noopener">
                     <span class="level-left">
                         <span class="level-item">Github</span>
                     </span>
@@ -379,7 +391,7 @@
             </li>
         
             <li>
-                <a class="level is-mobile" href="https://facebook.com/profile.php?id=100008644627377" target="_blank">
+                <a class="level is-mobile" href="https://facebook.com/profile.php?id=100008644627377" target="_blank" rel="noopener">
                     <span class="level-left">
                         <span class="level-item">Facebook</span>
                     </span>
@@ -390,7 +402,7 @@
             </li>
         
             <li>
-                <a class="level is-mobile" href="https://twitter.com/noverish" target="_blank">
+                <a class="level is-mobile" href="https://twitter.com/noverish" target="_blank" rel="noopener">
                     <span class="level-left">
                         <span class="level-item">Twitter</span>
                     </span>
@@ -401,7 +413,7 @@
             </li>
         
             <li>
-                <a class="level is-mobile" href="https://discord.com" target="_blank">
+                <a class="level is-mobile" href="https://discord.com" target="_blank" rel="noopener">
                     <span class="level-left">
                         <span class="level-item">Discord</span>
                     </span>
@@ -415,7 +427,6 @@
         </div>
     </div>
 </div>
-
 
     
         
@@ -480,8 +491,7 @@
     </div>
 </div>
     
-        
-<div class="card widget">
+        <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
             Tag Cloud
@@ -489,7 +499,6 @@
         <a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/apex/" style="font-size: 10px;">apex</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/aws/" style="font-size: 12.5px;">aws</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/cloud9/" style="font-size: 10px;">cloud9</a> <a href="/tags/clova-speech-synthesis/" style="font-size: 10px;">clova-speech-synthesis</a> <a href="/tags/cocoapod/" style="font-size: 10px;">cocoapod</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/ecs/" style="font-size: 10px;">ecs</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/elk/" style="font-size: 15px;">elk</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/fcm/" style="font-size: 12.5px;">fcm</a> <a href="/tags/firebase/" style="font-size: 12.5px;">firebase</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/ios/" style="font-size: 17.5px;">ios</a> <a href="/tags/kotlin/" style="font-size: 15px;">kotlin</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/letsencrypt/" style="font-size: 10px;">letsencrypt</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/naver/" style="font-size: 12.5px;">naver</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/node/" style="font-size: 12.5px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/slack/" style="font-size: 10px;">slack</a> <a href="/tags/sse/" style="font-size: 10px;">sse</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/tip/" style="font-size: 10px;">tip</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/uitableview/" style="font-size: 10px;">uitableview</a> <a href="/tags/view/" style="font-size: 10px;">view</a>
     </div>
 </div>
-
     
     
 </div>
@@ -508,16 +517,17 @@
                 </a>
                 <p class="is-size-7">
                 &copy; 2020 Hyunsub Kim&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
                 </p>
             </div>
             <div class="level-end">
             
                 <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
                 
-                
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
                         
                         <i class="fab fa-creative-commons"></i>
                         
@@ -525,7 +535,7 @@
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
                         
                         <i class="fab fa-creative-commons-by"></i>
                         
@@ -533,7 +543,7 @@
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
                         
                         <i class="fab fa-github"></i>
                         
@@ -551,22 +561,37 @@
 <script>moment.locale("en");</script>
 
 
-    
-    
-    
-    <script src="/js/animation.js"></script>
-    
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'https://blog.hyunsub.kim',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
 
-    
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
-    <script src="/js/gallery.js" defer></script>
-    
 
-    
-    
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
 
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
@@ -586,21 +611,29 @@
 </script>
 
 
-    
-    
 <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     MathJax.Hub.Config({
-        'HTML-CSS': {matchFontHeight: false},
-        SVG: {matchFontHeight: false},
-        CommonHTML: {matchFontHeight: false}
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
     });
 });
 </script>
 
-    
-    
 
 <a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
@@ -608,24 +641,16 @@ document.addEventListener('DOMContentLoaded', function () {
 <script src="/js/back-to-top.js" defer></script>
 
 
-    
-    
 
-    
-    
-    
-    
 
-    
-    
-    
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
-    <script src="/js/clipboard.js" defer></script>
-    
 
-    
+
+
+
+
+
+
+
 
 
 <script src="/js/main.js" defer></script>
@@ -634,7 +659,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">

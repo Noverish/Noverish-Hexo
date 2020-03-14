@@ -1,33 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-<title>Elastic Stack - Kibana 편 - Hyunsub&#39;s Blog</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<html  lang="en">
+<head>
+    <meta charset="utf-8" />
 
+<meta name="generator" content="Hexo 4.2.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>Elastic Stack - Kibana 편 - Hyunsub&#39;s Blog</title>
 
 
     <meta name="description" content="Template description">
-<meta name="keywords" content="elk">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Elastic Stack - Kibana 편">
 <meta property="og:url" content="https://blog.hyunsub.kim/Server/ELK-2/index.html">
 <meta property="og:site_name" content="Hyunsub&#39;s Blog">
 <meta property="og:description" content="Template description">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="https://blog.hyunsub.kim/Server/ELK-2/image1.png">
-<meta property="og:image" content="https://blog.hyunsub.kim/Server/ELK-2/image2.png">
-<meta property="og:image" content="https://blog.hyunsub.kim/Server/ELK-2/image3.png">
-<meta property="og:image" content="https://blog.hyunsub.kim/Server/ELK-2/image4.png">
-<meta property="og:updated_time" content="2020-03-10T09:25:28.184Z">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog.hyunsub.kim/thumbnails/elastic-stack.png">
+<meta property="article:published_time" content="2019-05-21T13:25:00.000Z">
+<meta property="article:modified_time" content="2020-03-10T09:25:28.184Z">
+<meta property="article:author" content="Hyunsub Kim">
+<meta property="article:tag" content="elk">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Elastic Stack - Kibana 편">
-<meta name="twitter:description" content="Template description">
-<meta name="twitter:image" content="https://blog.hyunsub.kim/Server/ELK-2/image1.png">
+<meta name="twitter:image" content="https://blog.hyunsub.kim/thumbnails/elastic-stack.png">
 
 
 
 
+
+
+
+<link rel="icon" href="/images/favicon.svg">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
@@ -38,48 +42,34 @@
 
     
     
-    
-    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
-    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
 
     
     
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
-    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
 
     
     
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
 
-
     
     
     
     
-
 <link rel="stylesheet" href="/css/back-to-top.css">
 
-
-    
-    
-
     
     
     
     
-
     
     
-<link rel="stylesheet" href="/css/progressbar.css">
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
-
     
     
-    
-
     
 
 
@@ -99,23 +89,27 @@
             
             <div class="navbar-start">
                 
-                <a class="navbar-item" href="/">Home</a>
+                <a class="navbar-item"
+                href="/">Home</a>
                 
-                <a class="navbar-item" href="/archives">Archives</a>
+                <a class="navbar-item"
+                href="/archives">Archives</a>
                 
-                <a class="navbar-item" href="/categories">Categories</a>
+                <a class="navbar-item"
+                href="/categories">Categories</a>
                 
-                <a class="navbar-item" href="/tags">Tags</a>
+                <a class="navbar-item"
+                href="/tags">Tags</a>
                 
-                <a class="navbar-item" href="/about">About</a>
+                <a class="navbar-item"
+                href="/about">About</a>
                 
             </div>
             
             <div class="navbar-end">
                 
                     
-                    
-                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="http://github.com/Noverish/Noverish-Hexo">
+                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/Noverish/Noverish-Hexo">
                         
                         <i class="fab fa-github"></i>
                         
@@ -136,10 +130,11 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main"><div class="card">
+                <div class="column is-8-tablet is-9-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
     
     <div class="card-image">
-        <span class="image is-7by1">
+        <span  class="image is-7by1">
             <img class="thumbnail" src="/thumbnails/elastic-stack.png" alt="Elastic Stack - Kibana 편">
         </span>
     </div>
@@ -161,6 +156,7 @@
                     6 minutes read (About 957 words)
                 </span>
                 
+                
             </div>
         </div>
         
@@ -176,12 +172,12 @@
 <p>이 글은 Ubuntu 18.04.2 LTS 사용자를 대상으로 작성했습니다.</p>
 <h2 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h2><p><a href="#1-Kibana-설치">1. Kibana 설치</a><br><a href="#2-Elasticsearch와-연동하기">2. Elasticsearch와 연동하기</a><br><a href="#3-실행하기">3. 실행하기</a><br><a href="#4-로그-보기">4. 로그 보기</a><br><a href="#5-Elasticsearch-데이터-보기">5. Elasticsearch 데이터 보기</a><br><a href="#6-80번-포트로-실행시키기">6. 80번 포트로 실행시키기</a>    </p>
 <hr>
-<h1 id="1-Kibana-설치"><a href="#1-Kibana-설치" class="headerlink" title="1. Kibana 설치"></a>1. Kibana 설치</h1><h4 id="1-Kibana를-다운로드-받습니다"><a href="#1-Kibana를-다운로드-받습니다" class="headerlink" title="1) Kibana를 다운로드 받습니다."></a>1) Kibana를 다운로드 받습니다.</h4><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> wget https://artifacts.elastic.co/downloads/kibana/kibana-6.5.0-amd64.deb</span><br></pre></td></tr></table></figure>
+<h1 id="1-Kibana-설치"><a href="#1-Kibana-설치" class="headerlink" title="1. Kibana 설치"></a>1. Kibana 설치</h1><h4 id="1-Kibana를-다운로드-받습니다"><a href="#1-Kibana를-다운로드-받습니다" class="headerlink" title="1) Kibana를 다운로드 받습니다."></a>1) Kibana를 다운로드 받습니다.</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> wget https://artifacts.elastic.co/downloads/kibana/kibana-6.5.0-amd64.deb</span></span><br></pre></td></tr></table></figure>
 
-<p>다른 버전의 설치 링크를 알고 싶으시다면 <a href="https://www.elastic.co/kr/downloads/past-releases" target="_blank" rel="noopener">https://www.elastic.co/kr/downloads/past-releases</a>를 방문하시면 됩니다.
+<p>다른 버전의 설치 링크를 알고 싶으시다면 <a href="https://www.elastic.co/kr/downloads/past-releases">https://www.elastic.co/kr/downloads/past-releases</a>를 방문하시면 됩니다.
 URL의 <code>6.5.0</code> 부분을 원하시는 버전으로 바꾸시면 그 버전이 다운로드 됩니다.</p>
 <p><em>Kibana 6.0.0 이상의 버전은 64bit 운영체제만 지원합니다</em></p>
-<h4 id="2-dpkg-명령어를-이용해-Kibana를-설치합니다"><a href="#2-dpkg-명령어를-이용해-Kibana를-설치합니다" class="headerlink" title="2) dpkg 명령어를 이용해 Kibana를 설치합니다."></a>2) dpkg 명령어를 이용해 Kibana를 설치합니다.</h4><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> sudo dpkg -i kibana-6.5.0-amd64.deb</span><br></pre></td></tr></table></figure>
+<h4 id="2-dpkg-명령어를-이용해-Kibana를-설치합니다"><a href="#2-dpkg-명령어를-이용해-Kibana를-설치합니다" class="headerlink" title="2) dpkg 명령어를 이용해 Kibana를 설치합니다."></a>2) dpkg 명령어를 이용해 Kibana를 설치합니다.</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo dpkg -i kibana-6.5.0-amd64.deb</span></span><br></pre></td></tr></table></figure>
 
 <p>Kibana는 다음과 같은 위치에 설치 됩니다.</p>
 <table>
@@ -208,32 +204,32 @@ URL의 <code>6.5.0</code> 부분을 원하시는 버전으로 바꾸시면 그 �
 <td>/etc/init.d/kibana</td>
 </tr>
 </tbody></table>
-<h4 id="3-서버가-시작-될-때-자동으로-시작되게-설정합니다"><a href="#3-서버가-시작-될-때-자동으로-시작되게-설정합니다" class="headerlink" title="3) 서버가 시작 될 때 자동으로 시작되게 설정합니다."></a>3) 서버가 시작 될 때 자동으로 시작되게 설정합니다.</h4><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> sudo systemctl enable kibana.service</span><br></pre></td></tr></table></figure>
+<h4 id="3-서버가-시작-될-때-자동으로-시작되게-설정합니다"><a href="#3-서버가-시작-될-때-자동으로-시작되게-설정합니다" class="headerlink" title="3) 서버가 시작 될 때 자동으로 시작되게 설정합니다."></a>3) 서버가 시작 될 때 자동으로 시작되게 설정합니다.</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl <span class="built_in">enable</span> kibana.service</span></span><br></pre></td></tr></table></figure>
 
 <p><em>4) option : Kibana 삭제 방법</em></p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> sudo dpkg --purge kibana</span><br><span class="line"><span class="hljs-meta">$</span> find / -name kibana -exec rm -r "&#123;&#125;" \;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo dpkg --purge kibana</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> find / -name kibana -<span class="built_in">exec</span> rm -r <span class="string">"&#123;&#125;"</span> \;</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="2-Elasticsearch와-연동하기"><a href="#2-Elasticsearch와-연동하기" class="headerlink" title="2. Elasticsearch와 연동하기"></a>2. Elasticsearch와 연동하기</h1><p>Elasticsearch와 Kibana를 같은 서버에서 구동하면 딱히 설정할 게 없지만
 다른 서버에서 구동하면 <code>/etc/kibana/kibana.yml</code>을 수정해야 합니다.</p>
 <p>파일에서 아래의 부분을 본인의 Elasticsearch 서버의 주소로 바꾸시고 앞의 주석 처리를 없앱니다.</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#elasticsearch.url: &quot;http://localhost:9200&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#elasticsearch.url: &quot;http:&#x2F;&#x2F;localhost:9200&quot;</span><br></pre></td></tr></table></figure>
 
-<h1 id="3-실행하기"><a href="#3-실행하기" class="headerlink" title="3. 실행하기"></a>3. 실행하기</h1><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> Kibana 시작 명령어</span><br><span class="line"><span class="hljs-meta">$</span> sudo service kibana start</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span> Kibana 중지 명령어</span><br><span class="line"><span class="hljs-meta">$</span> sudo service kibana stop</span><br></pre></td></tr></table></figure>
+<h1 id="3-실행하기"><a href="#3-실행하기" class="headerlink" title="3. 실행하기"></a>3. 실행하기</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Kibana 시작 명령어</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo service kibana start</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Kibana 중지 명령어</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo service kibana stop</span></span><br></pre></td></tr></table></figure>
 
 <p>아래 링크에 웹브라우저로 접속해서 정상적으로 실행이 되었는지 알 수 있습니다.
 Kibana 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나서 시도해 주시길 바랍니다.</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> curl -v http://localhost:5601</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl -v http://localhost:5601</span></span><br></pre></td></tr></table></figure>
 
 <p>아래와 같이 뜨면 실행이 되고 있다는 뜻입니다.</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Note: Unnecessary use of -X or --request, GET is already inferred.</span><br><span class="line">* Rebuilt URL to: http://localhost:5601/</span><br><span class="line">*   Trying 127.0.0.1...</span><br><span class="line">* TCP_NODELAY set</span><br><span class="line">* Connected to localhost (127.0.0.1) port 5601 (#0)</span><br><span class="line">&gt; GET / HTTP/1.1</span><br><span class="line">&gt; Host: localhost:5601</span><br><span class="line">&gt; User-Agent: curl/7.58.0</span><br><span class="line">&gt; Accept: */*</span><br><span class="line">&gt; </span><br><span class="line">&lt; HTTP/1.1 302 Found</span><br><span class="line">&lt; location: /app/kibana</span><br><span class="line">&lt; kbn-name: kibana</span><br><span class="line">&lt; kbn-xpack-sig: fd6e658a000b1fdd8c1408d85da429b6</span><br><span class="line">&lt; cache-control: no-cache</span><br><span class="line">&lt; content-length: 0</span><br><span class="line">&lt; connection: close</span><br><span class="line">&lt; Date: Tue, 21 May 2019 13:45:43 GMT</span><br><span class="line">&lt; </span><br><span class="line">* Closing connection 0</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Note: Unnecessary use of -X or --request, GET is already inferred.</span><br><span class="line">* Rebuilt URL to: http:&#x2F;&#x2F;localhost:5601&#x2F;</span><br><span class="line">*   Trying 127.0.0.1...</span><br><span class="line">* TCP_NODELAY set</span><br><span class="line">* Connected to localhost (127.0.0.1) port 5601 (#0)</span><br><span class="line">&gt; GET &#x2F; HTTP&#x2F;1.1</span><br><span class="line">&gt; Host: localhost:5601</span><br><span class="line">&gt; User-Agent: curl&#x2F;7.58.0</span><br><span class="line">&gt; Accept: *&#x2F;*</span><br><span class="line">&gt; </span><br><span class="line">&lt; HTTP&#x2F;1.1 302 Found</span><br><span class="line">&lt; location: &#x2F;app&#x2F;kibana</span><br><span class="line">&lt; kbn-name: kibana</span><br><span class="line">&lt; kbn-xpack-sig: fd6e658a000b1fdd8c1408d85da429b6</span><br><span class="line">&lt; cache-control: no-cache</span><br><span class="line">&lt; content-length: 0</span><br><span class="line">&lt; connection: close</span><br><span class="line">&lt; Date: Tue, 21 May 2019 13:45:43 GMT</span><br><span class="line">&lt; </span><br><span class="line">* Closing connection 0</span><br></pre></td></tr></table></figure>
 
 <h1 id="4-로그-보기"><a href="#4-로그-보기" class="headerlink" title="4. 로그 보기"></a>4. 로그 보기</h1><p>Kibana는 기본적으로 로그를 파일에 저장하는 것이 아니라 stdout에 출력하므로 로그를 보시려면 다른 방법을 사용해야 합니다
 Kibana의 로그를 보고 싶다면 아래의 명령어를 입력하시면 됩니다.</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> journalctl -u kibana.service -e</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> journalctl -u kibana.service -e</span></span><br></pre></td></tr></table></figure>
 
 <p>또는 Kibana의 설정파일을 수정하시면 됩니다.</p>
 <p>/etc/kibana/kibana.yml</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logging.dest: /var/log/kibana.log</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logging.dest: &#x2F;var&#x2F;log&#x2F;kibana.log</span><br></pre></td></tr></table></figure>
 
 <h1 id="5-Elasticsearch-데이터-보기"><a href="#5-Elasticsearch-데이터-보기" class="headerlink" title="5. Elasticsearch 데이터 보기"></a>5. Elasticsearch 데이터 보기</h1><img src="image1.png" width="400">
 
@@ -257,8 +253,7 @@ Kibana의 로그를 보고 싶다면 아래의 명령어를 입력하시면 됩�
 <h1 id="6-80번-포트로-실행시키기"><a href="#6-80번-포트로-실행시키기" class="headerlink" title="6. 80번 포트로 실행시키기"></a>6. 80번 포트로 실행시키기</h1><p><code>/etc/kibana/kibana.yml</code>에서 포트를 그냥 80번으로 변경한 뒤 실행하면 그 포트를 사용하지 못한다는 에러가 발생합니다.
 <code>sudo service kibana start</code> 명령어가 Kibana를 root 권한으로 실행시키지 않아서 발생하는 에러 입니다.
 따라서 service가 Kibana를 root 권한으로 실행시키도록 수정해야 합니다.</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> sudo vi /etc/kibana/kibana.yml</span><br><span class="line"></span><br><span class="line">server.port: 80</span><br><span class="line"></span><br><span class="line">로 변경</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">$</span> sudo vi /etc/systemd/system/kibana.service</span><br><span class="line"></span><br><span class="line">User=root</span><br><span class="line">Group=root</span><br><span class="line"></span><br><span class="line">로 변경</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">$</span> sudo systemctl daemon-reload</span><br><span class="line"><span class="hljs-meta">$</span> sudo service kibana start</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo vi /etc/kibana/kibana.yml</span></span><br><span class="line"></span><br><span class="line">server.port: 80</span><br><span class="line"></span><br><span class="line">로 변경</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo vi /etc/systemd/system/kibana.service</span></span><br><span class="line"></span><br><span class="line">User=root</span><br><span class="line">Group=root</span><br><span class="line"></span><br><span class="line">로 변경</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl daemon-reload</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo service kibana start</span></span><br></pre></td></tr></table></figure>
 
         </div>
         
@@ -266,12 +261,12 @@ Kibana의 로그를 보고 싶다면 아래의 명령어를 입력하시면 됩�
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/elk/">elk</a>
+                    <a class="has-link-grey -link" href="/tags/elk/" rel="tag">elk</a>
                 </div>
             </div>
         </div>
         
-        
+        <!--  -->
         
     </div>
 </div>
@@ -309,15 +304,18 @@ Kibana의 로그를 보고 싶다면 아래의 명령어를 입력하시면 됩�
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-3 column-right ">
+<div class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-3 column-right ">
     
         
 <div class="card widget">
     <div class="card-content">
         <nav class="level">
-            <div class="level-item has-text-centered">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
                 <div>
-                    <img class="image is-128x128 has-mb-6" src="/images/profile.jpg" alt="Hyunsub Kim">
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="/images/profile.jpg" alt="Hyunsub Kim">
+                    </figure>
                     
                     <p class="is-size-4 is-block">
                         Hyunsub Kim
@@ -343,9 +341,11 @@ Kibana의 로그를 보고 싶다면 아래의 명령어를 입력하시면 됩�
                     <p class="heading">
                         Posts
                     </p>
-                    <p class="title has-text-weight-normal">
-                        24
-                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            24
+                        </p>
+                    </a>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
@@ -353,9 +353,11 @@ Kibana의 로그를 보고 싶다면 아래의 명령어를 입력하시면 됩�
                     <p class="heading">
                         Categories
                     </p>
-                    <p class="title has-text-weight-normal">
-                        6
-                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            6
+                        </p>
+                    </a>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
@@ -363,45 +365,54 @@ Kibana의 로그를 보고 싶다면 아래의 명령어를 입력하시면 됩�
                     <p class="heading">
                         Tags
                     </p>
-                    <p class="title has-text-weight-normal">
-                        36
-                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            36
+                        </p>
+                    </a>
                 </div>
             </div>
         </nav>
+        
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/noverish">
+            <a class="level-item button is-link is-rounded" href="https://github.com/noverish" target="_blank" rel="noopener">
                 Follow</a>
         </div>
         
         
+        
         <div class="level is-mobile">
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Home" href="http://hyunsub.kim">
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Home" href="https://hyunsub.kim">
                 
                 <i class="fas fa-home"></i>
                 
             </a>
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/noverish">
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Github" href="https://github.com/noverish">
                 
                 <i class="fab fa-github"></i>
                 
             </a>
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="https://facebook.com/profile.php?id=100008644627377">
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Facebook" href="https://facebook.com/profile.php?id=100008644627377">
                 
                 <i class="fab fa-facebook"></i>
                 
             </a>
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="https://twitter.com/noverish">
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Twitter" href="https://twitter.com/noverish">
                 
                 <i class="fab fa-twitter"></i>
                 
             </a>
             
-            <a class="level-item button is-white is-marginless" target="_blank" title="Discord" href="https://discord.com">
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Discord" href="https://discord.com">
                 
                 <i class="fab fa-discord"></i>
                 
@@ -414,9 +425,7 @@ Kibana의 로그를 보고 싶다면 아래의 명령어를 입력하시면 됩�
     
         
     
-        
-
-<div class="card widget">
+        <div class="card widget">
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
@@ -425,7 +434,7 @@ Kibana의 로그를 보고 싶다면 아래의 명령어를 입력하시면 됩�
         <ul class="menu-list">
         
             <li>
-                <a class="level is-mobile" href="http://hyunsub.kim" target="_blank">
+                <a class="level is-mobile" href="http://hyunsub.kim" target="_blank" rel="noopener">
                     <span class="level-left">
                         <span class="level-item">Résumé</span>
                     </span>
@@ -436,7 +445,7 @@ Kibana의 로그를 보고 싶다면 아래의 명령어를 입력하시면 됩�
             </li>
         
             <li>
-                <a class="level is-mobile" href="https://github.com/noverish" target="_blank">
+                <a class="level is-mobile" href="https://github.com/noverish" target="_blank" rel="noopener">
                     <span class="level-left">
                         <span class="level-item">Github</span>
                     </span>
@@ -447,7 +456,7 @@ Kibana의 로그를 보고 싶다면 아래의 명령어를 입력하시면 됩�
             </li>
         
             <li>
-                <a class="level is-mobile" href="https://facebook.com/profile.php?id=100008644627377" target="_blank">
+                <a class="level is-mobile" href="https://facebook.com/profile.php?id=100008644627377" target="_blank" rel="noopener">
                     <span class="level-left">
                         <span class="level-item">Facebook</span>
                     </span>
@@ -458,7 +467,7 @@ Kibana의 로그를 보고 싶다면 아래의 명령어를 입력하시면 됩�
             </li>
         
             <li>
-                <a class="level is-mobile" href="https://twitter.com/noverish" target="_blank">
+                <a class="level is-mobile" href="https://twitter.com/noverish" target="_blank" rel="noopener">
                     <span class="level-left">
                         <span class="level-item">Twitter</span>
                     </span>
@@ -469,7 +478,7 @@ Kibana의 로그를 보고 싶다면 아래의 명령어를 입력하시면 됩�
             </li>
         
             <li>
-                <a class="level is-mobile" href="https://discord.com" target="_blank">
+                <a class="level is-mobile" href="https://discord.com" target="_blank" rel="noopener">
                     <span class="level-left">
                         <span class="level-item">Discord</span>
                     </span>
@@ -483,7 +492,6 @@ Kibana의 로그를 보고 싶다면 아래의 명령어를 입력하시면 됩�
         </div>
     </div>
 </div>
-
 
     
         
@@ -548,8 +556,7 @@ Kibana의 로그를 보고 싶다면 아래의 명령어를 입력하시면 됩�
     </div>
 </div>
     
-        
-<div class="card widget">
+        <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
             Tag Cloud
@@ -557,7 +564,6 @@ Kibana의 로그를 보고 싶다면 아래의 명령어를 입력하시면 됩�
         <a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/apex/" style="font-size: 10px;">apex</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/aws/" style="font-size: 12.5px;">aws</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/cloud9/" style="font-size: 10px;">cloud9</a> <a href="/tags/clova-speech-synthesis/" style="font-size: 10px;">clova-speech-synthesis</a> <a href="/tags/cocoapod/" style="font-size: 10px;">cocoapod</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/ecs/" style="font-size: 10px;">ecs</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/elk/" style="font-size: 15px;">elk</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/fcm/" style="font-size: 12.5px;">fcm</a> <a href="/tags/firebase/" style="font-size: 12.5px;">firebase</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/ios/" style="font-size: 17.5px;">ios</a> <a href="/tags/kotlin/" style="font-size: 15px;">kotlin</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/letsencrypt/" style="font-size: 10px;">letsencrypt</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/naver/" style="font-size: 12.5px;">naver</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/node/" style="font-size: 12.5px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/slack/" style="font-size: 10px;">slack</a> <a href="/tags/sse/" style="font-size: 10px;">sse</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/tip/" style="font-size: 10px;">tip</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/uitableview/" style="font-size: 10px;">uitableview</a> <a href="/tags/view/" style="font-size: 10px;">view</a>
     </div>
 </div>
-
     
     
 </div>
@@ -576,16 +582,17 @@ Kibana의 로그를 보고 싶다면 아래의 명령어를 입력하시면 됩�
                 </a>
                 <p class="is-size-7">
                 &copy; 2020 Hyunsub Kim&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
                 </p>
             </div>
             <div class="level-end">
             
                 <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
                 
-                
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
                         
                         <i class="fab fa-creative-commons"></i>
                         
@@ -593,7 +600,7 @@ Kibana의 로그를 보고 싶다면 아래의 명령어를 입력하시면 됩�
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
                         
                         <i class="fab fa-creative-commons-by"></i>
                         
@@ -601,7 +608,7 @@ Kibana의 로그를 보고 싶다면 아래의 명령어를 입력하시면 됩�
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
                         
                         <i class="fab fa-github"></i>
                         
@@ -619,22 +626,37 @@ Kibana의 로그를 보고 싶다면 아래의 명령어를 입력하시면 됩�
 <script>moment.locale("en");</script>
 
 
-    
-    
-    
-    <script src="/js/animation.js"></script>
-    
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'https://blog.hyunsub.kim',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
 
-    
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
-    <script src="/js/gallery.js" defer></script>
-    
 
-    
-    
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
 
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
@@ -654,21 +676,29 @@ Kibana의 로그를 보고 싶다면 아래의 명령어를 입력하시면 됩�
 </script>
 
 
-    
-    
 <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     MathJax.Hub.Config({
-        'HTML-CSS': {matchFontHeight: false},
-        SVG: {matchFontHeight: false},
-        CommonHTML: {matchFontHeight: false}
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
     });
 });
 </script>
 
-    
-    
 
 <a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
@@ -676,24 +706,16 @@ document.addEventListener('DOMContentLoaded', function () {
 <script src="/js/back-to-top.js" defer></script>
 
 
-    
-    
 
-    
-    
-    
-    
 
-    
-    
-    
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
-    <script src="/js/clipboard.js" defer></script>
-    
 
-    
+
+
+
+
+
+
+
 
 
 <script src="/js/main.js" defer></script>
@@ -702,7 +724,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">

@@ -1,5 +1,5 @@
 <% post = post(); %>
-<div class="card">
+<div class="card<%= index ? ' card-preview' : '' %>">
     <% if (has_thumbnail(post)) { %>
     <div class="card-image">
         <%- index ? '<a href="' + url_for(post.link ? post.link : post.path) + '"' : '<span ' %> class="image is-7by1">
@@ -62,7 +62,7 @@
             </div>
         </div>
         <% } %>
-        <% if (index && post.excerpt) { %>
+        <!-- <% if (index && post.excerpt) { %>
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
@@ -70,7 +70,7 @@
                 </div>
             </div>
         </div>
-        <% } %>
+        <% } %> -->
         <% if (!index && has_config('share.type')) { %>
         <%- _partial('share/' + get_config('share.type')) %>
         <% } %>

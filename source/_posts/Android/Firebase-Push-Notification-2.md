@@ -1,8 +1,7 @@
 ---
 layout: post
-title: Google Firebase를 사용하여 Android(Kotlin)에 푸쉬 알림 보내기 - 서버(Node.js) 편
-date: 2018-01-08 19:34:20 +0900
-updated: 2019-01-02 16:10:38 +0900
+title: Android에 푸쉬 알림 보내기 - 서버편
+date: 2019-01-02 16:10:38 +0900
 description: Template description
 thumbnail: /thumbnails/firebase-cloud-messaging.jpg
 category: 'android'
@@ -13,9 +12,7 @@ tags:
 - fcm
 ---
 
-**Updated - 2019-01-02 16:10:38**
-
-Node.js와 Google Firebase를 사용하여 Android에 푸쉬 알림 보내는 방법을 알아보자 (서버 편)
+Node.js와 Google Firebase를 사용하여 Android에 푸쉬 알림 보내는 방법을 알아보겠습니다 (서버 편)
 
 <!-- more -->
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Server-Sent Event with Nodejs
-date: 2019-11-111 18:31:02 +0900
+date: 2019-11-11 18:31:02 +0900
 description: Template description
 thumbnail: /thumbnails/node-server-sent-event.png
 category: 'server'

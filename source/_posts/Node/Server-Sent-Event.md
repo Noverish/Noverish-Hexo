@@ -1,17 +1,18 @@
 ---
 layout: post
-title: Server-Sent Event with Nodejs
+title: Server-Sent Event
 date: 2019-11-11 18:31:02 +0900
 description: Template description
-thumbnail: /thumbnails/node-server-sent-event.png
-category: 'server'
+thumbnail: /thumbnails/nodejs.png
+category: 'node'
 tags:
 - node
 - sse
 twitter_text: template twitter_text
 ---
 
-Nodejs과 Nginx에서 Sever-Sent Event를 사용하는 법 (with Typescript)
+Nodejs에서 Sever-Sent Event를 사용하는 법을 알아보겠습니다.
+또한 Nginx를 통해 통신할 경우 추가로 해주어야 하는 설정을 알아보겠습니다.
 
 <!-- more -->
 
@@ -36,50 +37,35 @@ $ npm install ssestream
 
 ### 1.2. Server-Side
 
-여기서 10번째 줄에 data에는 string을 넣어도 되고 object를 넣어도 된다.
-ssestream 내부에서 object를 JSON.stringify 함수를 통해 string으로 바꿔준다.
+서버에 아래의 코드를 작성합니다.
 
-index.ts
 ```javascript
 import * as express from 'express';
 import * as SSEStream from 'ssestream';
-import sse from './sse';
 
 const app = express();
 
-function handleSSEStream(stream: SSEStream) {
+app.get('/sse', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  
+  const stream = new SSEStream(req);
+  stream.pipe(res);
+
   setInterval(() => {
     stream.write({
       data: Date.now().toString(),
     });
   }, 100);
-}
-
-app.use('/sse', sse(handleSSEStream));
+});
 
 app.listen(8080);
 ```
 
-sse.ts
-```javascript
-import * as SSEStream from 'ssestream';
-import { Response, Request } from 'express';
-
-export default function (callback: (stream: SSEStream) => void) {
-  return (req: Request, res: Response) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    
-    const stream = new SSEStream(req);
-    stream.pipe(res);
-    
-    callback(stream);
-  }
-}
-```
+여기서 10번째 줄에 data에는 string을 넣어도 되고 object를 넣어도 됩니다.
+ssestream 내부에서 object를 JSON.stringify 함수를 통해 string으로 바꿔줍니다.
 
 ### 1.3. Client-Side
 
-index.html
 ```javascript
 const es = new EventSource('http://localhost:8080/sse');
 es.onmessage = (event) => {
@@ -89,13 +75,13 @@ es.onmessage = (event) => {
 
 # 2. Cookie 전송
 
-1. [Client-Side] EventSource 생성할 때 옵션으로 `{ withCredentials: true }`를 넣어준다.
-2. [Server-Side] Access-Control-Allow-Origin 헤더를 `*`이 아닌 특정 도메인으로 설정한다.
-3. [Server-Side] Access-Control-Allow-Credentials 헤더의 값을 `true`로 해준다.
+1. [Client-Side] EventSource 생성할 때 옵션으로 `{ withCredentials: true }`를 넣어줍니다.
+2. [Server-Side] Access-Control-Allow-Origin 헤더를 `*`이 아닌 특정 도메인으로 설정합니다.
+3. [Server-Side] Access-Control-Allow-Credentials 헤더의 값을 `true`로 해줍니다.
 
 # 3. 각 이벤트마다 ID 부여
 
-서버에서 SSEStream에 write할 때 id를 넣어주면 된다.
+서버에서 SSEStream에 write할 때 id를 넣어주면 됩니다.
 
 ```javascript
 stream.write({
@@ -104,7 +90,7 @@ stream.write({
 });
 ```
 
-클라이언트에서는 event.lastEventId를 통해 접근한다.
+클라이언트에서는 event.lastEventId를 통해 접근합니다.
 
 ```javascript
 es.onmessage = (event) => {
@@ -114,7 +100,7 @@ es.onmessage = (event) => {
 
 # 4. 각 이벤트마다 타입 부여
 
-서버에서 SSEStream에 write할 때 event를 넣어주면 된다.
+서버에서 SSEStream에 write할 때 event를 넣어주면 됩니다.
 
 ```javascript
 stream.write({
@@ -124,7 +110,7 @@ stream.write({
 });
 ```
 
-클라이언트에서는 onmessage가 아닌 addEventListener를 통해 이벤트를 받는다.
+클라이언트에서는 onmessage가 아닌 addEventListener를 통해 이벤트를 받습니다.
 
 ```javascript
 es.addEventListener('event1', (event) => {
@@ -141,7 +127,7 @@ es.addEventListener('event2', (event) => {
 es.close();
 ```
 
-서버에서 Client가 연결을 종료한 것을 알아내려면 아래와 같이 하면 된다.
+서버에서 Client가 연결을 종료한 것을 알아내려면 아래와 같이 하면 됩니다.
 
 ```javascript
 req.socket.on('close', () => {
@@ -149,7 +135,7 @@ req.socket.on('close', () => {
 });
 ```
 
-Server에서도 연결을 종료할 시 위의 콜백함수가 호출되는 한계가 있다.
+Server에서도 연결을 종료할 시 위의 콜백함수가 호출되는 한계가 있습니다.
 
 # 6. Server에서 연결 종료
 
@@ -159,7 +145,7 @@ req.socket.end();
 res.socket.end();
 ```
 
-Client에서 서버가 연결을 종료한 것을 알아내려면 아래와 같이 하면 된다.
+Client에서 서버가 연결을 종료한 것을 알아내려면 아래와 같이 하면 됩니다.
 
 ```javascript
 es.onerror = (event) => {
@@ -170,18 +156,18 @@ es.onerror = (event) => {
 }
 ```
 
-여기서 `es.close()`를 하지 않으면 Client에서 무한정으로 Server에 접속 시도를 하게 된다.
+여기서 `es.close()`를 하지 않으면 Client에서 무한정으로 Server에 접속 시도를 하게 됩니다.
 
 # 7. Nginx를 통해 통신 (proxy_pass를 사용하는 경우)
 
 ```
 proxy_buffering off;
 ```
-를 location block에 추가해주면 된다.
+를 location block에 추가해주면 됩니다.
 
 또는
 
 ```
 X-Accel-Buffering: no
 ```
-를 Server에서 보내는 Response에 헤더로 추가하면 된다.
+를 Server에서 보내는 Response에 헤더로 추가하면 됩니다.

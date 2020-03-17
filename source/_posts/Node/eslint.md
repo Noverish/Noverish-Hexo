@@ -3,7 +3,7 @@ layout: post
 title: ESLint + Typescript
 date: 2020-03-10 18:33:00 +0900
 description: Template description
-thumbnail: /thumbnails/eslint.png
+thumbnail: /thumbnails/eslint.jpg
 category: 'node'
 tags: 
 - node

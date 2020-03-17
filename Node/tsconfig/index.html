@@ -7,24 +7,24 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>ElasticSearch - Index 편 - Hyunsub&#39;s Blog</title>
+<title>tsconfig.json 파헤치기 - Hyunsub&#39;s Blog</title>
 
 
     <meta name="description" content="Template description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ElasticSearch - Index 편">
-<meta property="og:url" content="https://blog.hyunsub.kim/Server/ElasticSearch-Index/index.html">
+<meta property="og:title" content="tsconfig.json 파헤치기">
+<meta property="og:url" content="https://blog.hyunsub.kim/Node/tsconfig/index.html">
 <meta property="og:site_name" content="Hyunsub&#39;s Blog">
 <meta property="og:description" content="Template description">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://blog.hyunsub.kim/thumbnails/elasticsearch.png">
-<meta property="article:published_time" content="2019-04-13T11:06:00.000Z">
-<meta property="article:modified_time" content="2020-03-10T09:25:28.188Z">
+<meta property="og:image" content="https://blog.hyunsub.kim/thumbnails/typescript.png">
+<meta property="article:published_time" content="2019-09-08T09:17:00.000Z">
+<meta property="article:modified_time" content="2020-03-17T09:33:37.535Z">
 <meta property="article:author" content="Hyunsub Kim">
-<meta property="article:tag" content="elk">
-<meta property="article:tag" content="elasticsearch">
+<meta property="article:tag" content="node">
+<meta property="article:tag" content="typescript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.hyunsub.kim/thumbnails/elasticsearch.png">
+<meta name="twitter:image" content="https://blog.hyunsub.kim/thumbnails/typescript.png">
 
 
 
@@ -82,7 +82,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="ElasticSearch - Index 편" height="28">
+                <img src="/images/logo.svg" alt="tsconfig.json 파헤치기" height="28">
             
             </a>
         </div>
@@ -136,7 +136,7 @@
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="/thumbnails/elasticsearch.png" alt="ElasticSearch - Index 편">
+            <img class="thumbnail" src="/thumbnails/typescript.png" alt="tsconfig.json 파헤치기">
         </span>
     </div>
     
@@ -144,17 +144,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-13T11:06:00.000Z">2019-04-13</time>
+                <time class="level-item has-text-grey" datetime="2019-09-08T09:17:00.000Z">2019-09-08</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/server/">server</a>
+                <a class="has-link-grey -link" href="/categories/node/">node</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes read (About 285 words)
+                    2 minutes read (About 250 words)
                 </span>
                 
                 
@@ -163,37 +163,24 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                ElasticSearch - Index 편
+                tsconfig.json 파헤치기
             
         </h1>
         <div class="content">
-            <p>ElasticSearch - Index 편</p>
+            <p>tsconfig.json 파일에는 정말 많은 옵션들이 있습니다. 그 중에 제가 자주 사용하는 옵션들을 설명해 보겠습니다.</p>
 <a id="more"></a>
 
-<h1 id="모든-문서는-6-5-0-버전-기준으로-작성-되었습니다"><a href="#모든-문서는-6-5-0-버전-기준으로-작성-되었습니다" class="headerlink" title="모든 문서는 6.5.0 버전 기준으로 작성 되었습니다."></a>모든 문서는 6.5.0 버전 기준으로 작성 되었습니다.</h1><h1 id="1-Index-만들기"><a href="#1-Index-만들기" class="headerlink" title="1. Index 만들기"></a>1. Index 만들기</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl -XPUT http://localhost:9200/twitter</span></span><br></pre></td></tr></table></figure>
+<h2 id="esModuleInterop"><a href="#esModuleInterop" class="headerlink" title="esModuleInterop"></a>esModuleInterop</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"compilerOptions"</span>: &#123;</span><br><span class="line">    <span class="attr">"esModuleInterop"</span>: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="1-1-Index-이름-규칙"><a href="#1-1-Index-이름-규칙" class="headerlink" title="1.1. Index 이름 규칙"></a>1.1. Index 이름 규칙</h2><ul>
-<li>소문자만 사용 가능</li>
-<li><code>\, /, *, ?, &quot;, &lt;, &gt;, |,</code> <code>(space character), ,, #</code> 사용 불가</li>
-<li>7.0 이전 버전에서는 <code>:</code>을 사용할 수 있지만 그 이후 버전에서는 사용 불가</li>
-<li><code>-, _, +</code>로 시작할 수 없음</li>
-<li><code>.</code> 또는 <code>..</code> 으로 지을 수 없음</li>
-<li>255 바이트 보다 길게 지을 수 없음 (한글 같은 경우는 한 글자에 1 바이트 보다 크므로 지을 수 있는 글자 수는 더 적음)</li>
-</ul>
-<h2 id="1-2-Setting과-함께-Index-만들기"><a href="#1-2-Setting과-함께-Index-만들기" class="headerlink" title="1.2. Setting과 함께 Index 만들기"></a>1.2. Setting과 함께 Index 만들기</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl -XPUT http://localhost:9200/twitter -H <span class="string">"Content-Type:application/json"</span> -d <span class="string">'</span></span></span><br><span class="line">&#123;</span><br><span class="line">  "settings" : &#123;</span><br><span class="line">    "index" : &#123;</span><br><span class="line">      "number_of_shards" : 3, </span><br><span class="line">      "number_of_replicas" : 2 </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">'</span><br></pre></td></tr></table></figure>
+<p>ES6 문법에서는 * 형태로 import 한 것을 함수로 사용할 수 없습니다.
+예를 들어서 다음과 같은 코드는 정상적으로 Javascript로 Transpile 되지만 ES6 문법에 맞지 않는 것이죠.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// before transpile</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> moment <span class="keyword">from</span> <span class="string">'moment'</span>;</span><br><span class="line">moment(); <span class="comment">// ES6 문법에 맞지 않음!</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// after transpile</span></span><br><span class="line"><span class="keyword">const</span> moment = <span class="built_in">require</span>(<span class="string">'moment'</span>);</span><br><span class="line">moment();</span><br></pre></td></tr></table></figure>
 
-<p>다음도 가능합니다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;settings&quot; : &#123;</span><br><span class="line">    &quot;number_of_shards&quot; : 3,</span><br><span class="line">    &quot;number_of_replicas&quot; : 2</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Javascript와의 호환성을 위해 * 형태로 import 해야하는 module들을 default 형태로 import 할 수 있게 해주는 옵션이 esModuleInterop 입니다.
+아래와 같은 방식으로 동작한다고 생각하시면 됩니다.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// before transpile</span></span><br><span class="line"><span class="keyword">import</span> moment <span class="keyword">from</span> <span class="string">'moment'</span>;</span><br><span class="line">moment(); <span class="comment">// ES6 문법에 맞는다!</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// after transpile</span></span><br><span class="line"><span class="keyword">const</span> moment = __importDefault(<span class="built_in">require</span>(<span class="string">'moment'</span>));</span><br><span class="line">moment.default();</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><code>number_of_shards</code>의 기본값은 <code>5</code>입니다.</li>
-<li><code>number_of_replicas</code>의 기본값은 <code>1</code>입니다. (각 primary shard 당 1개의 복사본)</li>
-</ul>
-<h2 id="1-3-Mapping과-함께-Index-만들기"><a href="#1-3-Mapping과-함께-Index-만들기" class="headerlink" title="1.3. Mapping과 함께 Index 만들기"></a>1.3. Mapping과 함께 Index 만들기</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl -XPUT http://localhost:9200/<span class="built_in">test</span> -H <span class="string">"Content-Type:application/json"</span> -d <span class="string">'</span></span></span><br><span class="line">&#123;</span><br><span class="line">  "mappings" : &#123;</span><br><span class="line">    "_doc" : &#123;</span><br><span class="line">      "properties" : &#123;</span><br><span class="line">        "field1" : &#123; "type" : "text" &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">'</span><br></pre></td></tr></table></figure>
-
-<h2 id="1-4-별명-Aliase-과-함께-Index-만들기"><a href="#1-4-별명-Aliase-과-함께-Index-만들기" class="headerlink" title="1.4. 별명 (Aliase)과 함께 Index 만들기"></a>1.4. 별명 (Aliase)과 함께 Index 만들기</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl -XPUT http://localhost:9200/<span class="built_in">test</span> -H <span class="string">"Content-Type:application/json"</span> -d <span class="string">'</span></span></span><br><span class="line">&#123;</span><br><span class="line">  "aliases" : &#123;</span><br><span class="line">    "alias_1" : &#123;&#125;,</span><br><span class="line">    "alias_2" : &#123;</span><br><span class="line">      "filter" : &#123;</span><br><span class="line">        "term" : &#123;"user" : "kimchy" &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      "routing" : "kimchy"</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">'</span><br></pre></td></tr></table></figure>
-
-<p>위의 Setting, Mapping, Aliase는 동시에 설정 할 수 있습니다.</p>
+<p>위에서 __importDefault 함수가 default가 있는 module은 그대로 두고 없는 module은 default로 바꾸어주는 역할을 합니다.</p>
 
         </div>
         
@@ -201,7 +188,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/elasticsearch/" rel="tag">elasticsearch</a>, <a class="has-link-grey -link" href="/tags/elk/" rel="tag">elk</a>
+                    <a class="has-link-grey -link" href="/tags/node/" rel="tag">node</a>, <a class="has-link-grey -link" href="/tags/typescript/" rel="tag">typescript</a>
                 </div>
             </div>
         </div>
@@ -219,16 +206,16 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/Server/ELK-1/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/Node/Server-Sent-Event/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Elastic Stack - Elasticsearch 편</span>
+                <span class="level-item">Server-Sent Event</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/Android/Firebase-Push-Notification-2/">
-                <span class="level-item">Android에 푸쉬 알림 보내기 - 서버편</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/Server/Cloud9/">
+                <span class="level-item">AWS Cloud9 사용해보기</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -517,7 +504,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="ElasticSearch - Index 편" height="28">
+                    <img src="/images/logo.svg" alt="tsconfig.json 파헤치기" height="28">
                 
                 </a>
                 <p class="is-size-7">

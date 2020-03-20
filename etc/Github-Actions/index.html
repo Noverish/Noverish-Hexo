@@ -7,18 +7,24 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Tag: chrome - Hyunsub&#39;s Blog</title>
+<title>Github Actions 사용해보기 - Hyunsub&#39;s Blog</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hyunsub&#39;s Blog">
-<meta property="og:url" content="https://blog.hyunsub.kim/tags/chrome/index.html">
+    <meta name="description" content="Template description">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Github Actions 사용해보기">
+<meta property="og:url" content="https://blog.hyunsub.kim/etc/Github-Actions/index.html">
 <meta property="og:site_name" content="Hyunsub&#39;s Blog">
+<meta property="og:description" content="Template description">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://blog.hyunsub.kim/images/og_image.png">
+<meta property="og:image" content="https://blog.hyunsub.kim/thumbnails/github-actions.jpg">
+<meta property="article:published_time" content="2020-03-20T11:09:00.000Z">
+<meta property="article:modified_time" content="2020-03-20T11:09:13.406Z">
 <meta property="article:author" content="Hyunsub Kim">
+<meta property="article:tag" content="github">
+<meta property="article:tag" content="CI&#x2F;CD">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.hyunsub.kim/images/og_image.png">
+<meta name="twitter:image" content="https://blog.hyunsub.kim/thumbnails/github-actions.jpg">
 
 
 
@@ -76,7 +82,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Hyunsub&#39;s Blog" height="28">
+                <img src="/images/logo.svg" alt="Github Actions 사용해보기" height="28">
             
             </a>
         </div>
@@ -125,31 +131,20 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-9-desktop is-9-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">chrome</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    
-<div class="card card-preview">
+                <div class="column is-8-tablet is-9-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
     
     <div class="card-image">
-        <a href="/etc/Chrome-Custom-Search-Engine/" class="image is-7by1">
-            <img class="thumbnail" src="/thumbnails/chrome.jpg" alt="크롬에서 나만의 검색 엔진 사용하기">
-        </a>
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/thumbnails/github-actions.jpg" alt="Github Actions 사용해보기">
+        </span>
     </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-04-13T11:48:00.000Z">2018-04-13</time>
+                <time class="level-item has-text-grey" datetime="2020-03-20T11:09:00.000Z">2020-03-20</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/etc/">etc</a>
@@ -159,7 +154,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes read (About 359 words)
+                    7 minutes read (About 1022 words)
                 </span>
                 
                 
@@ -168,22 +163,73 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/etc/Chrome-Custom-Search-Engine/">크롬에서 나만의 검색 엔진 사용하기</a>
+                Github Actions 사용해보기
             
         </h1>
         <div class="content">
-            <p>크롬에서 나만의 검색 엔진 사용하기</p>
+            <p>Github Actions를 이용하여 개발 PC에서 배포 서버까지 빌드, 테스트, 배포를 자동화 해보자!</p>
+<a id="more"></a>
+
+<h2 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h2><p><a href="#1-첫-Workflow-생성하기">1. 첫 Workflow 생성하기</a><br><a href="#2-다양한-Actions">2. 다양한 Action들</a>    </p>
+<hr>
+<p>일반적으로 개발을 할 때 개발 PC가 있고 배포 타겟이 있습니다.</p>
+<ul>
+<li>Android, iOS는 Play Store, App Store에 배포합니다.</li>
+<li>Web Frontend, Backend는 Heroku, AWS, 또는 본인 소유의 서버에 배포합니다.</li>
+<li>Docker 이미지는 Docker hub, NPM Package는 NPM Repository에 배포합니다.</li>
+</ul>
+<p>우리는 배포를 할 때 테스트 하고 빌드 하고 패키징 해서 배포 타겟에 넣어줍니다.
+그런데 이 것도 하루 이틀이지 업데이트 할 때 마다 하면 매우 귀찮은 작업입니다.</p>
+<p>그래서 Github Actions를 통해 이를 자동화 할 수 있는 법을 알아보겠습니다.</p>
+<h1 id="1-첫-Workflow-생성하기"><a href="#1-첫-Workflow-생성하기" class="headerlink" title="1. 첫 Workflow 생성하기"></a>1. 첫 Workflow 생성하기</h1><p>Workflow는 프로젝트를 빌드, 테스트, 패키징, 릴리즈, 배포 등을 할 수 있게 자동화된 프로세스 입니다.</p>
+<p>단순히 Github Repository에서 <code>.github/workflows/main.yml</code> 파일을 생성해서 아래의 내용을 넣어주시면 됩니다.</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Main</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">master</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">hello:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">echo</span> <span class="string">"hello, world!"</span></span><br></pre></td></tr></table></figure>
+
+<p>위의 내용을 잠깐 설명해 보겠습니다.</p>
+<ul>
+<li>1번째 줄: Workflow의 이름입니다. 이 부분이 생략되면 파일 이름을 Workflow 이름으로 사용합니다.</li>
+<li>3번째 줄: master 브랜치에 푸시가 들어왔을 때 이 Workflow를 실행시키겠다는 의미입니다.</li>
+<li>9번째 줄: hello라는 job을 명시 합니다.</li>
+<li>10번째 줄: 이 job은 최신 ubuntu 머신에서 실행된다는 것을 나타냅니다.</li>
+<li>12번째 줄: 머신에서 실행할 명령어를 명시합니다.</li>
+</ul>
+<hr>
+<p><img src="./001.png" alt="001.png"></p>
+<p>위의 내용을 입력한 뒤 master 브랜치에 푸시 하신 후 위와 같이 Actions 탭에 들어갑니다.</p>
+<hr>
+<p><img src="./002.png" alt="002.png"></p>
+<p>그러면 위와 같이 방금 실행된 Workflow가 있을 텐데 클릭해서 들어갑니다.</p>
+<hr>
+<p><img src="./003.png" alt="003.png"></p>
+<p>위와 같이 <code>hello, world</code>를 띄운 것을 확인 할 수 있습니다!</p>
+<h1 id="2-다양한-Action들"><a href="#2-다양한-Action들" class="headerlink" title="2. 다양한 Action들"></a>2. 다양한 Action들</h1><p>빌드, 테스트, 배포를 자동화 하기 위해서는
+코드도 다운로드 받아야 하고 환경도 세팅해줘야 하고 배포 대상에 로그인 해서 파일을 푸쉬까지 해야 하는데
+run에서 명령어를 명시 하는 것 만으로는 많이 부족하고 너무 복잡해 집니다.</p>
+<p>따라서 action이라는 것을 사용할 수 있는데 이는 다른 사람들이 만들어 놓은 명령어들의 모음입니다.</p>
+<p>아래의 workflow 파일은 제가 사용하고 있는 workflow 입니다.</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Main</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">master</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">check:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v1</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/setup-node@v1</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/cache@v1</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">path:</span> <span class="string">node_modules</span></span><br><span class="line">        <span class="attr">key:</span> <span class="string">$&#123;&#123;</span> <span class="string">runner.OS</span> <span class="string">&#125;&#125;-node-$&#123;&#123;</span> <span class="string">hashFiles('**/package-lock.json')</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">npm</span> <span class="string">run</span> <span class="string">eslint</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">docker</span> <span class="string">build</span> <span class="string">-t</span> <span class="string">hyunflix/frontend</span> <span class="string">.</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">docker</span> <span class="string">save</span> <span class="string">-o</span> <span class="string">hyunflix-frontend.tar</span> <span class="string">hyunflix/frontend</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">appleboy/scp-action@master</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">host:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.HOST</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">username:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.USERNAME</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">password:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.PASSWORD</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">port:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.PORT</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">source:</span> <span class="string">"hyunflix-frontend.tar"</span></span><br><span class="line">        <span class="attr">target:</span> <span class="string">"/home/hyunsub/environment/hyunflix"</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">appleboy/ssh-action@master</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">host:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.HOST</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">username:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.USERNAME</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">password:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.PASSWORD</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">port:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.PORT</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">script:</span> <span class="string">cd</span> <span class="string">~/environment/hyunflix;</span> <span class="string">docker</span> <span class="string">load</span> <span class="string">-i</span> <span class="string">hyunflix-frontend.tar;</span> <span class="string">docker-compose</span> <span class="string">up</span> <span class="string">-d</span> <span class="string">--force-recreate</span> <span class="string">frontend;</span> <span class="string">rm</span> <span class="string">hyunflix-frontend.tar</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>13번째 줄: 이 Workflow가 있는 Repository를 Runner에 다운로드 합니다.</li>
+<li>14번째 줄: 현재 Runner에 node 환경을 세팅합니다.</li>
+<li>15번째 줄: node_modules를 캐싱해서 다음에 이 Workflow가 실행될 때 node_modules 폴더를 캐시에서 다운로드 받아 <code>npm install</code> 명령어가 더 빨리 실행될 수 있게 합니다.</li>
+<li>16번째 줄: 캐싱의 키는 runner의 OS와 package-lock.json 파일의 해시 값입니다. 이 두 값이 같다면 node_modules 폴더의 내용도 같다고 보는 것입니다.</li>
+<li>23번째 줄: source의 파일을 target에 scp로 보내는 action 입니다. 보안이 필요한 값들은 Repository 설정에서 Secret에 저장해 두었습니다.</li>
+<li>31번째 줄: 원격 서버에 ssh로 접속해서 script의 내용을 실행하는 action입니다.</li>
+</ul>
+
         </div>
         
-        <!-- 
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/etc/Chrome-Custom-Search-Engine/#more">Read More</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/CI-CD/" rel="tag">CI/CD</a>, <a class="has-link-grey -link" href="/tags/github/" rel="tag">github</a>
                 </div>
             </div>
         </div>
-         -->
+        
+        <!--  -->
         
     </div>
 </div>
@@ -192,7 +238,19 @@
 
 
 
-
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/Server/Code-Server/">
+                <span class="level-item">VSCode 원격으로 사용해보기</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -475,7 +533,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Hyunsub&#39;s Blog" height="28">
+                    <img src="/images/logo.svg" alt="Github Actions 사용해보기" height="28">
                 
                 </a>
                 <p class="is-size-7">

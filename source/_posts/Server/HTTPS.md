@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 내 서버에 Https 적용하기 (Nginx)
+title: 내 서버에 Https 적용하기 (with Nginx)
 date: 2020-03-10 19:36:00 +0900
 description: Template description
 thumbnail: /thumbnails/letsencrypt.jpg
@@ -22,7 +22,8 @@ twitter_text: template twitter_text
 [3. Nginx 설정](#3-Nginx-설정)    
 [4. 인증서 갱신](#4-인증서-갱신)    
 [5. Crontab에 등록](#5-Crontab에-등록)    
-[6. 내 사이트 테스트](#6-내-사이트-테스트)
+[6. 내 사이트 테스트](#6-내-사이트-테스트)    
+[7. \[부록\] 사설 인증서 만들기](#7-부록-사설-인증서-만들기)
 
 ---
 
@@ -142,3 +143,31 @@ Crontab에 다음과 같이 추가해서 주기적으로 인증서 갱신을 하
 아래 사이트를 통해 내 사이트의 HTTPS를 검증할 수 있습니다.
 
 <https://www.ssllabs.com/ssltest/>
+
+# 7. [부록] 사설 인증서 만들기
+
+```bash
+$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout selfsigned.key -out selfsigned.crt
+
+Generating a RSA private key
+.......+++++
+.....................................................................................................+++++
+writing new private key to 'selfsigned.key'
+-----
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:KR
+State or Province Name (full name) [Some-State]:Seoul
+Locality Name (eg, city) []:Seoul
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:Hyunsub
+Organizational Unit Name (eg, section) []:Hyunsub
+Common Name (e.g. server FQDN or YOUR name) []:home.hyunsub.kim
+Email Address []:embrapers263@gmail.com
+```
+
+여기서 생성된 `selfsigned.crt`는 인증서, `selfsigned.key`는 개인 키입니다.

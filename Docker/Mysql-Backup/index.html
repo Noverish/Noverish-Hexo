@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://blog.hyunsub.kim/thumbnails/docker.png">
 <meta property="article:published_time" content="2020-03-21T00:18:00.000Z">
-<meta property="article:modified_time" content="2020-03-20T11:28:30.932Z">
+<meta property="article:modified_time" content="2020-03-25T09:21:46.826Z">
 <meta property="article:author" content="Hyunsub Kim">
 <meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
@@ -173,7 +173,7 @@
 
 <h3 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.7</span>-alpine</span><br><span class="line"></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /root</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apk update</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Timezone</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apk add --no-cache tzdata</span></span><br><span class="line"><span class="keyword">ENV</span> TZ=<span class="string">'Asia/Seoul'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># aws cli</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> pip3 install awscli --upgrade --user</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> ln -s /root/.<span class="built_in">local</span>/bin/aws /usr/bin/aws</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># mysqldump</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apk add --no-cache mysql-client</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># crontab</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> <span class="built_in">echo</span> <span class="string">"0 6 * * * /root/backup.sh"</span> | crontab -</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ADD</span><span class="bash"> backup.sh /root/backup.sh</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> chmod +x /root/backup.sh</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="bash"> crond -f -L /dev/stdout</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="Docker-Command"><a href="#Docker-Command" class="headerlink" title="Docker Command"></a>Docker Command</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker run -d \</span></span><br><span class="line">    -e MYSQL_USER=[MySQL User] \</span><br><span class="line">    -e MYSQL_PASSWORD=[MySQL Password] \</span><br><span class="line">    -e MYSQL_DATABASE=[MySQL Database]</span><br><span class="line">    -e AWS_ACCESS_KEY_ID=[AWS Access Key ID] \</span><br><span class="line">    -e AWS_SECRET_ACCESS_KEY=[AWS Secret Access Key] \</span><br><span class="line">    -e AWS_DEFAULT_REGION=[AWS Default Region] \</span><br><span class="line">    mysql-backup</span><br></pre></td></tr></table></figure>
+<h3 id="Docker-Command"><a href="#Docker-Command" class="headerlink" title="Docker Command"></a>Docker Command</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker run -d \</span></span><br><span class="line">    -e MYSQL_USER=[MySQL User] \</span><br><span class="line">    -e MYSQL_PASSWORD=[MySQL Password] \</span><br><span class="line">    -e MYSQL_DATABASE=[MySQL Database] \</span><br><span class="line">    -e AWS_ACCESS_KEY_ID=[AWS Access Key ID] \</span><br><span class="line">    -e AWS_SECRET_ACCESS_KEY=[AWS Secret Access Key] \</span><br><span class="line">    -e AWS_DEFAULT_REGION=[AWS Default Region] \</span><br><span class="line">    mysql-backup</span><br></pre></td></tr></table></figure>
         </div>
         
         <div class="level is-size-7 is-uppercase">
@@ -196,6 +196,13 @@
 
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/etc/Circle-CI/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">CircleCI 사용해보기</span>
+            </a>
+        </div>
         
         
         <div class="level-end">
@@ -255,7 +262,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            28
+                            29
                         </p>
                     </a>
                 </div>
@@ -279,7 +286,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            40
+                            41
                         </p>
                     </a>
                 </div>
@@ -436,7 +443,7 @@
                 <span class="level-item">etc</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">4</span>
+                <span class="level-item tag">5</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/ios/">
@@ -481,7 +488,7 @@
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/CI-CD/" style="font-size: 10px;">CI/CD</a> <a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/apex/" style="font-size: 10px;">apex</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/aws/" style="font-size: 12.5px;">aws</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/cloud9/" style="font-size: 10px;">cloud9</a> <a href="/tags/clova-speech-synthesis/" style="font-size: 10px;">clova-speech-synthesis</a> <a href="/tags/cocoapod/" style="font-size: 10px;">cocoapod</a> <a href="/tags/code-server/" style="font-size: 10px;">code-server</a> <a href="/tags/docker/" style="font-size: 12.5px;">docker</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/ecs/" style="font-size: 10px;">ecs</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/elk/" style="font-size: 15px;">elk</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/fcm/" style="font-size: 12.5px;">fcm</a> <a href="/tags/firebase/" style="font-size: 12.5px;">firebase</a> <a href="/tags/github/" style="font-size: 12.5px;">github</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/ios/" style="font-size: 17.5px;">ios</a> <a href="/tags/kotlin/" style="font-size: 15px;">kotlin</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/letsencrypt/" style="font-size: 10px;">letsencrypt</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/naver/" style="font-size: 12.5px;">naver</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/node/" style="font-size: 15px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/server/" style="font-size: 10px;">server</a> <a href="/tags/slack/" style="font-size: 10px;">slack</a> <a href="/tags/sse/" style="font-size: 10px;">sse</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/tip/" style="font-size: 10px;">tip</a> <a href="/tags/typescript/" style="font-size: 12.5px;">typescript</a> <a href="/tags/uitableview/" style="font-size: 10px;">uitableview</a> <a href="/tags/view/" style="font-size: 10px;">view</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a>
+        <a href="/tags/CI-CD/" style="font-size: 12.5px;">CI/CD</a> <a href="/tags/CircleCI/" style="font-size: 10px;">CircleCI</a> <a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/apex/" style="font-size: 10px;">apex</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/aws/" style="font-size: 12.5px;">aws</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/cloud9/" style="font-size: 10px;">cloud9</a> <a href="/tags/clova-speech-synthesis/" style="font-size: 10px;">clova-speech-synthesis</a> <a href="/tags/cocoapod/" style="font-size: 10px;">cocoapod</a> <a href="/tags/code-server/" style="font-size: 10px;">code-server</a> <a href="/tags/docker/" style="font-size: 12.5px;">docker</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/ecs/" style="font-size: 10px;">ecs</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/elk/" style="font-size: 15px;">elk</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/fcm/" style="font-size: 12.5px;">fcm</a> <a href="/tags/firebase/" style="font-size: 12.5px;">firebase</a> <a href="/tags/github/" style="font-size: 12.5px;">github</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/ios/" style="font-size: 17.5px;">ios</a> <a href="/tags/kotlin/" style="font-size: 15px;">kotlin</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/letsencrypt/" style="font-size: 10px;">letsencrypt</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/naver/" style="font-size: 12.5px;">naver</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/node/" style="font-size: 15px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/server/" style="font-size: 10px;">server</a> <a href="/tags/slack/" style="font-size: 10px;">slack</a> <a href="/tags/sse/" style="font-size: 10px;">sse</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/tip/" style="font-size: 10px;">tip</a> <a href="/tags/typescript/" style="font-size: 12.5px;">typescript</a> <a href="/tags/uitableview/" style="font-size: 10px;">uitableview</a> <a href="/tags/view/" style="font-size: 10px;">view</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a>
     </div>
 </div>
     

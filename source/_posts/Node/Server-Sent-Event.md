@@ -41,7 +41,7 @@ $ npm install ssestream
 
 ```javascript
 import * as express from 'express';
-import * as SSEStream from 'ssestream';
+import SSEStream from 'ssestream';
 
 const app = express();
 

@@ -423,6 +423,13 @@ img.thumbnail {
 .content blockquote footer strong + cite {
   margin-left: 0.5em;
 }
+.content img {
+  border: 1px solid #bbb;
+  box-shadow: 3px 3px 5px #888;
+}
+.content .caption {
+  display: none;
+}
 /* ---------------------------------
  *        Fix code highlight
  * --------------------------------- */

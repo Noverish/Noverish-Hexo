@@ -134,6 +134,7 @@ twitter_text: template twitter_text
 - [Bitwarden](https://github.com/bitwarden/desktop) - 비밀정보 관리 도구
 - [PreMID](https://github.com/PreMID/Presences) - 온라인 프로그램 스토어 ([사이트](https://premid.app/store))
 - [Terminus](https://github.com/Eugeny/terminus) - 터미널 프로그램
+- [YouTube-Music](https://github.com/steve228uk/YouTube-Music) - Youtube Music Mac Desktop Application
 
 ## Util Libraries
 

@@ -53,6 +53,7 @@ twitter_text: template twitter_text
 - [Monaco Editor](https://github.com/microsoft/monaco-editor) - 코드 에디터 ([데모](https://microsoft.github.io/monaco-editor/index.html))
 - [JW Player](https://github.com/jwplayer/jwplayer) - 동영상 플레이어 ([데모](https://www.jwplayer.com/developers/web-player-demos/))
 - [Cleave.js](https://github.com/nosir/cleave.js) - 입력 마스크 라이브러리 ([데모](https://nosir.github.io/cleave.js/))
+- [Docusaurus](https://github.com/facebook/docusaurus) - 문서 사이트 생성기
 
 ## UI Components
 
@@ -90,20 +91,27 @@ twitter_text: template twitter_text
 
 ## Study
 
-- [Tech Interview Handbook](https://github.com/yangshun/tech-interview-handbook) - 기술면접을 대비한 질문 답변 리스트
 - [What the f*ck JavaScript?](https://github.com/denysdovhan/wtfjs) - Javascript에 재밌고 이해하기 힘든 예제 모음
 - [주니어 개발자 채용정보](https://github.com/jojoldu/junior-recruit-scheduler) - 한국 주니어 개발자를 위한 취업 정보 모음
 - [33 Javascript Concepts](https://github.com/leonardomso/33-js-concepts) - Javascript 개발자가 알아야하는 Javascript 컨셉 모음
 - [Front-End Checklist](https://github.com/thedaviddias/Front-End-Checklist) - 프론트엔드 개발할 때 체크해야 하는 사항 모음
 - [AWS Serverless Workshop](https://github.com/aws-samples/aws-serverless-workshops) - AWS를 이용한 Serverless 아키텍처 예제 모음
-- [30 Seconds of Interviews](https://github.com/30-seconds/30-seconds-of-interviews) - 30초 만에 볼 수 있는 기술면접 대비 질문/답변 모음
 - [Node.js Best Practices](https://github.com/goldbergyoni/nodebestpractices) - Node.js 좋은 예제 모음
 - [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript) - 클린코드를 만들기 위한 예제 모음 ([한국어판](https://github.com/qkraudghgh/clean-code-javascript-ko))
 - [React Developer Roadmap](https://github.com/adam-golab/react-developer-roadmap) - React 개발자의 로드맵
 - [Didact](https://github.com/pomber/didact) - Step-by-step 으로 나만의 리액트를 만들 수 있음
-- [취업 준비를 위해 공부한 내용을 정리하는 레포](https://github.com/qkraudghgh/coding-interview)
-- [Technical Interview Guidelines for Beginners](https://github.com/JaeYeopHan/Interview_Question_for_Beginner)
-- [신입 개발자 전공 지식 & 기술 면접 백과사전](https://github.com/gyoogle/tech-interview-for-developer)
+- [Front-End Developer Handbook 2019](https://github.com/FrontendMasters/front-end-handbook-2019) ([사이트](https://frontendmasters.com/books/front-end-handbook/2019))
+
+#### Study - 면접 대비
+
+- [\[영어\] Tech Interview Handbook](https://github.com/yangshun/tech-interview-handbook) ([사이트](https://yangshun.github.io/tech-interview-handbook/introduction))
+- [\[영어\] 30 Seconds of Interviews](https://github.com/30-seconds/30-seconds-of-interviews) ([사이트](https://30secondsofinterviews.org/))
+- [\[영어\] Front End Interview Handbook](https://github.com/yangshun/front-end-interview-handbook) ([한국어판](https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Korean/README.md))
+- [\[한글\] 취업 준비를 위해 공부한 내용을 정리하는 레포](https://github.com/qkraudghgh/coding-interview)
+- [\[한글\] Technical Interview Guidelines for Beginners](https://github.com/JaeYeopHan/Interview_Question_for_Beginner)
+- [\[한글\] 신입 개발자 전공 지식 & 기술 면접 백과사전](https://github.com/gyoogle/tech-interview-for-developer)
+- [\[한글\] 기술 냉장고](https://github.com/GimunLee/tech-refrigerator)
+
 
 ## Visulization
 

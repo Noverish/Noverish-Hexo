@@ -154,9 +154,9 @@ widgets:
             Twitter:
                 icon: fab fa-twitter
                 url: 'https://twitter.com/noverish'
-            Discord:
+            RocketPunch:
                 icon: fab fa-discord
-                url: 'https://discord.com'
+                url: 'https://www.rocketpunch.com/@embrapers263'
     -
         # Widget name
         type: toc

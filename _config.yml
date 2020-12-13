@@ -79,8 +79,8 @@ theme: icarus
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:Noverish/Blog.git
-  branch: master
+  repo: git@github.com:Noverish/Noverish-Hexo.git
+  branch: gh-pages
   message:
 
 marked:

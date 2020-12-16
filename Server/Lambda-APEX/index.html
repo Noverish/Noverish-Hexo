@@ -1,201 +1,24 @@
-<!DOCTYPE html>
-<html  lang="en">
-<head>
-    <meta charset="utf-8" />
-
-<meta name="generator" content="Hexo 4.2.0" />
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
-<title>APEX로 AWS Lambda 개발하기 - Hyunsub&#39;s Blog</title>
-
-
-    <meta name="description" content="Template description">
-<meta property="og:type" content="article">
-<meta property="og:title" content="APEX로 AWS Lambda 개발하기">
-<meta property="og:url" content="https://blog.hyunsub.kim/Server/Lambda-APEX/index.html">
-<meta property="og:site_name" content="Hyunsub&#39;s Blog">
-<meta property="og:description" content="Template description">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://blog.hyunsub.kim/thumbnails/apex.jpg">
-<meta property="article:published_time" content="2018-02-27T07:10:24.000Z">
-<meta property="article:modified_time" content="2020-12-13T09:41:07.496Z">
-<meta property="article:author" content="Hyunsub Kim">
-<meta property="article:tag" content="aws">
-<meta property="article:tag" content="lambda">
-<meta property="article:tag" content="apex">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.hyunsub.kim/thumbnails/apex.jpg">
-
-
-
-
-
-
-
-<link rel="icon" href="/images/favicon.svg">
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
-
-
-    
-    
-<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
-
-    
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
-
-    
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
-
-    
-    
-    
-    
-<link rel="stylesheet" href="/css/back-to-top.css">
-
-    
-    
-    
-    
-    
-    
-    
-    <link rel="stylesheet" href="/css/progressbar.css">
-<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
-    
-    
-    
-
-
-<link rel="stylesheet" href="/css/style.css">
-</head>
-<body class="is-2-column">
-    <nav class="navbar navbar-main">
-    <div class="container">
-        <div class="navbar-brand is-flex-center">
-            <a class="navbar-item navbar-logo" href="/">
-            
-                <img src="/images/logo.svg" alt="APEX로 AWS Lambda 개발하기" height="28">
-            
-            </a>
-        </div>
-        <div class="navbar-menu">
-            
-            <div class="navbar-start">
-                
-                <a class="navbar-item"
-                href="/">Home</a>
-                
-                <a class="navbar-item"
-                href="/archives">Archives</a>
-                
-                <a class="navbar-item"
-                href="/categories">Categories</a>
-                
-                <a class="navbar-item"
-                href="/tags">Tags</a>
-                
-                <a class="navbar-item"
-                href="/about">About</a>
-                
-            </div>
-            
-            <div class="navbar-end">
-                
-                    
-                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/Noverish/Noverish-Hexo">
-                        
-                        <i class="fab fa-github"></i>
-                        
-                    </a>
-                    
-                
-                
-                
-                <a class="navbar-item search" title="Search" href="javascript:;">
-                    <i class="fas fa-search"></i>
-                </a>
-                
-            </div>
-        </div>
-    </div>
-</nav>
-    
-    <section class="section">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-8-tablet is-9-desktop is-9-widescreen has-order-2 column-main">
-<div class="card">
-    
-    <div class="card-image">
-        <span  class="image is-7by1">
-            <img class="thumbnail" src="/thumbnails/apex.jpg" alt="APEX로 AWS Lambda 개발하기">
-        </span>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-02-27T07:10:24.000Z">2018-02-27</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/server/">server</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    12 minutes read (About 1791 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                APEX로 AWS Lambda 개발하기
-            
-        </h1>
-        <div class="content">
-            <p>APEX라는 프로그램을 사용하여 AWS Lambda를 개발해 서버리스 백엔드를 구현해 보자.</p>
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>APEX로 AWS Lambda 개발하기 - Hyunsub&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hyunsub Kim"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hyunsub Kim"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta description="APEX라는 프로그램을 사용하여 AWS Lambda를 개발해 서버리스 백엔드를 구현해 보자."><meta property="og:type" content="blog"><meta property="og:title" content="APEX로 AWS Lambda 개발하기"><meta property="og:url" content="https://blog.hyunsub.kim/Server/Lambda-APEX/"><meta property="og:site_name" content="Hyunsub&#039;s Blog"><meta property="og:description" content="APEX라는 프로그램을 사용하여 AWS Lambda를 개발해 서버리스 백엔드를 구현해 보자."><meta property="og:locale" content="ko_KR"><meta property="og:image" content="https://blog.hyunsub.kim/covers/apex.jpg"><meta property="article:published_time" content="2018-02-27T07:10:24.000Z"><meta property="article:author" content="Hyunsub Kim"><meta property="article:tag" content="aws"><meta property="article:tag" content="lambda"><meta property="article:tag" content="apex"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/covers/apex.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.hyunsub.kim/Server/Lambda-APEX/"},"headline":"Hyunsub's Blog","image":["https://blog.hyunsub.kim/covers/apex.jpg"],"datePublished":"2018-02-27T07:10:24.000Z","author":{"@type":"Person","name":"Hyunsub Kim"},"description":"APEX라는 프로그램을 사용하여 AWS Lambda를 개발해 서버리스 백엔드를 구현해 보자."}</script><link rel="canonical" href="https://blog.hyunsub.kim/Server/Lambda-APEX/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/assets/logo.svg" alt="Hyunsub&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/Noverish/Blog"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="검색" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-9-desktop is-9-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/covers/apex.jpg" alt="APEX로 AWS Lambda 개발하기"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2018-02-27T07:10:24.000Z" title="2018-02-27T07:10:24.000Z">2018-02-27</time>&nbsp;게시 됨</span><span class="level-item"><a class="link-muted" href="/categories/Server/">Server</a></span><span class="level-item">12분안에 읽기 (약 1791 단어)</span></div></div><h1 class="title is-3 is-size-4-mobile">APEX로 AWS Lambda 개발하기</h1><div class="content"><p>APEX라는 프로그램을 사용하여 AWS Lambda를 개발해 서버리스 백엔드를 구현해 보자.</p>
 <a id="more"></a>
 
-<h3 id="1-APEX-설치하기"><a href="#1-APEX-설치하기" class="headerlink" title="1. APEX 설치하기"></a>1. APEX 설치하기</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sudo sh</span></span><br></pre></td></tr></table></figure>
+<h1 id="1-APEX-설치하기"><a href="#1-APEX-설치하기" class="headerlink" title="1. APEX 설치하기"></a>1. APEX 설치하기</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sudo sh</span></span><br></pre></td></tr></table></figure>
 
 <p>macOS, Linux, or OpenBSD에서 위의 명령어를 실행시키면 자동으로 설치가 됩니다.</p>
 <hr>
-<h3 id="2-APEX에-AWS-권한-부여하기"><a href="#2-APEX에-AWS-권한-부여하기" class="headerlink" title="2. APEX에 AWS 권한 부여하기"></a>2. APEX에 AWS 권한 부여하기</h3><p>APEX가 Lambda 함수들을 만들고/지우고/수정하고/실행할 수 있도록 권한을 줘야 합니다.</p>
+<h1 id="2-APEX에-AWS-권한-부여하기"><a href="#2-APEX에-AWS-권한-부여하기" class="headerlink" title="2. APEX에 AWS 권한 부여하기"></a>2. APEX에 AWS 권한 부여하기</h1><p>APEX가 Lambda 함수들을 만들고/지우고/수정하고/실행할 수 있도록 권한을 줘야 합니다.</p>
 <p>먼저 APEX가 필요로 하는 권한을 묶은 커스텀 정책을 만듭시다.</p>
-<p><img src="001.jpg" alt="image001">
-<a href="https://console.aws.amazon.com/iam/home#/policies">AWS IAM</a>로 들어가서 <code>정책 생성</code>을 누릅니다.</p>
+<p><img src="001.jpg" alt="image001"><br><a target="_blank" rel="noopener" href="https://console.aws.amazon.com/iam/home#/policies">AWS IAM</a>로 들어가서 <code>정책 생성</code>을 누릅니다.</p>
 <hr>
-<p><img src="002.jpg" alt="image002">
-json편집기에 들어가서 밑의 json을 그대로 입력해 줍시다.
-그리고 <code>Review Policy</code>를 누릅니다.</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"Version"</span>: <span class="string">"2012-10-17"</span>,</span><br><span class="line">  <span class="attr">"Statement"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"Action"</span>: [</span><br><span class="line">        <span class="string">"iam:CreateRole"</span>,</span><br><span class="line">        <span class="string">"iam:CreatePolicy"</span>,</span><br><span class="line">        <span class="string">"iam:AttachRolePolicy"</span>,</span><br><span class="line">        <span class="string">"iam:PassRole"</span>,</span><br><span class="line">        <span class="string">"lambda:GetFunction"</span>,</span><br><span class="line">        <span class="string">"lambda:ListFunctions"</span>,</span><br><span class="line">        <span class="string">"lambda:CreateFunction"</span>,</span><br><span class="line">        <span class="string">"lambda:DeleteFunction"</span>,</span><br><span class="line">        <span class="string">"lambda:InvokeFunction"</span>,</span><br><span class="line">        <span class="string">"lambda:GetFunctionConfiguration"</span>,</span><br><span class="line">        <span class="string">"lambda:UpdateFunctionConfiguration"</span>,</span><br><span class="line">        <span class="string">"lambda:UpdateFunctionCode"</span>,</span><br><span class="line">        <span class="string">"lambda:CreateAlias"</span>,</span><br><span class="line">        <span class="string">"lambda:UpdateAlias"</span>,</span><br><span class="line">        <span class="string">"lambda:GetAlias"</span>,</span><br><span class="line">        <span class="string">"lambda:ListAliases"</span>,</span><br><span class="line">        <span class="string">"lambda:ListVersionsByFunction"</span>,</span><br><span class="line">        <span class="string">"logs:FilterLogEvents"</span>,</span><br><span class="line">        <span class="string">"cloudwatch:GetMetricStatistics"</span></span><br><span class="line">      ],</span><br><span class="line">      <span class="attr">"Effect"</span>: <span class="string">"Allow"</span>,</span><br><span class="line">      <span class="attr">"Resource"</span>: <span class="string">"*"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="002.jpg" alt="image002"><br>json편집기에 들어가서 밑의 json을 그대로 입력해 줍시다.<br>그리고 <code>Review Policy</code>를 누릅니다.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;Version&quot;</span>: <span class="string">&quot;2012-10-17&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;Statement&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;Action&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;iam:CreateRole&quot;</span>,</span><br><span class="line">        <span class="string">&quot;iam:CreatePolicy&quot;</span>,</span><br><span class="line">        <span class="string">&quot;iam:AttachRolePolicy&quot;</span>,</span><br><span class="line">        <span class="string">&quot;iam:PassRole&quot;</span>,</span><br><span class="line">        <span class="string">&quot;lambda:GetFunction&quot;</span>,</span><br><span class="line">        <span class="string">&quot;lambda:ListFunctions&quot;</span>,</span><br><span class="line">        <span class="string">&quot;lambda:CreateFunction&quot;</span>,</span><br><span class="line">        <span class="string">&quot;lambda:DeleteFunction&quot;</span>,</span><br><span class="line">        <span class="string">&quot;lambda:InvokeFunction&quot;</span>,</span><br><span class="line">        <span class="string">&quot;lambda:GetFunctionConfiguration&quot;</span>,</span><br><span class="line">        <span class="string">&quot;lambda:UpdateFunctionConfiguration&quot;</span>,</span><br><span class="line">        <span class="string">&quot;lambda:UpdateFunctionCode&quot;</span>,</span><br><span class="line">        <span class="string">&quot;lambda:CreateAlias&quot;</span>,</span><br><span class="line">        <span class="string">&quot;lambda:UpdateAlias&quot;</span>,</span><br><span class="line">        <span class="string">&quot;lambda:GetAlias&quot;</span>,</span><br><span class="line">        <span class="string">&quot;lambda:ListAliases&quot;</span>,</span><br><span class="line">        <span class="string">&quot;lambda:ListVersionsByFunction&quot;</span>,</span><br><span class="line">        <span class="string">&quot;logs:FilterLogEvents&quot;</span>,</span><br><span class="line">        <span class="string">&quot;cloudwatch:GetMetricStatistics&quot;</span></span><br><span class="line">      ],</span><br><span class="line">      <span class="attr">&quot;Effect&quot;</span>: <span class="string">&quot;Allow&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;Resource&quot;</span>: <span class="string">&quot;*&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
-<p><img src="003.jpg" alt="image003">
-정책의 이름을 <code>APEX-Policy</code>로 짓고 정책을 생성합니다.</p>
+<p><img src="003.jpg" alt="image003"><br>정책의 이름을 <code>APEX-Policy</code>로 짓고 정책을 생성합니다.</p>
 <hr>
-<p><img src="004.jpg" alt="image004">
-그리고 사용자에 이 정책을 추가합니다.
-기존 사용자에 정책을 추가하셔도 되고, 새로운 사용자를 만드셔도 됩니다.
-사용자를 만들거나 정책을 추가하는 방법은 설명하지 않도록 하겠습니다.</p>
+<p><img src="004.jpg" alt="image004"><br>그리고 사용자에 이 정책을 추가합니다.<br>기존 사용자에 정책을 추가하셔도 되고, 새로운 사용자를 만드셔도 됩니다.<br>사용자를 만들거나 정책을 추가하는 방법은 설명하지 않도록 하겠습니다.</p>
 <hr>
-<p>아까 정책을 추가한 사용자의 정보들을 아래의 위치한 파일에 추가합니다.
-<code>access_key_id</code>와 <code>secret_access_key</code>는 따로 설명하지 않도록 하겠습니다.</p>
+<p>아까 정책을 추가한 사용자의 정보들을 아래의 위치한 파일에 추가합니다.<br><code>access_key_id</code>와 <code>secret_access_key</code>는 따로 설명하지 않도록 하겠습니다.</p>
 <p>~/.aws/credentials</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[example]</span><br><span class="line">aws_access_key_id &#x3D; xxxxxxxx</span><br><span class="line">aws_secret_access_key &#x3D; xxxxxxxxxxxxxxxxxxxxxxxx</span><br></pre></td></tr></table></figure>
 
@@ -203,22 +26,19 @@ json편집기에 들어가서 밑의 json을 그대로 입력해 줍시다.
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[profile example]</span><br><span class="line">output &#x3D; json</span><br><span class="line">region &#x3D; ap-northeast-2</span><br></pre></td></tr></table></figure>
 
 <hr>
-<p>아래의 명령어를 실행합니다.
-위에서 입력한 프로필 이름에 따라 아래의 <code>example</code>을 바꿔주시기 바랍니다.
-이렇게 하면 APEX가 <code>AWS_PROFILE</code> 환경변수에 접근해서 AWS 기능들을 사용할 수 있게 됩니다.</p>
+<p>아래의 명령어를 실행합니다.<br>위에서 입력한 프로필 이름에 따라 아래의 <code>example</code>을 바꿔주시기 바랍니다.<br>이렇게 하면 APEX가 <code>AWS_PROFILE</code> 환경변수에 접근해서 AWS 기능들을 사용할 수 있게 됩니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> AWS_PROFILE=example</span></span><br></pre></td></tr></table></figure>
 
 <hr>
-<h3 id="3-프로젝트-만들기"><a href="#3-프로젝트-만들기" class="headerlink" title="3. 프로젝트 만들기"></a>3. 프로젝트 만들기</h3><p>프로젝트 폴더를 생성하고 <code>apex init</code>를 입력하고 프로젝트의 이름과 설명을 입력하면 프로젝트가 생성됩니다.</p>
+<h1 id="3-프로젝트-만들기"><a href="#3-프로젝트-만들기" class="headerlink" title="3. 프로젝트 만들기"></a>3. 프로젝트 만들기</h1><p>프로젝트 폴더를 생성하고 <code>apex init</code>를 입력하고 프로젝트의 이름과 설명을 입력하면 프로젝트가 생성됩니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mkdir APEX-Test &amp;&amp; <span class="built_in">cd</span> APEX-Test</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> apex init</span></span><br></pre></td></tr></table></figure>
 
 <img src="005.jpg" width="500">
 
 <p>프로젝트의 이름은 <code>APEX-Test</code><br>프로젝트의 설명은 그냥 <code>.</code>으로 했습니다.</p>
-<p><img src="006.jpg" alt="image006">
-이제 프로젝트 폴더를 보면 json파일과 hello라는 함수가 만들어져 있습니다.</p>
+<p><img src="006.jpg" alt="image006"><br>이제 프로젝트 폴더를 보면 json파일과 hello라는 함수가 만들어져 있습니다.</p>
 <hr>
-<h3 id="4-프로젝트-구조-살펴보기"><a href="#4-프로젝트-구조-살펴보기" class="headerlink" title="4. 프로젝트 구조 살펴보기"></a>4. 프로젝트 구조 살펴보기</h3><h4 id="project-json"><a href="#project-json" class="headerlink" title="project.json"></a>project.json</h4><p>먼저 <code>project.json</code> 파일을 살펴보겠습니다.</p>
+<h1 id="4-프로젝트-구조-살펴보기"><a href="#4-프로젝트-구조-살펴보기" class="headerlink" title="4. 프로젝트 구조 살펴보기"></a>4. 프로젝트 구조 살펴보기</h1><h2 id="project-json"><a href="#project-json" class="headerlink" title="project.json"></a>project.json</h2><p>먼저 <code>project.json</code> 파일을 살펴보겠습니다.</p>
 <p><img src="008.jpg" alt="image008"></p>
 <p><code>role</code>은 배포할 함수의 role을 지정해 줍니다. 이 role은 APEX가 자동으로 생성한 것입니다.<br><code>memory</code>는 배포할 함수의 메모리 제한(MB)를 나타냅니다.<br><code>timeout</code>은 배포할 함수의 시간 제한(s)을 나타냅니다.<br><code>environment</code>는 배포할 함수에서 사용할 환경 변수를 나타냅니다.<br>위의 값들을 자유롭게 본인의 프로젝트에 맞게 변경하시면 됩니다.<br>이 밖에도 다양한 field들이 있습니다.</p>
 <p>APEX에서는</p>
@@ -227,9 +47,9 @@ json편집기에 들어가서 밑의 json을 그대로 입력해 줍시다.
 <li>각각의 함수 폴더 안에 <code>function.json</code>을 넣어서 함수 마다 다른 환경을 만들어 줄 수 있는 기능</li>
 </ol>
 <p>등 을 제공하고 있습니다.</p>
-<p>자세한 정보는 <a href="http://apex.run/#structuring-projects">프로젝트 구조 (영문)</a>를 참고해 주세요</p>
+<p>자세한 정보는 <a target="_blank" rel="noopener" href="http://apex.run/#structuring-projects">프로젝트 구조 (영문)</a>를 참고해 주세요</p>
 <hr>
-<h4 id="폴더-구조"><a href="#폴더-구조" class="headerlink" title="폴더 구조"></a>폴더 구조</h4><p><img src="006.jpg" alt="image006"></p>
+<h2 id="폴더-구조"><a href="#폴더-구조" class="headerlink" title="폴더 구조"></a>폴더 구조</h2><p><img src="006.jpg" alt="image006"></p>
 <p>모든 함수는 <code>functions</code> 폴더안에 존재해야합니다.<br><code>functions</code> 폴더 밖에 만들어 둔 파일이나 폴더들은 APEX 에서는 무시합니다.</p>
 <p><code>functions</code> 폴더의 바로 sub폴더들의 이름이 람다 함수의 이름이 됩니다.<br>특별한 설정을 하지 않는 이상 sub 폴더 안의 <code>index.js</code>가 람다 함수의 실행 파일이 됩니다.<br>각각의 sub 폴더 안에서는 밖에 있는 파일에 접근 할 수 없습니다.<br>함수를 배포 할 때에는 sub 폴더 안의 파일들만을 묶어서 배포하기 때문입니다.    </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">project.json</span><br><span class="line"></span><br><span class="line">package.json</span><br><span class="line">node_modules</span><br><span class="line">└── ...</span><br><span class="line"></span><br><span class="line">fun0</span><br><span class="line">└── index.js</span><br><span class="line"></span><br><span class="line">functions</span><br><span class="line">├── global.js</span><br><span class="line">├── fun1</span><br><span class="line">│    ├── index.js</span><br><span class="line">│    ├── package.json</span><br><span class="line">│    └── node_modules</span><br><span class="line">│         └── ...</span><br><span class="line">└── fun2</span><br><span class="line">     ├── asdf.js</span><br><span class="line">     └── index.js</span><br></pre></td></tr></table></figure>
@@ -243,538 +63,73 @@ json편집기에 들어가서 밑의 json을 그대로 입력해 줍시다.
 <li><code>fun2</code> 에서는 <code>global.js</code>에 접근할 수 없습니다.</li>
 <li><code>fun2</code> 에서는 모든 <code>node_mudules</code>에 접근할 수 없습니다.</li>
 </ol>
-<p>만약에 모든 함수에 공통적으로 사용하고 싶은 npm module이 있어도
-모든 함수 각각의 폴더 안에 <code>node_mudules</code>를 넣어야 합니다!</p>
+<p>만약에 모든 함수에 공통적으로 사용하고 싶은 npm module이 있어도<br>모든 함수 각각의 폴더 안에 <code>node_mudules</code>를 넣어야 합니다!</p>
 <p>이를 해결 하기 위한 방법중에 하나는 <code>WebPack</code>을 사용하는 것인데 다음 시간에 알려드리도록 하겠습니다.</p>
 <hr>
-<h3 id="5-함수-생성하기"><a href="#5-함수-생성하기" class="headerlink" title="5. 함수 생성하기"></a>5. 함수 생성하기</h3><p>그냥 단순하게 functions에 폴더 하나 만들어 주고 그 안에 index.js 파일을 만들어 주시면 됩니다.</p>
+<h1 id="5-함수-생성하기"><a href="#5-함수-생성하기" class="headerlink" title="5. 함수 생성하기"></a>5. 함수 생성하기</h1><p>그냥 단순하게 functions에 폴더 하나 만들어 주고 그 안에 index.js 파일을 만들어 주시면 됩니다.</p>
 <p><img src="009.jpg" alt="image009"></p>
-<p>예시로 <code>test</code> 폴더를 만들고 그 안에 <code>index.js</code> 파일을 만들어서 test라는 함수를 만들었습니다.
-<code>index.js</code>에는 아래의 코드를 넣었습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'test1234'</span>)</span><br><span class="line">exports.handle = <span class="function"><span class="keyword">function</span>(<span class="params">e, ctx, cb</span>) </span>&#123;</span><br><span class="line">  cb(<span class="literal">null</span>, &#123; <span class="attr">test</span>: <span class="string">'test'</span> &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>예시로 <code>test</code> 폴더를 만들고 그 안에 <code>index.js</code> 파일을 만들어서 test라는 함수를 만들었습니다.<br><code>index.js</code>에는 아래의 코드를 넣었습니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;test1234&#x27;</span>)</span><br><span class="line"><span class="built_in">exports</span>.handle = <span class="function"><span class="keyword">function</span>(<span class="params">e, ctx, cb</span>) </span>&#123;</span><br><span class="line">  cb(<span class="literal">null</span>, &#123; <span class="attr">test</span>: <span class="string">&#x27;test&#x27;</span> &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>기본적인 람다 코드 작성법이나 설명은 하지 않도록 하겠습니다.</p>
 <hr>
-<h3 id="6-함수-배포하고-실행하기"><a href="#6-함수-배포하고-실행하기" class="headerlink" title="6. 함수 배포하고 실행하기"></a>6. 함수 배포하고 실행하기</h3><p><code>apex deploy</code>는 functions 폴더에 있는 함수들을 모두 배포하는 작업을 합니다.<br><code>apex deploy {name}</code>처럼 특정 한 함수만 배포 할 수도 있고,<br><code>apex deploy prefix*</code>, <code>apex deploy *suffix</code>처럼 <code>*</code>을 사용하여 특정 접두어나 접미어를 가진 함수들만 배포 할 수도 있습니다.    </p>
-<p><code>apex invoke {name}</code>은 {name}이란 이름을 가진 함수를 실행하는 작업을 합니다.    </p>
-<p><img src="010.jpg" alt="image010">
-아까 만들었던 test 함수를 배포하고 실행한 결과입니다.<br><a href="https://ap-northeast-2.console.aws.amazon.com/lambda/home?region=ap-northeast-2#/functions">AWS Lambda Console</a>
-에 들어가보시면 <code>APEX-Test_test</code>라는 함수가 만들어 진 것을 볼 수 있습니다.</p>
+<h1 id="6-함수-배포하고-실행하기"><a href="#6-함수-배포하고-실행하기" class="headerlink" title="6. 함수 배포하고 실행하기"></a>6. 함수 배포하고 실행하기</h1><p><code>apex deploy</code>는 functions 폴더에 있는 함수들을 모두 배포하는 작업을 합니다.<br><code>apex deploy &#123;name&#125;</code>처럼 특정 한 함수만 배포 할 수도 있고,<br><code>apex deploy prefix*</code>, <code>apex deploy *suffix</code>처럼 <code>*</code>을 사용하여 특정 접두어나 접미어를 가진 함수들만 배포 할 수도 있습니다.    </p>
+<p><code>apex invoke &#123;name&#125;</code>은 {name}이란 이름을 가진 함수를 실행하는 작업을 합니다.    </p>
+<p><img src="010.jpg" alt="image010"><br>아까 만들었던 test 함수를 배포하고 실행한 결과입니다.<br><a target="_blank" rel="noopener" href="https://ap-northeast-2.console.aws.amazon.com/lambda/home?region=ap-northeast-2#/functions">AWS Lambda Console</a><br>에 들어가보시면 <code>APEX-Test_test</code>라는 함수가 만들어 진 것을 볼 수 있습니다.</p>
 <hr>
-<p><img src="011.jpg" alt="image011">
-<code>apex logs {name}</code>를 통해 함수의 로그를 확인 할 수 있습니다.<br>우리가 만들었던 <code>test</code>함수에서 콘솔에 출력했던 <code>test1234</code>를 확인 할 수 있습니다.<br>이 명령어를 통해서 <code>apex invoke</code>를 통해 실행된 것의 로그만 확인 할 수 있는 것이 아니라
-모든 로그를 확인할 수 있습니다.</p>
-<p>log 명령어는 최근 5분 안에 발생했던 로그만 보여줍니다.
-더 오래된 명령어를 보고 싶거나 다른 기능의 설명은
-<a href="http://apex.run/#viewing-log-output">여기</a>에 있습니다.</p>
-
-        </div>
-        
-        <div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/apex/" rel="tag">apex</a>, <a class="has-link-grey -link" href="/tags/aws/" rel="tag">aws</a>, <a class="has-link-grey -link" href="/tags/lambda/" rel="tag">lambda</a>
-                </div>
-            </div>
-        </div>
-        
-        <!--  -->
-        
-    </div>
-</div>
-
-
-
-
-
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/etc/Chrome-Custom-Search-Engine/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">크롬에서 나만의 검색 엔진 사용하기</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/Server/ECS-AutoScaling/">
-                <span class="level-item">EC2 Container Service(ECS) 사용하기 + AutoScaling</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
-
-
-</div>
-                
-
-
-
-
-<div class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-1 column-left ">
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <nav class="level">
-            <div class="level-item has-text-centered" style="flex-shrink: 1">
-                <div>
-                    
-                    <figure class="image is-128x128 has-mb-6">
-                        <img class="is-rounded" src="/images/profile.jpg" alt="Hyunsub Kim">
-                    </figure>
-                    
-                    <p class="is-size-4 is-block">
-                        Hyunsub Kim
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-block">
-                        (noverish)
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
-                        <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Seoul, Korea</span>
-                    </p>
-                    
-                </div>
-            </div>
-        </nav>
-        <nav class="level is-mobile">
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        Posts
-                    </p>
-                    <a href="/archives">
-                        <p class="title has-text-weight-normal">
-                            32
-                        </p>
-                    </a>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        Categories
-                    </p>
-                    <a href="/categories">
-                        <p class="title has-text-weight-normal">
-                            7
-                        </p>
-                    </a>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        Tags
-                    </p>
-                    <a href="/tags">
-                        <p class="title has-text-weight-normal">
-                            44
-                        </p>
-                    </a>
-                </div>
-            </div>
-        </nav>
-        
-        <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/noverish" target="_blank" rel="noopener">
-                Follow</a>
-        </div>
-        
-        
-        
-        <div class="level is-mobile">
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Home" href="https://hyunsub.kim">
-                
-                <i class="fas fa-home"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Github" href="https://github.com/noverish">
-                
-                <i class="fab fa-github"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Facebook" href="https://facebook.com/profile.php?id=100008644627377">
-                
-                <i class="fab fa-facebook"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Twitter" href="https://twitter.com/noverish">
-                
-                <i class="fab fa-twitter"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="RocketPunch" href="https://www.rocketpunch.com/@embrapers263">
-                
-                <i class="fab fa-discord"></i>
-                
-            </a>
-            
-        </div>
-        
-    </div>
-</div>
-    
-        
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                Categories
-            </h3>
-            <ul class="menu-list">
-            <li>
-        <a class="level is-marginless" href="/categories/android/">
-            <span class="level-start">
-                <span class="level-item">android</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">3</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/docker/">
-            <span class="level-start">
-                <span class="level-item">docker</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/etc/">
-            <span class="level-start">
-                <span class="level-item">etc</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">6</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/ios/">
-            <span class="level-start">
-                <span class="level-item">ios</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">4</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/node/">
-            <span class="level-start">
-                <span class="level-item">node</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">4</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/server/">
-            <span class="level-start">
-                <span class="level-item">server</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">9</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/swift/">
-            <span class="level-start">
-                <span class="level-item">swift</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">3</span>
-            </span>
-        </a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            Links
-        </h3>
-        <ul class="menu-list">
-        
-            <li>
-                <a class="level is-mobile" href="http://hyunsub.kim" target="_blank" rel="noopener">
-                    <span class="level-left">
-                        <span class="level-item">Résumé</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">hyunsub.kim</span>
-                    </span>
-                </a>
-            </li>
-        
-            <li>
-                <a class="level is-mobile" href="https://github.com/noverish" target="_blank" rel="noopener">
-                    <span class="level-left">
-                        <span class="level-item">Github</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">github.com</span>
-                    </span>
-                </a>
-            </li>
-        
-            <li>
-                <a class="level is-mobile" href="https://facebook.com/profile.php?id=100008644627377" target="_blank" rel="noopener">
-                    <span class="level-left">
-                        <span class="level-item">Facebook</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">facebook.com</span>
-                    </span>
-                </a>
-            </li>
-        
-            <li>
-                <a class="level is-mobile" href="https://twitter.com/noverish" target="_blank" rel="noopener">
-                    <span class="level-left">
-                        <span class="level-item">Twitter</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">twitter.com</span>
-                    </span>
-                </a>
-            </li>
-        
-            <li>
-                <a class="level is-mobile" href="https://discord.com" target="_blank" rel="noopener">
-                    <span class="level-left">
-                        <span class="level-item">Discord</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">discord.com</span>
-                    </span>
-                </a>
-            </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-
-    
-        <div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            Tag Cloud
-        </h3>
-        <a href="/tags/CI-CD/" style="font-size: 12px;">CI/CD</a> <a href="/tags/CircleCI/" style="font-size: 10px;">CircleCI</a> <a href="/tags/android/" style="font-size: 14px;">android</a> <a href="/tags/apex/" style="font-size: 10px;">apex</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/aws/" style="font-size: 12px;">aws</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/cloud9/" style="font-size: 10px;">cloud9</a> <a href="/tags/clova-speech-synthesis/" style="font-size: 10px;">clova-speech-synthesis</a> <a href="/tags/cocoapod/" style="font-size: 10px;">cocoapod</a> <a href="/tags/code-server/" style="font-size: 10px;">code-server</a> <a href="/tags/docker/" style="font-size: 14px;">docker</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/ecs/" style="font-size: 10px;">ecs</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/elk/" style="font-size: 14px;">elk</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/fcm/" style="font-size: 12px;">fcm</a> <a href="/tags/firebase/" style="font-size: 12px;">firebase</a> <a href="/tags/github/" style="font-size: 12px;">github</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/ios/" style="font-size: 18px;">ios</a> <a href="/tags/kotlin/" style="font-size: 14px;">kotlin</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/letsencrypt/" style="font-size: 10px;">letsencrypt</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/morgan/" style="font-size: 10px;">morgan</a> <a href="/tags/naver/" style="font-size: 12px;">naver</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/node/" style="font-size: 16px;">node</a> <a href="/tags/npm/" style="font-size: 12px;">npm</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/server/" style="font-size: 10px;">server</a> <a href="/tags/slack/" style="font-size: 10px;">slack</a> <a href="/tags/sse/" style="font-size: 10px;">sse</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/tip/" style="font-size: 10px;">tip</a> <a href="/tags/typescript/" style="font-size: 12px;">typescript</a> <a href="/tags/uitableview/" style="font-size: 10px;">uitableview</a> <a href="/tags/view/" style="font-size: 10px;">view</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/winston/" style="font-size: 10px;">winston</a>
-    </div>
-</div>
-    
-    
-        <div class="column-right-shadow is-hidden-widescreen ">
-        
-        </div>
-    
-</div>
-
-                
-            </div>
-        </div>
-    </section>
-    <footer class="footer">
-    <div class="container">
-        <div class="level">
-            <div class="level-start has-text-centered-mobile">
-                <a class="footer-logo is-block has-mb-6" href="/">
-                
-                    <img src="/images/logo.svg" alt="APEX로 AWS Lambda 개발하기" height="28">
-                
-                </a>
-                <p class="is-size-7">
-                &copy; 2020 Hyunsub Kim&nbsp;
-                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
-                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
-                
-                </p>
-            </div>
-            <div class="level-end">
-            
-                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
-                        
-                        <i class="fab fa-creative-commons"></i>
-                        
-                    </a>
-                </p>
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
-                        
-                        <i class="fab fa-creative-commons-by"></i>
-                        
-                    </a>
-                </p>
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
-                        
-                        <i class="fab fa-github"></i>
-                        
-                    </a>
-                </p>
-                
-                </div>
-            
-            </div>
-        </div>
-    </div>
-</footer>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
-<script>moment.locale("en");</script>
-
-
-<script>
-var IcarusThemeSettings = {
-    site: {
-        url: 'https://blog.hyunsub.kim',
-        external_link: {"enable":true,"exclude":[]}
-    },
-    article: {
-        highlight: {
-            clipboard: true,
-            fold: 'unfolded'
-        }
-    }
-};
-</script>
-
-
-<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
-
-
-
-
-
-<script src="/js/animation.js"></script>
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
-<script src="/js/gallery.js" defer></script>
-
-
-
-<div id="outdated">
-    <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
-            my browser now </a></p>
-    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        outdatedBrowser({
-            bgColor: '#f25648',
-            color: '#ffffff',
-            lowerThan: 'flex'
-        });
-    });
-</script>
-
-
-<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    MathJax.Hub.Config({
-        'HTML-CSS': {
-            matchFontHeight: false
-        },
-        SVG: {
-            matchFontHeight: false
-        },
-        CommonHTML: {
-            matchFontHeight: false
-        },
-        tex2jax: {
-            inlineMath: [
-                ['$','$'],
-                ['\\(','\\)']
-            ]
-        }
-    });
-});
-</script>
-
-
-<a id="back-to-top" title="Back to Top" href="javascript:;">
-    <i class="fas fa-chevron-up"></i>
-</a>
-<script src="/js/back-to-top.js" defer></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="/js/main.js" defer></script>
-
-    
-    <div class="searchbox ins-search">
-    <div class="searchbox-container ins-search-container">
-        <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
-            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="searchbox-result-wrapper ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-    (function (window) {
-        var INSIGHT_CONFIG = {
-            TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
-                UNTITLED: '(Untitled)',
-            },
-            CONTENT_URL: '/content.json',
+<p><img src="011.jpg" alt="image011"><br><code>apex logs &#123;name&#125;</code>를 통해 함수의 로그를 확인 할 수 있습니다.<br>우리가 만들었던 <code>test</code>함수에서 콘솔에 출력했던 <code>test1234</code>를 확인 할 수 있습니다.<br>이 명령어를 통해서 <code>apex invoke</code>를 통해 실행된 것의 로그만 확인 할 수 있는 것이 아니라<br>모든 로그를 확인할 수 있습니다.</p>
+<p>log 명령어는 최근 5분 안에 발생했던 로그만 보여줍니다.<br>더 오래된 명령어를 보고 싶거나 다른 기능의 설명은<br><a target="_blank" rel="noopener" href="http://apex.run/#viewing-log-output">여기</a>에 있습니다.</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>APEX로 AWS Lambda 개발하기</p><p><a href="https://blog.hyunsub.kim/Server/Lambda-APEX/">https://blog.hyunsub.kim/Server/Lambda-APEX/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Hyunsub Kim</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2018-02-27</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/aws/">aws</a><a class="link-muted mr-2" rel="tag" href="/tags/lambda/">lambda</a><a class="link-muted mr-2" rel="tag" href="/tags/apex/">apex</a></div><div class="sharethis-inline-share-buttons"></div><script src="//platform-api.sharethis.com/js/sharethis.js#property=5fd61d47957af60014171af8&amp;product=inline-share-buttons" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/etc/Chrome-Custom-Search-Engine/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">크롬에서 나만의 검색 엔진 사용하기</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/Server/ECS-AutoScaling/"><span class="level-item">EC2 Container Service(ECS) 사용하기 + AutoScaling</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">댓글</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://blog.hyunsub.kim/Server/Lambda-APEX/';
+            this.page.identifier = '37c8ec179a4a039572a4db325a215e369ef11e21';
         };
-        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-    })(window);
-</script>
-<script src="/js/insight.js" defer></script>
-<link rel="stylesheet" href="/css/search.css">
-<link rel="stylesheet" href="/css/insight.css">
-    
-</body>
-</html>
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'blog-hyunsub' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><div class="column column-left is-4-tablet is-3-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/images/profile.jpg" alt="Hyunsub Kim"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Hyunsub Kim</p><p class="is-size-6 is-block">(noverish)</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Seoul, Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">포스트</p><a href="/archives"><p class="title">32</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">카테고리</p><a href="/categories"><p class="title">7</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">태그</p><a href="/tags"><p class="title">42</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/noverish" target="_blank" rel="noopener">팔로우</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Résumé" href="https://hyunsub.kim"><i class="fas fa-home"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/noverish"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com/profile.php?id=100008644627377"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com/noverish"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="LinkedIn" href="https://www.linkedin.com/in/hyunsub-kim-912a981b2/"><i class="fab fa-linkedin"></i></a></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">카테고리</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Android/"><span class="level-start"><span class="level-item">Android</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/CI-CD/"><span class="level-start"><span class="level-item">CI/CD</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Docker/"><span class="level-start"><span class="level-item">Docker</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Node/"><span class="level-start"><span class="level-item">Node</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/Server/"><span class="level-start"><span class="level-item">Server</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/iOS/"><span class="level-start"><span class="level-item">iOS</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%EA%B8%B0%ED%83%80/"><span class="level-start"><span class="level-item">기타</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">카탈로그</h3><ul class="menu-list"><li><a class="level is-mobile" href="#1-APEX-설치하기"><span class="level-left"><span class="level-item">1. APEX 설치하기</span></span></a></li><li><a class="level is-mobile" href="#2-APEX에-AWS-권한-부여하기"><span class="level-left"><span class="level-item">2. APEX에 AWS 권한 부여하기</span></span></a></li><li><a class="level is-mobile" href="#3-프로젝트-만들기"><span class="level-left"><span class="level-item">3. 프로젝트 만들기</span></span></a></li><li><a class="level is-mobile" href="#4-프로젝트-구조-살펴보기"><span class="level-left"><span class="level-item">4. 프로젝트 구조 살펴보기</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#project-json"><span class="level-left"><span class="level-item">project.json</span></span></a></li><li><a class="level is-mobile" href="#폴더-구조"><span class="level-left"><span class="level-item">폴더 구조</span></span></a></li></ul></li><li><a class="level is-mobile" href="#5-함수-생성하기"><span class="level-left"><span class="level-item">5. 함수 생성하기</span></span></a></li><li><a class="level is-mobile" href="#6-함수-배포하고-실행하기"><span class="level-left"><span class="level-item">6. 함수 배포하고 실행하기</span></span></a></li></ul></div></div><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/assets/logo.svg" alt="Hyunsub&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2020 Hyunsub Kim</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" async></script><script>moment.locale("ko");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="맨 위로" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "이 웹 사이트는 귀하의 경험을 향상시키기 위해 Cookie를 사용합니다.",
+          dismiss: "무시",
+          allow: "허용",
+          deny: "거부",
+          link: "더 알아보기",
+          policy: "Cookie 정책",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="입력 하세요..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"입력 하세요...","untitled":"(제목 없음)","posts":"포스트","pages":"페이지","categories":"카테고리","tags":"태그"});
+        });</script></body></html>

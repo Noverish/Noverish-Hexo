@@ -1,185 +1,15 @@
-<!DOCTYPE html>
-<html  lang="en">
-<head>
-    <meta charset="utf-8" />
-
-<meta name="generator" content="Hexo 4.2.0" />
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
-<title>Elastic Stack - Elasticsearch 편 - Hyunsub&#39;s Blog</title>
-
-
-    <meta name="description" content="Template description">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Elastic Stack - Elasticsearch 편">
-<meta property="og:url" content="https://blog.hyunsub.kim/Server/ELK-1/index.html">
-<meta property="og:site_name" content="Hyunsub&#39;s Blog">
-<meta property="og:description" content="Template description">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://blog.hyunsub.kim/thumbnails/elastic-stack.png">
-<meta property="article:published_time" content="2019-05-12T00:18:00.000Z">
-<meta property="article:modified_time" content="2020-12-13T09:41:07.490Z">
-<meta property="article:author" content="Hyunsub Kim">
-<meta property="article:tag" content="elk">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.hyunsub.kim/thumbnails/elastic-stack.png">
-
-
-
-
-
-
-
-<link rel="icon" href="/images/favicon.svg">
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
-
-
-    
-    
-<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
-
-    
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
-
-    
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
-
-    
-    
-    
-    
-<link rel="stylesheet" href="/css/back-to-top.css">
-
-    
-    
-    
-    
-    
-    
-    
-    <link rel="stylesheet" href="/css/progressbar.css">
-<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
-    
-    
-    
-
-
-<link rel="stylesheet" href="/css/style.css">
-</head>
-<body class="is-2-column">
-    <nav class="navbar navbar-main">
-    <div class="container">
-        <div class="navbar-brand is-flex-center">
-            <a class="navbar-item navbar-logo" href="/">
-            
-                <img src="/images/logo.svg" alt="Elastic Stack - Elasticsearch 편" height="28">
-            
-            </a>
-        </div>
-        <div class="navbar-menu">
-            
-            <div class="navbar-start">
-                
-                <a class="navbar-item"
-                href="/">Home</a>
-                
-                <a class="navbar-item"
-                href="/archives">Archives</a>
-                
-                <a class="navbar-item"
-                href="/categories">Categories</a>
-                
-                <a class="navbar-item"
-                href="/tags">Tags</a>
-                
-                <a class="navbar-item"
-                href="/about">About</a>
-                
-            </div>
-            
-            <div class="navbar-end">
-                
-                    
-                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/Noverish/Noverish-Hexo">
-                        
-                        <i class="fab fa-github"></i>
-                        
-                    </a>
-                    
-                
-                
-                
-                <a class="navbar-item search" title="Search" href="javascript:;">
-                    <i class="fas fa-search"></i>
-                </a>
-                
-            </div>
-        </div>
-    </div>
-</nav>
-    
-    <section class="section">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-8-tablet is-9-desktop is-9-widescreen has-order-2 column-main">
-<div class="card">
-    
-    <div class="card-image">
-        <span  class="image is-7by1">
-            <img class="thumbnail" src="/thumbnails/elastic-stack.png" alt="Elastic Stack - Elasticsearch 편">
-        </span>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-05-12T00:18:00.000Z">2019-05-12</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/server/">server</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    5 minutes read (About 698 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                Elastic Stack - Elasticsearch 편
-            
-        </h1>
-        <div class="content">
-            <p>정형 및 비정형 데이터를 시각화하고 분석하는데 용이한 Elastic Stack을 사용하는 법을 알아보겠습니다.</p>
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Elastic Stack - Elasticsearch 편 - Hyunsub&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hyunsub Kim"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hyunsub Kim"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta description="정형 및 비정형 데이터를 시각화하고 분석하는데 용이한 Elastic Stack을 사용하는 법을 알아보겠습니다."><meta property="og:type" content="blog"><meta property="og:title" content="Elastic Stack - Elasticsearch 편"><meta property="og:url" content="https://blog.hyunsub.kim/Server/ELK-1/"><meta property="og:site_name" content="Hyunsub&#039;s Blog"><meta property="og:description" content="정형 및 비정형 데이터를 시각화하고 분석하는데 용이한 Elastic Stack을 사용하는 법을 알아보겠습니다."><meta property="og:locale" content="ko_KR"><meta property="og:image" content="https://blog.hyunsub.kim/covers/elastic-stack.png"><meta property="article:published_time" content="2019-05-12T00:18:00.000Z"><meta property="article:author" content="Hyunsub Kim"><meta property="article:tag" content="elk"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/covers/elastic-stack.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.hyunsub.kim/Server/ELK-1/"},"headline":"Hyunsub's Blog","image":["https://blog.hyunsub.kim/covers/elastic-stack.png"],"datePublished":"2019-05-12T00:18:00.000Z","author":{"@type":"Person","name":"Hyunsub Kim"},"description":"정형 및 비정형 데이터를 시각화하고 분석하는데 용이한 Elastic Stack을 사용하는 법을 알아보겠습니다."}</script><link rel="canonical" href="https://blog.hyunsub.kim/Server/ELK-1/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/assets/logo.svg" alt="Hyunsub&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/Noverish/Blog"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="검색" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-9-desktop is-9-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/covers/elastic-stack.png" alt="Elastic Stack - Elasticsearch 편"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2019-05-12T00:18:00.000Z" title="2019-05-12T00:18:00.000Z">2019-05-12</time>&nbsp;게시 됨</span><span class="level-item"><a class="link-muted" href="/categories/Server/">Server</a></span><span class="level-item">4분안에 읽기 (약 658 단어)</span></div></div><h1 class="title is-3 is-size-4-mobile">Elastic Stack - Elasticsearch 편</h1><div class="content"><p>정형 및 비정형 데이터를 시각화하고 분석하는데 용이한 Elastic Stack을 사용하는 법을 알아보겠습니다.</p>
 <a id="more"></a>
 
 <p>이 글은 Ubuntu 18.04.2 LTS 사용자를 대상으로 작성했습니다.</p>
-<h2 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h2><p><a href="#1-설치하기">1. 설치하기</a><br><a href="#1-1-Java-설치">1.1. Java 설치</a><br><a href="#1-2-Elasticsearch-설치">1.2. Elasticsearch 설치</a><br><a href="#2-실행하기">2. 실행하기</a><br><a href="#3-기본-사용법">3. 기본 사용법</a>    </p>
-<hr>
 <h1 id="1-설치하기"><a href="#1-설치하기" class="headerlink" title="1. 설치하기"></a>1. 설치하기</h1><h2 id="1-1-Java-설치"><a href="#1-1-Java-설치" class="headerlink" title="1.1. Java 설치"></a>1.1. Java 설치</h2><p>Elasticsearch는 Java를 사용하므로 먼저 Java를 설치하셔야 합니다.</p>
 <p><em>2019년 4월 16일부터 oracle-jdk를 다운로드 받으려면 무조건 License를 가지고 있어야 합니다. 따라서 OpenJDK를 설치하도록 하겠습니다</em></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. OpenJDK를 설치합니다.</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install -y openjdk-8-jre</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install -y openjdk-8-jdk</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 설치가 잘 되었나 확인합니다.</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> javac -version</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> java -version</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="1-2-Elasticsearch-설치"><a href="#1-2-Elasticsearch-설치" class="headerlink" title="1.2. Elasticsearch 설치"></a>1.2. Elasticsearch 설치</h2><h4 id="1-Elasticsearch를-다운로드-받습니다"><a href="#1-Elasticsearch를-다운로드-받습니다" class="headerlink" title="1) Elasticsearch를 다운로드 받습니다."></a>1) Elasticsearch를 다운로드 받습니다.</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.0.deb</span></span><br></pre></td></tr></table></figure>
 
-<p>다른 버전의 설치 링크를 알고 싶으시다면 <a href="https://www.elastic.co/kr/downloads/past-releases">https://www.elastic.co/kr/downloads/past-releases</a>를 방문하시면 됩니다.
-URL의 <code>6.5.0</code> 부분을 원하시는 버전으로 바꾸시면 그 버전이 다운로드 됩니다.</p>
+<p>다른 버전의 설치 링크를 알고 싶으시다면 <a target="_blank" rel="noopener" href="https://www.elastic.co/kr/downloads/past-releases">https://www.elastic.co/kr/downloads/past-releases</a>를 방문하시면 됩니다.<br>URL의 <code>6.5.0</code> 부분을 원하시는 버전으로 바꾸시면 그 버전이 다운로드 됩니다.</p>
 <h4 id="2-dpkg-명령어를-이용해-Elasticsearch를-설치합니다"><a href="#2-dpkg-명령어를-이용해-Elasticsearch를-설치합니다" class="headerlink" title="2) dpkg 명령어를 이용해 Elasticsearch를 설치합니다."></a>2) dpkg 명령어를 이용해 Elasticsearch를 설치합니다.</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo dpkg -i elasticsearch-6.5.0.deb</span></span><br></pre></td></tr></table></figure>
 
 <p>Elasticsearch는 다음과 같은 위치에 설치 됩니다.</p>
@@ -214,534 +44,75 @@ URL의 <code>6.5.0</code> 부분을 원하시는 버전으로 바꾸시면 그 �
 <h4 id="3-서버가-시작-될-때-자동으로-시작되게-설정합니다"><a href="#3-서버가-시작-될-때-자동으로-시작되게-설정합니다" class="headerlink" title="3) 서버가 시작 될 때 자동으로 시작되게 설정합니다."></a>3) 서버가 시작 될 때 자동으로 시작되게 설정합니다.</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl <span class="built_in">enable</span> elasticsearch.service</span></span><br></pre></td></tr></table></figure>
 
 <p><em>4) option : Elasticsearch 삭제 방법</em></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo dpkg --purge elasticsearch</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> find / -name elasticsearch -<span class="built_in">exec</span> rm -r <span class="string">"&#123;&#125;"</span> \;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo dpkg --purge elasticsearch</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> find / -name elasticsearch -<span class="built_in">exec</span> rm -r <span class="string">&quot;&#123;&#125;&quot;</span> \;</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="2-실행하기"><a href="#2-실행하기" class="headerlink" title="2. 실행하기"></a>2. 실행하기</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Elasticsearch 시작 명령어</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo service elasticsearch start</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Elasticsearch 중지 명령어</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo service elasticsearch stop</span></span><br></pre></td></tr></table></figure>
 
-<p>아래의 명령어를 통해 정상적으로 실행이 되었는지 알 수 있습니다.
-Elasticsearch가 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나서 시도해 주시길 바랍니다.</p>
+<p>아래의 명령어를 통해 정상적으로 실행이 되었는지 알 수 있습니다.<br>Elasticsearch가 시작 되는 데 시간이 좀 걸리므로 1분 정도 지나서 시도해 주시길 바랍니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl http://localhost:9200</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="3-데이터-넣기"><a href="#3-데이터-넣기" class="headerlink" title="3. 데이터 넣기"></a>3. 데이터 넣기</h1><p>Elasticsearch에 대한 사용법은 다른 포스트에서 다루기로 하고 우리는 일단 ELK 스택을 실습해 보는 것을 목표로 하므로 일단 데이터를 넣어보는 것만 하겠습니다.</p>
 <h4 id="1-index-만들기"><a href="#1-index-만들기" class="headerlink" title="1) index 만들기"></a>1) index 만들기</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl -XPUT http://localhost:9200/records?pretty</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="2-mapping-넣기"><a href="#2-mapping-넣기" class="headerlink" title="2) mapping 넣기"></a>2) mapping 넣기</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl -XPUT http://localhost:9200/records/_mapping/_doc?pretty -d @mapping.txt -H <span class="string">"Content-Type:application/json"</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="2-mapping-넣기"><a href="#2-mapping-넣기" class="headerlink" title="2) mapping 넣기"></a>2) mapping 넣기</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl -XPUT http://localhost:9200/records/_mapping/_doc?pretty -d @mapping.txt -H <span class="string">&quot;Content-Type:application/json&quot;</span></span></span><br></pre></td></tr></table></figure>
 
 <p><a href="./mapping.txt">mapping.txt</a></p>
-<h4 id="3-document-넣기"><a href="#3-document-넣기" class="headerlink" title="3) document 넣기"></a>3) document 넣기</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl -XPOST http://localhost:9200/records/_doc/_bulk?pretty --data-binary @bulk.txt -H <span class="string">"Content-Type:application/x-ndjson"</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="3-document-넣기"><a href="#3-document-넣기" class="headerlink" title="3) document 넣기"></a>3) document 넣기</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl -XPOST http://localhost:9200/records/_doc/_bulk?pretty --data-binary @bulk.txt -H <span class="string">&quot;Content-Type:application/x-ndjson&quot;</span></span></span><br></pre></td></tr></table></figure>
 
 <p><a href="./bulk.txt">bulk.txt</a></p>
 <hr>
-<p>이로써 우리는 Elasticsearch를 구동하고 거기에 1000개의 상품 판매 목록 데이터를 집어 넣었습니다.
-그러면 다음 포스트에서 Kibana로 이 데이터를 시각화 하는 방법에 대해 알아보도록 하겠습니다.</p>
-
-        </div>
-        
-        <div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/elk/" rel="tag">elk</a>
-                </div>
-            </div>
-        </div>
-        
-        <!--  -->
-        
-    </div>
-</div>
-
-
-
-
-
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/Server/ELK-2/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Elastic Stack - Kibana 편</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/Server/ElasticSearch-Index/">
-                <span class="level-item">ElasticSearch - Index 편</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
-
-
-</div>
-                
-
-
-
-
-<div class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-1 column-left ">
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <nav class="level">
-            <div class="level-item has-text-centered" style="flex-shrink: 1">
-                <div>
-                    
-                    <figure class="image is-128x128 has-mb-6">
-                        <img class="is-rounded" src="/images/profile.jpg" alt="Hyunsub Kim">
-                    </figure>
-                    
-                    <p class="is-size-4 is-block">
-                        Hyunsub Kim
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-block">
-                        (noverish)
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
-                        <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Seoul, Korea</span>
-                    </p>
-                    
-                </div>
-            </div>
-        </nav>
-        <nav class="level is-mobile">
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        Posts
-                    </p>
-                    <a href="/archives">
-                        <p class="title has-text-weight-normal">
-                            32
-                        </p>
-                    </a>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        Categories
-                    </p>
-                    <a href="/categories">
-                        <p class="title has-text-weight-normal">
-                            7
-                        </p>
-                    </a>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        Tags
-                    </p>
-                    <a href="/tags">
-                        <p class="title has-text-weight-normal">
-                            44
-                        </p>
-                    </a>
-                </div>
-            </div>
-        </nav>
-        
-        <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/noverish" target="_blank" rel="noopener">
-                Follow</a>
-        </div>
-        
-        
-        
-        <div class="level is-mobile">
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Home" href="https://hyunsub.kim">
-                
-                <i class="fas fa-home"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Github" href="https://github.com/noverish">
-                
-                <i class="fab fa-github"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Facebook" href="https://facebook.com/profile.php?id=100008644627377">
-                
-                <i class="fab fa-facebook"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Twitter" href="https://twitter.com/noverish">
-                
-                <i class="fab fa-twitter"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="RocketPunch" href="https://www.rocketpunch.com/@embrapers263">
-                
-                <i class="fab fa-discord"></i>
-                
-            </a>
-            
-        </div>
-        
-    </div>
-</div>
-    
-        
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                Categories
-            </h3>
-            <ul class="menu-list">
-            <li>
-        <a class="level is-marginless" href="/categories/android/">
-            <span class="level-start">
-                <span class="level-item">android</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">3</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/docker/">
-            <span class="level-start">
-                <span class="level-item">docker</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/etc/">
-            <span class="level-start">
-                <span class="level-item">etc</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">6</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/ios/">
-            <span class="level-start">
-                <span class="level-item">ios</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">4</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/node/">
-            <span class="level-start">
-                <span class="level-item">node</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">4</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/server/">
-            <span class="level-start">
-                <span class="level-item">server</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">9</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/swift/">
-            <span class="level-start">
-                <span class="level-item">swift</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">3</span>
-            </span>
-        </a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            Links
-        </h3>
-        <ul class="menu-list">
-        
-            <li>
-                <a class="level is-mobile" href="http://hyunsub.kim" target="_blank" rel="noopener">
-                    <span class="level-left">
-                        <span class="level-item">Résumé</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">hyunsub.kim</span>
-                    </span>
-                </a>
-            </li>
-        
-            <li>
-                <a class="level is-mobile" href="https://github.com/noverish" target="_blank" rel="noopener">
-                    <span class="level-left">
-                        <span class="level-item">Github</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">github.com</span>
-                    </span>
-                </a>
-            </li>
-        
-            <li>
-                <a class="level is-mobile" href="https://facebook.com/profile.php?id=100008644627377" target="_blank" rel="noopener">
-                    <span class="level-left">
-                        <span class="level-item">Facebook</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">facebook.com</span>
-                    </span>
-                </a>
-            </li>
-        
-            <li>
-                <a class="level is-mobile" href="https://twitter.com/noverish" target="_blank" rel="noopener">
-                    <span class="level-left">
-                        <span class="level-item">Twitter</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">twitter.com</span>
-                    </span>
-                </a>
-            </li>
-        
-            <li>
-                <a class="level is-mobile" href="https://discord.com" target="_blank" rel="noopener">
-                    <span class="level-left">
-                        <span class="level-item">Discord</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">discord.com</span>
-                    </span>
-                </a>
-            </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-
-    
-        <div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            Tag Cloud
-        </h3>
-        <a href="/tags/CI-CD/" style="font-size: 12px;">CI/CD</a> <a href="/tags/CircleCI/" style="font-size: 10px;">CircleCI</a> <a href="/tags/android/" style="font-size: 14px;">android</a> <a href="/tags/apex/" style="font-size: 10px;">apex</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/aws/" style="font-size: 12px;">aws</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/cloud9/" style="font-size: 10px;">cloud9</a> <a href="/tags/clova-speech-synthesis/" style="font-size: 10px;">clova-speech-synthesis</a> <a href="/tags/cocoapod/" style="font-size: 10px;">cocoapod</a> <a href="/tags/code-server/" style="font-size: 10px;">code-server</a> <a href="/tags/docker/" style="font-size: 14px;">docker</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/ecs/" style="font-size: 10px;">ecs</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/elk/" style="font-size: 14px;">elk</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/fcm/" style="font-size: 12px;">fcm</a> <a href="/tags/firebase/" style="font-size: 12px;">firebase</a> <a href="/tags/github/" style="font-size: 12px;">github</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/ios/" style="font-size: 18px;">ios</a> <a href="/tags/kotlin/" style="font-size: 14px;">kotlin</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/letsencrypt/" style="font-size: 10px;">letsencrypt</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/morgan/" style="font-size: 10px;">morgan</a> <a href="/tags/naver/" style="font-size: 12px;">naver</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/node/" style="font-size: 16px;">node</a> <a href="/tags/npm/" style="font-size: 12px;">npm</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/server/" style="font-size: 10px;">server</a> <a href="/tags/slack/" style="font-size: 10px;">slack</a> <a href="/tags/sse/" style="font-size: 10px;">sse</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/tip/" style="font-size: 10px;">tip</a> <a href="/tags/typescript/" style="font-size: 12px;">typescript</a> <a href="/tags/uitableview/" style="font-size: 10px;">uitableview</a> <a href="/tags/view/" style="font-size: 10px;">view</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/winston/" style="font-size: 10px;">winston</a>
-    </div>
-</div>
-    
-    
-        <div class="column-right-shadow is-hidden-widescreen ">
-        
-        </div>
-    
-</div>
-
-                
-            </div>
-        </div>
-    </section>
-    <footer class="footer">
-    <div class="container">
-        <div class="level">
-            <div class="level-start has-text-centered-mobile">
-                <a class="footer-logo is-block has-mb-6" href="/">
-                
-                    <img src="/images/logo.svg" alt="Elastic Stack - Elasticsearch 편" height="28">
-                
-                </a>
-                <p class="is-size-7">
-                &copy; 2020 Hyunsub Kim&nbsp;
-                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
-                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
-                
-                </p>
-            </div>
-            <div class="level-end">
-            
-                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
-                        
-                        <i class="fab fa-creative-commons"></i>
-                        
-                    </a>
-                </p>
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
-                        
-                        <i class="fab fa-creative-commons-by"></i>
-                        
-                    </a>
-                </p>
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
-                        
-                        <i class="fab fa-github"></i>
-                        
-                    </a>
-                </p>
-                
-                </div>
-            
-            </div>
-        </div>
-    </div>
-</footer>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
-<script>moment.locale("en");</script>
-
-
-<script>
-var IcarusThemeSettings = {
-    site: {
-        url: 'https://blog.hyunsub.kim',
-        external_link: {"enable":true,"exclude":[]}
-    },
-    article: {
-        highlight: {
-            clipboard: true,
-            fold: 'unfolded'
-        }
-    }
-};
-</script>
-
-
-<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
-
-
-
-
-
-<script src="/js/animation.js"></script>
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
-<script src="/js/gallery.js" defer></script>
-
-
-
-<div id="outdated">
-    <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
-            my browser now </a></p>
-    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        outdatedBrowser({
-            bgColor: '#f25648',
-            color: '#ffffff',
-            lowerThan: 'flex'
-        });
-    });
-</script>
-
-
-<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    MathJax.Hub.Config({
-        'HTML-CSS': {
-            matchFontHeight: false
-        },
-        SVG: {
-            matchFontHeight: false
-        },
-        CommonHTML: {
-            matchFontHeight: false
-        },
-        tex2jax: {
-            inlineMath: [
-                ['$','$'],
-                ['\\(','\\)']
-            ]
-        }
-    });
-});
-</script>
-
-
-<a id="back-to-top" title="Back to Top" href="javascript:;">
-    <i class="fas fa-chevron-up"></i>
-</a>
-<script src="/js/back-to-top.js" defer></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="/js/main.js" defer></script>
-
-    
-    <div class="searchbox ins-search">
-    <div class="searchbox-container ins-search-container">
-        <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
-            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="searchbox-result-wrapper ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-    (function (window) {
-        var INSIGHT_CONFIG = {
-            TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
-                UNTITLED: '(Untitled)',
-            },
-            CONTENT_URL: '/content.json',
+<p>이로써 우리는 Elasticsearch를 구동하고 거기에 1000개의 상품 판매 목록 데이터를 집어 넣었습니다.<br>그러면 다음 포스트에서 Kibana로 이 데이터를 시각화 하는 방법에 대해 알아보도록 하겠습니다.</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Elastic Stack - Elasticsearch 편</p><p><a href="https://blog.hyunsub.kim/Server/ELK-1/">https://blog.hyunsub.kim/Server/ELK-1/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Hyunsub Kim</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2019-05-12</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/elk/">elk</a></div><div class="sharethis-inline-share-buttons"></div><script src="//platform-api.sharethis.com/js/sharethis.js#property=5fd61d47957af60014171af8&amp;product=inline-share-buttons" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/Server/ELK-2/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Elastic Stack - Kibana 편</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/Server/ElasticSearch-Index/"><span class="level-item">ElasticSearch - Index 편</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">댓글</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://blog.hyunsub.kim/Server/ELK-1/';
+            this.page.identifier = 'c82f37a4d64b8e64ce7c47cad7aea6630a83fb55';
         };
-        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-    })(window);
-</script>
-<script src="/js/insight.js" defer></script>
-<link rel="stylesheet" href="/css/search.css">
-<link rel="stylesheet" href="/css/insight.css">
-    
-</body>
-</html>
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'blog-hyunsub' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><div class="column column-left is-4-tablet is-3-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/images/profile.jpg" alt="Hyunsub Kim"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Hyunsub Kim</p><p class="is-size-6 is-block">(noverish)</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Seoul, Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">포스트</p><a href="/archives"><p class="title">32</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">카테고리</p><a href="/categories"><p class="title">7</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">태그</p><a href="/tags"><p class="title">42</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/noverish" target="_blank" rel="noopener">팔로우</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Résumé" href="https://hyunsub.kim"><i class="fas fa-home"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/noverish"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com/profile.php?id=100008644627377"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com/noverish"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="LinkedIn" href="https://www.linkedin.com/in/hyunsub-kim-912a981b2/"><i class="fab fa-linkedin"></i></a></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">카테고리</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Android/"><span class="level-start"><span class="level-item">Android</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/CI-CD/"><span class="level-start"><span class="level-item">CI/CD</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Docker/"><span class="level-start"><span class="level-item">Docker</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Node/"><span class="level-start"><span class="level-item">Node</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/Server/"><span class="level-start"><span class="level-item">Server</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/iOS/"><span class="level-start"><span class="level-item">iOS</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%EA%B8%B0%ED%83%80/"><span class="level-start"><span class="level-item">기타</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">카탈로그</h3><ul class="menu-list"><li><a class="level is-mobile" href="#1-설치하기"><span class="level-left"><span class="level-item">1. 설치하기</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#1-1-Java-설치"><span class="level-left"><span class="level-item">1.1. Java 설치</span></span></a></li><li><a class="level is-mobile" href="#1-2-Elasticsearch-설치"><span class="level-left"><span class="level-item">1.2. Elasticsearch 설치</span></span></a></li></ul></li><li><a class="level is-mobile" href="#2-실행하기"><span class="level-left"><span class="level-item">2. 실행하기</span></span></a></li><li><a class="level is-mobile" href="#3-데이터-넣기"><span class="level-left"><span class="level-item">3. 데이터 넣기</span></span></a></li></ul></div></div><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/assets/logo.svg" alt="Hyunsub&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2020 Hyunsub Kim</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" async></script><script>moment.locale("ko");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="맨 위로" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "이 웹 사이트는 귀하의 경험을 향상시키기 위해 Cookie를 사용합니다.",
+          dismiss: "무시",
+          allow: "허용",
+          deny: "거부",
+          link: "더 알아보기",
+          policy: "Cookie 정책",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="입력 하세요..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"입력 하세요...","untitled":"(제목 없음)","posts":"포스트","pages":"페이지","categories":"카테고리","tags":"태그"});
+        });</script></body></html>

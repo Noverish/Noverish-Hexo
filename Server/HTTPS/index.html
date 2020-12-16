@@ -1,185 +1,12 @@
-<!DOCTYPE html>
-<html  lang="en">
-<head>
-    <meta charset="utf-8" />
-
-<meta name="generator" content="Hexo 4.2.0" />
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
-<title>내 서버에 Https 적용하기 (with Nginx) - Hyunsub&#39;s Blog</title>
-
-
-    <meta name="description" content="Template description">
-<meta property="og:type" content="article">
-<meta property="og:title" content="내 서버에 Https 적용하기 (with Nginx)">
-<meta property="og:url" content="https://blog.hyunsub.kim/Server/HTTPS/index.html">
-<meta property="og:site_name" content="Hyunsub&#39;s Blog">
-<meta property="og:description" content="Template description">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://blog.hyunsub.kim/thumbnails/letsencrypt.jpg">
-<meta property="article:published_time" content="2020-03-10T10:36:00.000Z">
-<meta property="article:modified_time" content="2020-12-13T09:41:07.496Z">
-<meta property="article:author" content="Hyunsub Kim">
-<meta property="article:tag" content="https">
-<meta property="article:tag" content="letsencrypt">
-<meta property="article:tag" content="nginx">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.hyunsub.kim/thumbnails/letsencrypt.jpg">
-
-
-
-
-
-
-
-<link rel="icon" href="/images/favicon.svg">
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
-
-
-    
-    
-<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
-
-    
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
-
-    
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
-
-    
-    
-    
-    
-<link rel="stylesheet" href="/css/back-to-top.css">
-
-    
-    
-    
-    
-    
-    
-    
-    <link rel="stylesheet" href="/css/progressbar.css">
-<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
-    
-    
-    
-
-
-<link rel="stylesheet" href="/css/style.css">
-</head>
-<body class="is-2-column">
-    <nav class="navbar navbar-main">
-    <div class="container">
-        <div class="navbar-brand is-flex-center">
-            <a class="navbar-item navbar-logo" href="/">
-            
-                <img src="/images/logo.svg" alt="내 서버에 Https 적용하기 (with Nginx)" height="28">
-            
-            </a>
-        </div>
-        <div class="navbar-menu">
-            
-            <div class="navbar-start">
-                
-                <a class="navbar-item"
-                href="/">Home</a>
-                
-                <a class="navbar-item"
-                href="/archives">Archives</a>
-                
-                <a class="navbar-item"
-                href="/categories">Categories</a>
-                
-                <a class="navbar-item"
-                href="/tags">Tags</a>
-                
-                <a class="navbar-item"
-                href="/about">About</a>
-                
-            </div>
-            
-            <div class="navbar-end">
-                
-                    
-                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/Noverish/Noverish-Hexo">
-                        
-                        <i class="fab fa-github"></i>
-                        
-                    </a>
-                    
-                
-                
-                
-                <a class="navbar-item search" title="Search" href="javascript:;">
-                    <i class="fas fa-search"></i>
-                </a>
-                
-            </div>
-        </div>
-    </div>
-</nav>
-    
-    <section class="section">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-8-tablet is-9-desktop is-9-widescreen has-order-2 column-main">
-<div class="card">
-    
-    <div class="card-image">
-        <span  class="image is-7by1">
-            <img class="thumbnail" src="/thumbnails/letsencrypt.jpg" alt="내 서버에 Https 적용하기 (with Nginx)">
-        </span>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-03-10T10:36:00.000Z">2020-03-10</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/server/">server</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    8 minutes read (About 1273 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                내 서버에 Https 적용하기 (with Nginx)
-            
-        </h1>
-        <div class="content">
-            <p>무료 HTTPS 인증서 발급 기관인 Let’s Encrypt를 통해 내 서버에 Https를 적용하는 법을 알아보겠습니다.</p>
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>내 서버에 Https 적용하기 (with Nginx) - Hyunsub&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hyunsub Kim"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hyunsub Kim"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta description="무료 HTTPS 인증서 발급 기관인 Let’s Encrypt를 통해 내 서버에 Https를 적용하는 법을 알아보겠습니다."><meta property="og:type" content="blog"><meta property="og:title" content="내 서버에 Https 적용하기 (with Nginx)"><meta property="og:url" content="https://blog.hyunsub.kim/Server/HTTPS/"><meta property="og:site_name" content="Hyunsub&#039;s Blog"><meta property="og:description" content="무료 HTTPS 인증서 발급 기관인 Let’s Encrypt를 통해 내 서버에 Https를 적용하는 법을 알아보겠습니다."><meta property="og:locale" content="ko_KR"><meta property="og:image" content="https://blog.hyunsub.kim/covers/letsencrypt.jpg"><meta property="article:published_time" content="2020-03-10T10:36:00.000Z"><meta property="article:author" content="Hyunsub Kim"><meta property="article:tag" content="https"><meta property="article:tag" content="letsencrypt"><meta property="article:tag" content="nginx"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/covers/letsencrypt.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.hyunsub.kim/Server/HTTPS/"},"headline":"Hyunsub's Blog","image":["https://blog.hyunsub.kim/covers/letsencrypt.jpg"],"datePublished":"2020-03-10T10:36:00.000Z","author":{"@type":"Person","name":"Hyunsub Kim"},"description":"무료 HTTPS 인증서 발급 기관인 Let’s Encrypt를 통해 내 서버에 Https를 적용하는 법을 알아보겠습니다."}</script><link rel="canonical" href="https://blog.hyunsub.kim/Server/HTTPS/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/assets/logo.svg" alt="Hyunsub&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/Noverish/Blog"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="검색" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-9-desktop is-9-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/covers/letsencrypt.jpg" alt="내 서버에 Https 적용하기 (with Nginx)"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-03-10T10:36:00.000Z" title="2020-03-10T10:36:00.000Z">2020-03-10</time>&nbsp;게시 됨</span><span class="level-item"><a class="link-muted" href="/categories/Server/">Server</a></span><span class="level-item">8분안에 읽기 (약 1197 단어)</span></div></div><h1 class="title is-3 is-size-4-mobile">내 서버에 Https 적용하기 (with Nginx)</h1><div class="content"><p>무료 HTTPS 인증서 발급 기관인 Let’s Encrypt를 통해 내 서버에 Https를 적용하는 법을 알아보겠습니다.</p>
 <a id="more"></a>
 
-<h2 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h2><p><a href="#1-Certbot-설치">1. Certbot 설치</a><br><a href="#2-인증서-발급">2. 인증서 발급</a><br><a href="#3-Nginx-설정">3. Nginx 설정</a><br><a href="#4-인증서-갱신">4. 인증서 갱신</a><br><a href="#5-Crontab에-등록">5. Crontab에 등록</a><br><a href="#6-내-사이트-테스트">6. 내 사이트 테스트</a><br><a href="#7-부록-사설-인증서-만들기">7. [부록] 사설 인증서 만들기</a></p>
-<hr>
 <p>인증서를 얻기 위해서는 해당 서버에 SSH로 접속해야 합니다.</p>
-<h1 id="1-Certbot-설치"><a href="#1-Certbot-설치" class="headerlink" title="1. Certbot 설치"></a>1. Certbot 설치</h1><p>Certbot은 Let’s Encrypt의 인증서 발급을 편하게 도와주는 도구 입니다.
-Certbot을 설치하기 위해서는 다음과 같은 명령어를 입력해 주시길 바랍니다.</p>
+<h1 id="1-Certbot-설치"><a href="#1-Certbot-설치" class="headerlink" title="1. Certbot 설치"></a>1. Certbot 설치</h1><p>Certbot은 Let’s Encrypt의 인증서 발급을 편하게 도와주는 도구 입니다.<br>Certbot을 설치하기 위해서는 다음과 같은 명령어를 입력해 주시길 바랍니다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get update</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install software-properties-common</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo add-apt-repository universe</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo add-apt-repository ppa:certbot/certbot</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get update</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install certbot</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="2-인증서-발급"><a href="#2-인증서-발급" class="headerlink" title="2. 인증서 발급"></a>2. 인증서 발급</h1><p>인증서 발급은 인증 기관(여기서는 Let’s Encrypt)이 인증서 발급을 요청한 서버가 실제로 이 도메인을 소유하고 있는 지를 검증하기 위해
-요청 도메인의 특정 Path에 특정 내용을 담아보라고 요구합니다.</p>
+<h1 id="2-인증서-발급"><a href="#2-인증서-발급" class="headerlink" title="2. 인증서 발급"></a>2. 인증서 발급</h1><p>인증서 발급은 인증 기관(여기서는 Let’s Encrypt)이 인증서 발급을 요청한 서버가 실제로 이 도메인을 소유하고 있는 지를 검증하기 위해<br>요청 도메인의 특정 Path에 특정 내용을 담아보라고 요구합니다.</p>
 <p>예를 들어 hyunsub.kim에 대한 인증서를 요청하면 인증 기관은 http://hyunsub.kim/1q2w3e4r에 ‘asdfqwer’를 담아보라고 요구하고 이 것을 수행하면 이 도메인을 소유하고 있다고 판단하는 것입니다.</p>
 <p>따라서 certbot이 이러한 작업을 할 수 있도록 명령어를 입력하는데 크게 2가지 경우가 있습니다.</p>
 <h2 id="2-1-80-포트에-돌아가는-웹-서버를-잠시-정지-시킬-수-있는-경우"><a href="#2-1-80-포트에-돌아가는-웹-서버를-잠시-정지-시킬-수-있는-경우" class="headerlink" title="2.1. 80 포트에 돌아가는 웹 서버를 잠시 정지 시킬 수 있는 경우"></a>2.1. 80 포트에 돌아가는 웹 서버를 잠시 정지 시킬 수 있는 경우</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo certbot certonly -d www.example.com --standalone</span></span><br></pre></td></tr></table></figure>
@@ -188,19 +15,18 @@ Certbot을 설치하기 위해서는 다음과 같은 명령어를 입력해 주
 <h2 id="2-2-80-포트에-돌아가는-웹-서버를-잠시-정지-시킬-수-없는-경우"><a href="#2-2-80-포트에-돌아가는-웹-서버를-잠시-정지-시킬-수-없는-경우" class="headerlink" title="2.2. 80 포트에 돌아가는 웹 서버를 잠시 정지 시킬 수 없는 경우"></a>2.2. 80 포트에 돌아가는 웹 서버를 잠시 정지 시킬 수 없는 경우</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo certbot certonly -d www.example.com --webroot -w /var/www/example</span></span><br></pre></td></tr></table></figure>
 
 <p>만약에 80 포트에 돌아가는 웹 서버를 정지할 수 없는 경우 webroot 폴더 경로를 지정해 주면서 인증 기관의 요구 사항을 수행하게 합니다.</p>
-<p>여기서 w 옵션의 값으로 들어간 /var/www/example 폴더가 webroot 폴더인데 예를 들어 /var/www/example/tmp.txt 에 파일을 생성하면
-http://<a href="http://www.example.com/tmp.txt로">www.example.com/tmp.txt로</a> 접근할 수 있게 웹 서버 설정이 된 폴더를 webroot 폴더라고 합니다.</p>
+<p>여기서 w 옵션의 값으로 들어간 /var/www/example 폴더가 webroot 폴더인데 예를 들어 /var/www/example/tmp.txt 에 파일을 생성하면<br>http://<a target="_blank" rel="noopener" href="http://www.example.com/tmp.txt%EB%A1%9C">www.example.com/tmp.txt로</a> 접근할 수 있게 웹 서버 설정이 된 폴더를 webroot 폴더라고 합니다.</p>
 <h2 id="2-3-Finally"><a href="#2-3-Finally" class="headerlink" title="2.3. Finally"></a>2.3. Finally</h2><p>위의 명령어를 입력하고 나면 아래의 경로에 두 파일이 만들어집니다.</p>
 <ul>
 <li>/etc/letsencrypt/live/{도메인 주소}/fullchain.pem (인증서 + 공개키 파일)</li>
 <li>/etc/letsencrypt/live/{도메인 주소}/privkey.pem (개인키 파일)</li>
 </ul>
 <p>이제 이 두 파일을 Nginx에 적용시켜 보겠습니다.</p>
-<h1 id="3-Nginx-설정"><a href="#3-Nginx-설정" class="headerlink" title="3. Nginx 설정"></a>3. Nginx 설정</h1><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">  <span class="attribute">listen</span>       <span class="number">80</span> default;</span><br><span class="line">  <span class="attribute">server_name</span>  home.hyunsub.kim;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">location</span> / &#123;</span><br><span class="line">    <span class="attribute">return</span> <span class="number">301</span> https://home.hyunsub.kim<span class="variable">$request_uri</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">  <span class="attribute">listen</span>       <span class="number">443</span> ssl default;</span><br><span class="line">  <span class="attribute">server_name</span>  home.hyunsub.kim;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">ssl_certificate</span>      /etc/letsencrypt/archive/home.hyunsub.kim/fullchain1.pem;</span><br><span class="line">  <span class="attribute">ssl_certificate_key</span>  /etc/letsencrypt/archive/home.hyunsub.kim/privkey1.pem;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">location</span> / &#123;</span><br><span class="line">    <span class="attribute">root</span>   /usr/share/nginx/html;</span><br><span class="line">    <span class="attribute">index</span>  index.html;</span><br><span class="line">    <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="3-Nginx-설정"><a href="#3-Nginx-설정" class="headerlink" title="3. Nginx 설정"></a>3. Nginx 설정</h1><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">  <span class="attribute">listen</span>       <span class="number">80</span> default;</span><br><span class="line">  <span class="attribute">server_name</span>  home.hyunsub.kim;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">location</span> / &#123;</span><br><span class="line">    <span class="attribute">return</span> <span class="number">301</span> https://home.hyunsub.kim$request_uri;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">  <span class="attribute">listen</span>       <span class="number">443</span> ssl default;</span><br><span class="line">  <span class="attribute">server_name</span>  home.hyunsub.kim;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">ssl_certificate</span>      /etc/letsencrypt/archive/home.hyunsub.kim/fullchain1.pem;</span><br><span class="line">  <span class="attribute">ssl_certificate_key</span>  /etc/letsencrypt/archive/home.hyunsub.kim/privkey1.pem;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">location</span> / &#123;</span><br><span class="line">    <span class="attribute">root</span>   /usr/share/nginx/html;</span><br><span class="line">    <span class="attribute">index</span>  index.html;</span><br><span class="line">    <span class="attribute">try_files</span> $uri $uri/ /index.html;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="4-인증서-갱신"><a href="#4-인증서-갱신" class="headerlink" title="4. 인증서 갱신"></a>4. 인증서 갱신</h1><p>Let’s Encrypt 인증서는 3개월 후에 만료되므로 주기적으로 갱신시켜주어야 합니다.</p>
 <p>인증서 갱신은 인증서 발급과 같은 과정을 거치기 때문에 80 포트를 쓸 수 있냐 없냐로 나뉘어서 명령어를 입력해야 합니다.</p>
-<h2 id="4-1-80-포트에-돌아가는-웹-서버를-잠시-정지-시킬-수-있는-경우"><a href="#4-1-80-포트에-돌아가는-웹-서버를-잠시-정지-시킬-수-있는-경우" class="headerlink" title="4.1. 80 포트에 돌아가는 웹 서버를 잠시 정지 시킬 수 있는 경우"></a>4.1. 80 포트에 돌아가는 웹 서버를 잠시 정지 시킬 수 있는 경우</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo certbot renew --pre-hook <span class="string">"service nginx stop"</span> --post-hook <span class="string">"service nginx start"</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo certbot renew --pre-hook <span class="string">"service nginx stop"</span> --post-hook <span class="string">"service nginx start"</span> --dry-run <span class="comment"># 갱신 테스트</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="4-1-80-포트에-돌아가는-웹-서버를-잠시-정지-시킬-수-있는-경우"><a href="#4-1-80-포트에-돌아가는-웹-서버를-잠시-정지-시킬-수-있는-경우" class="headerlink" title="4.1. 80 포트에 돌아가는 웹 서버를 잠시 정지 시킬 수 있는 경우"></a>4.1. 80 포트에 돌아가는 웹 서버를 잠시 정지 시킬 수 있는 경우</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo certbot renew --pre-hook <span class="string">&quot;service nginx stop&quot;</span> --post-hook <span class="string">&quot;service nginx start&quot;</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo certbot renew --pre-hook <span class="string">&quot;service nginx stop&quot;</span> --post-hook <span class="string">&quot;service nginx start&quot;</span> --dry-run <span class="comment"># 갱신 테스트</span></span></span><br></pre></td></tr></table></figure>
 
 <p>prehook, posthook을 통해 갱신 전에 웹 서버를 잠시 정지시키고 인증서 갱신한 다음 다시 웹 서버를 실행시킵니다.</p>
 <h2 id="4-2-80-포트에-돌아가는-웹-서버를-잠시-정지-시킬-수-없는-경우"><a href="#4-2-80-포트에-돌아가는-웹-서버를-잠시-정지-시킬-수-없는-경우" class="headerlink" title="4.2. 80 포트에 돌아가는 웹 서버를 잠시 정지 시킬 수 없는 경우"></a>4.2. 80 포트에 돌아가는 웹 서버를 잠시 정지 시킬 수 없는 경우</h2><p>하는 중…</p>
@@ -210,518 +36,61 @@ http://<a href="http://www.example.com/tmp.txt로">www.example.com/tmp.txt로</a
 <p>매달 1일 0시에 인증서를 갱신한다는 의미입니다.</p>
 <p>하지만 인증서 갱신은 인증서 만료 30일 전부터 가능한다는 점 알아두셔야 합니다.</p>
 <h1 id="6-내-사이트-테스트"><a href="#6-내-사이트-테스트" class="headerlink" title="6. 내 사이트 테스트"></a>6. 내 사이트 테스트</h1><p>아래 사이트를 통해 내 사이트의 HTTPS를 검증할 수 있습니다.</p>
-<p><a href="https://www.ssllabs.com/ssltest/">https://www.ssllabs.com/ssltest/</a></p>
-<h1 id="7-부록-사설-인증서-만들기"><a href="#7-부록-사설-인증서-만들기" class="headerlink" title="7. [부록] 사설 인증서 만들기"></a>7. [부록] 사설 인증서 만들기</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout selfsigned.key -out selfsigned.crt</span><br><span class="line"></span><br><span class="line">Generating a RSA private key</span><br><span class="line">.......+++++</span><br><span class="line">.....................................................................................................+++++</span><br><span class="line">writing new private key to <span class="string">'selfsigned.key'</span></span><br><span class="line">-----</span><br><span class="line">You are about to be asked to enter information that will be incorporated</span><br><span class="line">into your certificate request.</span><br><span class="line">What you are about to enter is what is called a Distinguished Name or a DN.</span><br><span class="line">There are quite a few fields but you can leave some blank</span><br><span class="line">For some fields there will be a default value,</span><br><span class="line">If you enter <span class="string">'.'</span>, the field will be left blank.</span><br><span class="line">-----</span><br><span class="line">Country Name (2 letter code) [AU]:KR</span><br><span class="line">State or Province Name (full name) [Some-State]:Seoul</span><br><span class="line">Locality Name (eg, city) []:Seoul</span><br><span class="line">Organization Name (eg, company) [Internet Widgits Pty Ltd]:Hyunsub</span><br><span class="line">Organizational Unit Name (eg, section) []:Hyunsub</span><br><span class="line">Common Name (e.g. server FQDN or YOUR name) []:home.hyunsub.kim</span><br><span class="line">Email Address []:embrapers263@gmail.com</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.ssllabs.com/ssltest/">https://www.ssllabs.com/ssltest/</a></p>
+<h1 id="7-부록-사설-인증서-만들기"><a href="#7-부록-사설-인증서-만들기" class="headerlink" title="7. [부록] 사설 인증서 만들기"></a>7. [부록] 사설 인증서 만들기</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout selfsigned.key -out selfsigned.crt</span><br><span class="line"></span><br><span class="line">Generating a RSA private key</span><br><span class="line">.......+++++</span><br><span class="line">.....................................................................................................+++++</span><br><span class="line">writing new private key to <span class="string">&#x27;selfsigned.key&#x27;</span></span><br><span class="line">-----</span><br><span class="line">You are about to be asked to enter information that will be incorporated</span><br><span class="line">into your certificate request.</span><br><span class="line">What you are about to enter is what is called a Distinguished Name or a DN.</span><br><span class="line">There are quite a few fields but you can leave some blank</span><br><span class="line">For some fields there will be a default value,</span><br><span class="line">If you enter <span class="string">&#x27;.&#x27;</span>, the field will be left blank.</span><br><span class="line">-----</span><br><span class="line">Country Name (2 letter code) [AU]:KR</span><br><span class="line">State or Province Name (full name) [Some-State]:Seoul</span><br><span class="line">Locality Name (eg, city) []:Seoul</span><br><span class="line">Organization Name (eg, company) [Internet Widgits Pty Ltd]:Hyunsub</span><br><span class="line">Organizational Unit Name (eg, section) []:Hyunsub</span><br><span class="line">Common Name (e.g. server FQDN or YOUR name) []:home.hyunsub.kim</span><br><span class="line">Email Address []:embrapers263@gmail.com</span><br></pre></td></tr></table></figure>
 
 <p>여기서 생성된 <code>selfsigned.crt</code>는 인증서, <code>selfsigned.key</code>는 개인 키입니다.</p>
-
-        </div>
-        
-        <div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/https/" rel="tag">https</a>, <a class="has-link-grey -link" href="/tags/letsencrypt/" rel="tag">letsencrypt</a>, <a class="has-link-grey -link" href="/tags/nginx/" rel="tag">nginx</a>
-                </div>
-            </div>
-        </div>
-        
-        <!--  -->
-        
-    </div>
-</div>
-
-
-
-
-
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/Node/logging/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Nodejs Logging (Morgan, Winston)</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/Node/eslint/">
-                <span class="level-item">ESLint + Typescript</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
-
-
-</div>
-                
-
-
-
-
-<div class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-1 column-left ">
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <nav class="level">
-            <div class="level-item has-text-centered" style="flex-shrink: 1">
-                <div>
-                    
-                    <figure class="image is-128x128 has-mb-6">
-                        <img class="is-rounded" src="/images/profile.jpg" alt="Hyunsub Kim">
-                    </figure>
-                    
-                    <p class="is-size-4 is-block">
-                        Hyunsub Kim
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-block">
-                        (noverish)
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
-                        <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Seoul, Korea</span>
-                    </p>
-                    
-                </div>
-            </div>
-        </nav>
-        <nav class="level is-mobile">
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        Posts
-                    </p>
-                    <a href="/archives">
-                        <p class="title has-text-weight-normal">
-                            32
-                        </p>
-                    </a>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        Categories
-                    </p>
-                    <a href="/categories">
-                        <p class="title has-text-weight-normal">
-                            7
-                        </p>
-                    </a>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        Tags
-                    </p>
-                    <a href="/tags">
-                        <p class="title has-text-weight-normal">
-                            44
-                        </p>
-                    </a>
-                </div>
-            </div>
-        </nav>
-        
-        <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/noverish" target="_blank" rel="noopener">
-                Follow</a>
-        </div>
-        
-        
-        
-        <div class="level is-mobile">
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Home" href="https://hyunsub.kim">
-                
-                <i class="fas fa-home"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Github" href="https://github.com/noverish">
-                
-                <i class="fab fa-github"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Facebook" href="https://facebook.com/profile.php?id=100008644627377">
-                
-                <i class="fab fa-facebook"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Twitter" href="https://twitter.com/noverish">
-                
-                <i class="fab fa-twitter"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="RocketPunch" href="https://www.rocketpunch.com/@embrapers263">
-                
-                <i class="fab fa-discord"></i>
-                
-            </a>
-            
-        </div>
-        
-    </div>
-</div>
-    
-        
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                Categories
-            </h3>
-            <ul class="menu-list">
-            <li>
-        <a class="level is-marginless" href="/categories/android/">
-            <span class="level-start">
-                <span class="level-item">android</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">3</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/docker/">
-            <span class="level-start">
-                <span class="level-item">docker</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/etc/">
-            <span class="level-start">
-                <span class="level-item">etc</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">6</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/ios/">
-            <span class="level-start">
-                <span class="level-item">ios</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">4</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/node/">
-            <span class="level-start">
-                <span class="level-item">node</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">4</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/server/">
-            <span class="level-start">
-                <span class="level-item">server</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">9</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/swift/">
-            <span class="level-start">
-                <span class="level-item">swift</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">3</span>
-            </span>
-        </a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            Links
-        </h3>
-        <ul class="menu-list">
-        
-            <li>
-                <a class="level is-mobile" href="http://hyunsub.kim" target="_blank" rel="noopener">
-                    <span class="level-left">
-                        <span class="level-item">Résumé</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">hyunsub.kim</span>
-                    </span>
-                </a>
-            </li>
-        
-            <li>
-                <a class="level is-mobile" href="https://github.com/noverish" target="_blank" rel="noopener">
-                    <span class="level-left">
-                        <span class="level-item">Github</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">github.com</span>
-                    </span>
-                </a>
-            </li>
-        
-            <li>
-                <a class="level is-mobile" href="https://facebook.com/profile.php?id=100008644627377" target="_blank" rel="noopener">
-                    <span class="level-left">
-                        <span class="level-item">Facebook</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">facebook.com</span>
-                    </span>
-                </a>
-            </li>
-        
-            <li>
-                <a class="level is-mobile" href="https://twitter.com/noverish" target="_blank" rel="noopener">
-                    <span class="level-left">
-                        <span class="level-item">Twitter</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">twitter.com</span>
-                    </span>
-                </a>
-            </li>
-        
-            <li>
-                <a class="level is-mobile" href="https://discord.com" target="_blank" rel="noopener">
-                    <span class="level-left">
-                        <span class="level-item">Discord</span>
-                    </span>
-                    <span class="level-right">
-                        <span class="level-item tag">discord.com</span>
-                    </span>
-                </a>
-            </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-
-    
-        <div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            Tag Cloud
-        </h3>
-        <a href="/tags/CI-CD/" style="font-size: 12px;">CI/CD</a> <a href="/tags/CircleCI/" style="font-size: 10px;">CircleCI</a> <a href="/tags/android/" style="font-size: 14px;">android</a> <a href="/tags/apex/" style="font-size: 10px;">apex</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/aws/" style="font-size: 12px;">aws</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/cloud9/" style="font-size: 10px;">cloud9</a> <a href="/tags/clova-speech-synthesis/" style="font-size: 10px;">clova-speech-synthesis</a> <a href="/tags/cocoapod/" style="font-size: 10px;">cocoapod</a> <a href="/tags/code-server/" style="font-size: 10px;">code-server</a> <a href="/tags/docker/" style="font-size: 14px;">docker</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/ecs/" style="font-size: 10px;">ecs</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/elk/" style="font-size: 14px;">elk</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/fcm/" style="font-size: 12px;">fcm</a> <a href="/tags/firebase/" style="font-size: 12px;">firebase</a> <a href="/tags/github/" style="font-size: 12px;">github</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/ios/" style="font-size: 18px;">ios</a> <a href="/tags/kotlin/" style="font-size: 14px;">kotlin</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/letsencrypt/" style="font-size: 10px;">letsencrypt</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/morgan/" style="font-size: 10px;">morgan</a> <a href="/tags/naver/" style="font-size: 12px;">naver</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/node/" style="font-size: 16px;">node</a> <a href="/tags/npm/" style="font-size: 12px;">npm</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/server/" style="font-size: 10px;">server</a> <a href="/tags/slack/" style="font-size: 10px;">slack</a> <a href="/tags/sse/" style="font-size: 10px;">sse</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/tip/" style="font-size: 10px;">tip</a> <a href="/tags/typescript/" style="font-size: 12px;">typescript</a> <a href="/tags/uitableview/" style="font-size: 10px;">uitableview</a> <a href="/tags/view/" style="font-size: 10px;">view</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/winston/" style="font-size: 10px;">winston</a>
-    </div>
-</div>
-    
-    
-        <div class="column-right-shadow is-hidden-widescreen ">
-        
-        </div>
-    
-</div>
-
-                
-            </div>
-        </div>
-    </section>
-    <footer class="footer">
-    <div class="container">
-        <div class="level">
-            <div class="level-start has-text-centered-mobile">
-                <a class="footer-logo is-block has-mb-6" href="/">
-                
-                    <img src="/images/logo.svg" alt="내 서버에 Https 적용하기 (with Nginx)" height="28">
-                
-                </a>
-                <p class="is-size-7">
-                &copy; 2020 Hyunsub Kim&nbsp;
-                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
-                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
-                
-                </p>
-            </div>
-            <div class="level-end">
-            
-                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
-                        
-                        <i class="fab fa-creative-commons"></i>
-                        
-                    </a>
-                </p>
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
-                        
-                        <i class="fab fa-creative-commons-by"></i>
-                        
-                    </a>
-                </p>
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
-                        
-                        <i class="fab fa-github"></i>
-                        
-                    </a>
-                </p>
-                
-                </div>
-            
-            </div>
-        </div>
-    </div>
-</footer>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
-<script>moment.locale("en");</script>
-
-
-<script>
-var IcarusThemeSettings = {
-    site: {
-        url: 'https://blog.hyunsub.kim',
-        external_link: {"enable":true,"exclude":[]}
-    },
-    article: {
-        highlight: {
-            clipboard: true,
-            fold: 'unfolded'
-        }
-    }
-};
-</script>
-
-
-<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
-
-
-
-
-
-<script src="/js/animation.js"></script>
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
-<script src="/js/gallery.js" defer></script>
-
-
-
-<div id="outdated">
-    <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
-            my browser now </a></p>
-    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        outdatedBrowser({
-            bgColor: '#f25648',
-            color: '#ffffff',
-            lowerThan: 'flex'
-        });
-    });
-</script>
-
-
-<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    MathJax.Hub.Config({
-        'HTML-CSS': {
-            matchFontHeight: false
-        },
-        SVG: {
-            matchFontHeight: false
-        },
-        CommonHTML: {
-            matchFontHeight: false
-        },
-        tex2jax: {
-            inlineMath: [
-                ['$','$'],
-                ['\\(','\\)']
-            ]
-        }
-    });
-});
-</script>
-
-
-<a id="back-to-top" title="Back to Top" href="javascript:;">
-    <i class="fas fa-chevron-up"></i>
-</a>
-<script src="/js/back-to-top.js" defer></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="/js/main.js" defer></script>
-
-    
-    <div class="searchbox ins-search">
-    <div class="searchbox-container ins-search-container">
-        <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
-            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="searchbox-result-wrapper ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-    (function (window) {
-        var INSIGHT_CONFIG = {
-            TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
-                UNTITLED: '(Untitled)',
-            },
-            CONTENT_URL: '/content.json',
+</div><div class="article-licensing box"><div class="licensing-title"><p>내 서버에 Https 적용하기 (with Nginx)</p><p><a href="https://blog.hyunsub.kim/Server/HTTPS/">https://blog.hyunsub.kim/Server/HTTPS/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Hyunsub Kim</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2020-03-10</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/https/">https</a><a class="link-muted mr-2" rel="tag" href="/tags/letsencrypt/">letsencrypt</a><a class="link-muted mr-2" rel="tag" href="/tags/nginx/">nginx</a></div><div class="sharethis-inline-share-buttons"></div><script src="//platform-api.sharethis.com/js/sharethis.js#property=5fd61d47957af60014171af8&amp;product=inline-share-buttons" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/Node/logging/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Nodejs Logging (Morgan, Winston)</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/Node/eslint/"><span class="level-item">ESLint + Typescript</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">댓글</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://blog.hyunsub.kim/Server/HTTPS/';
+            this.page.identifier = 'af16fc0b4e27c3b10eac941c2c63ab09c35dc9bd';
         };
-        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-    })(window);
-</script>
-<script src="/js/insight.js" defer></script>
-<link rel="stylesheet" href="/css/search.css">
-<link rel="stylesheet" href="/css/insight.css">
-    
-</body>
-</html>
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'blog-hyunsub' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><div class="column column-left is-4-tablet is-3-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/images/profile.jpg" alt="Hyunsub Kim"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Hyunsub Kim</p><p class="is-size-6 is-block">(noverish)</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Seoul, Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">포스트</p><a href="/archives"><p class="title">32</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">카테고리</p><a href="/categories"><p class="title">7</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">태그</p><a href="/tags"><p class="title">42</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/noverish" target="_blank" rel="noopener">팔로우</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Résumé" href="https://hyunsub.kim"><i class="fas fa-home"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/noverish"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com/profile.php?id=100008644627377"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com/noverish"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="LinkedIn" href="https://www.linkedin.com/in/hyunsub-kim-912a981b2/"><i class="fab fa-linkedin"></i></a></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">카테고리</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Android/"><span class="level-start"><span class="level-item">Android</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/CI-CD/"><span class="level-start"><span class="level-item">CI/CD</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Docker/"><span class="level-start"><span class="level-item">Docker</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Node/"><span class="level-start"><span class="level-item">Node</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/Server/"><span class="level-start"><span class="level-item">Server</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/categories/iOS/"><span class="level-start"><span class="level-item">iOS</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%EA%B8%B0%ED%83%80/"><span class="level-start"><span class="level-item">기타</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">카탈로그</h3><ul class="menu-list"><li><a class="level is-mobile" href="#1-Certbot-설치"><span class="level-left"><span class="level-item">1. Certbot 설치</span></span></a></li><li><a class="level is-mobile" href="#2-인증서-발급"><span class="level-left"><span class="level-item">2. 인증서 발급</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#2-1-80-포트에-돌아가는-웹-서버를-잠시-정지-시킬-수-있는-경우"><span class="level-left"><span class="level-item">2.1. 80 포트에 돌아가는 웹 서버를 잠시 정지 시킬 수 있는 경우</span></span></a></li><li><a class="level is-mobile" href="#2-2-80-포트에-돌아가는-웹-서버를-잠시-정지-시킬-수-없는-경우"><span class="level-left"><span class="level-item">2.2. 80 포트에 돌아가는 웹 서버를 잠시 정지 시킬 수 없는 경우</span></span></a></li><li><a class="level is-mobile" href="#2-3-Finally"><span class="level-left"><span class="level-item">2.3. Finally</span></span></a></li></ul></li><li><a class="level is-mobile" href="#3-Nginx-설정"><span class="level-left"><span class="level-item">3. Nginx 설정</span></span></a></li><li><a class="level is-mobile" href="#4-인증서-갱신"><span class="level-left"><span class="level-item">4. 인증서 갱신</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#4-1-80-포트에-돌아가는-웹-서버를-잠시-정지-시킬-수-있는-경우"><span class="level-left"><span class="level-item">4.1. 80 포트에 돌아가는 웹 서버를 잠시 정지 시킬 수 있는 경우</span></span></a></li><li><a class="level is-mobile" href="#4-2-80-포트에-돌아가는-웹-서버를-잠시-정지-시킬-수-없는-경우"><span class="level-left"><span class="level-item">4.2. 80 포트에 돌아가는 웹 서버를 잠시 정지 시킬 수 없는 경우</span></span></a></li></ul></li><li><a class="level is-mobile" href="#5-Crontab에-등록"><span class="level-left"><span class="level-item">5. Crontab에 등록</span></span></a></li><li><a class="level is-mobile" href="#6-내-사이트-테스트"><span class="level-left"><span class="level-item">6. 내 사이트 테스트</span></span></a></li><li><a class="level is-mobile" href="#7-부록-사설-인증서-만들기"><span class="level-left"><span class="level-item">7. [부록] 사설 인증서 만들기</span></span></a></li></ul></div></div><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/assets/logo.svg" alt="Hyunsub&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2020 Hyunsub Kim</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" async></script><script>moment.locale("ko");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="맨 위로" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "이 웹 사이트는 귀하의 경험을 향상시키기 위해 Cookie를 사용합니다.",
+          dismiss: "무시",
+          allow: "허용",
+          deny: "거부",
+          link: "더 알아보기",
+          policy: "Cookie 정책",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="입력 하세요..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"입력 하세요...","untitled":"(제목 없음)","posts":"포스트","pages":"페이지","categories":"카테고리","tags":"태그"});
+        });</script></body></html>

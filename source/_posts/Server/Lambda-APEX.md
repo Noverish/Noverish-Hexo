@@ -2,21 +2,21 @@
 layout: post
 title: APEX로 AWS Lambda 개발하기
 date: 2018-02-27 16:10:24 +0900
-description: Template description
-thumbnail: /thumbnails/apex.jpg
-category: 'server'
+cover: /covers/apex.jpg
+disqusId: 37c8ec179a4a039572a4db325a215e369ef11e21
+toc: true
+category: Server
 tags:
 - aws
 - lambda
 - apex
-twitter_text: template twitter_text
 ---
 
 APEX라는 프로그램을 사용하여 AWS Lambda를 개발해 서버리스 백엔드를 구현해 보자.
 
 <!-- more -->
 
-### 1\. APEX 설치하기
+# 1. APEX 설치하기
 
 ```shell
 $ curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sudo sh
@@ -26,7 +26,7 @@ macOS, Linux, or OpenBSD에서 위의 명령어를 실행시키면 자동으로 
 
 ---
 
-### 2\. APEX에 AWS 권한 부여하기
+# 2. APEX에 AWS 권한 부여하기
 
 APEX가 Lambda 함수들을 만들고/지우고/수정하고/실행할 수 있도록 권한을 줘야 합니다.
 
@@ -118,7 +118,7 @@ $ export AWS_PROFILE=example
 
 ---
 
-### 3\. 프로젝트 만들기
+# 3. 프로젝트 만들기
 
 프로젝트 폴더를 생성하고 `apex init`를 입력하고 프로젝트의 이름과 설명을 입력하면 프로젝트가 생성됩니다.
 
@@ -137,9 +137,9 @@ $ apex init
 
 ---
 
-### 4\. 프로젝트 구조 살펴보기
+# 4. 프로젝트 구조 살펴보기
 
-#### project.json
+## project.json
 
 먼저 `project.json` 파일을 살펴보겠습니다.
 
@@ -163,7 +163,7 @@ APEX에서는
 
 ---
 
-#### 폴더 구조
+## 폴더 구조
 
 ![image006](006.jpg)
 
@@ -212,7 +212,7 @@ functions
 
 ---
 
-### 5\. 함수 생성하기
+# 5. 함수 생성하기
 
 그냥 단순하게 functions에 폴더 하나 만들어 주고 그 안에 index.js 파일을 만들어 주시면 됩니다.
 
@@ -232,7 +232,7 @@ exports.handle = function(e, ctx, cb) {
 
 ---
 
-### 6\. 함수 배포하고 실행하기
+# 6. 함수 배포하고 실행하기
 
 `apex deploy`는 functions 폴더에 있는 함수들을 모두 배포하는 작업을 합니다.    
 `apex deploy {name}`처럼 특정 한 함수만 배포 할 수도 있고,      

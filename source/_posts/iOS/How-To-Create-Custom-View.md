@@ -2,8 +2,10 @@
 layout: post
 title: 커스텀 뷰 만드는 법
 date: 2017-05-14 13:14:42 +0900
-thumbnail: /thumbnails/swift.jpg
-category: 'ios'
+cover: /covers/swift.jpg
+disqusId: 5a1ec816d52815d64633d7cf93022ecd3391855b
+toc: true
+category: iOS
 tags:
 - ios
 - swift

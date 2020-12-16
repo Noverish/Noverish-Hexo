@@ -2,9 +2,10 @@
 layout: post
 title: Android에 푸쉬 알림 보내기 - 클라이언트편
 date: 2019-01-02 14:43:39 +0900
-description: Template description
-thumbnail: /thumbnails/firebase-cloud-messaging.jpg
-category: 'android'
+cover: /covers/firebase-cloud-messaging.jpg
+disqusId: a4c9faeae146a673e549bf115e7bb0576f72925d
+toc: true
+category: Android
 tags:
 - android
 - kotlin
@@ -16,15 +17,7 @@ Node.js와 Google Firebase를 사용하여 Android에 푸쉬 알림 보내는 �
 
 <!-- more -->
 
-# 목차
-[1\. 안드로이드 프로젝트 생성](#1-안드로이드-프로젝트-생성)
-[2\. Firebase 프로젝트 생성](#2-Firebase-프로젝트-생성)
-[3\. Firebase 프로젝트에 안드로에드 앱 추가](#3-Firebase-프로젝트에-안드로에드-앱-추가)
-[4\. 안드로이드 프로젝트에 코드 작성](#4-안드로이드-프로젝트에-코드-작성)
-[5\. 기기 토큰 값 확인](#5-기기-토큰-값-확인)
-
-
-# 1\. 안드로이드 프로젝트 생성
+# 1. 안드로이드 프로젝트 생성
 
 <img src="001.jpg" width="auto" style="max-width:600px;" alt="그림 1. 안드로이드 프로젝트 셍성">
 
@@ -33,7 +26,7 @@ Node.js와 Google Firebase를 사용하여 Android에 푸쉬 알림 보내는 �
 
 ---
 
-# 2\. Firebase 프로젝트 생성
+# 2. Firebase 프로젝트 생성
 
 <img src="002.jpg" width="auto" alt="그림 2. Firebase Console 화면">
 
@@ -47,7 +40,7 @@ Node.js와 Google Firebase를 사용하여 Android에 푸쉬 알림 보내는 �
 
 ---
 
-# 3\. Firebase 프로젝트에 안드로에드 앱 추가
+# 3. Firebase 프로젝트에 안드로에드 앱 추가
 
 <img src="004.jpg" width="400" alt="그림 4. Firebase 프로젝트 추가 후 나오는 화면">
 
@@ -82,7 +75,7 @@ Node.js와 Google Firebase를 사용하여 Android에 푸쉬 알림 보내는 �
 
 ---
 
-# 4\. 안드로이드 프로젝트에 코드 작성
+# 4. 안드로이드 프로젝트에 코드 작성
 
 ```gradle
 implementation 'com.google.firebase:firebase-messaging:17.3.3'
@@ -142,7 +135,7 @@ Firebase 서버에서 푸쉬알림을 받으면 이 메서드가 호출이 됩�
 
 ---
 
-# 5\. 기기 토큰 값 확인
+# 5. 기기 토큰 값 확인
 
 #### MainActivity.kt
 ```kotlin

@@ -2,24 +2,15 @@
 layout: post
 title: Github Actions 사용해보기
 date: 2020-03-20 20:09:00 +0900
-description: Template description
-thumbnail: /thumbnails/github-actions.jpg
-category: 'etc'
-tags:
-- github
-- CI/CD
-twitter_text: template twitter_text
+cover: /covers/github-actions.jpg
+disqusId: 31fc589e54d081722a9cedcb9314cf73d2d357b6
+toc: true
+category: CI/CD
 ---
 
 Github Actions를 이용하여 개발 PC에서 배포 서버까지 빌드, 테스트, 배포를 자동화 해보자!
 
 <!-- more -->
-
-## 목차
-[1\. 첫 Workflow 생성하기](#1-첫-Workflow-생성하기)    
-[2\. 다양한 Action들](#2-다양한-Actions)    
-
----
 
 일반적으로 개발을 할 때 개발 PC가 있고 배포 타겟이 있습니다.
 - Android, iOS는 Play Store, App Store에 배포합니다.

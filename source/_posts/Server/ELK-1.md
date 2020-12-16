@@ -2,12 +2,12 @@
 layout: post
 title: Elastic Stack - Elasticsearch 편
 date: 2019-05-12 09:18:00 +0900
-description: Template description
-thumbnail: /thumbnails/elastic-stack.png
-category: 'server'
+cover: /covers/elastic-stack.png
+disqusId: c82f37a4d64b8e64ce7c47cad7aea6630a83fb55
+toc: true
+category: Server
 tags:
 - elk
-twitter_text: template twitter_text
 ---
 
 정형 및 비정형 데이터를 시각화하고 분석하는데 용이한 Elastic Stack을 사용하는 법을 알아보겠습니다.
@@ -15,15 +15,6 @@ twitter_text: template twitter_text
 <!-- more -->
 
 이 글은 Ubuntu 18.04.2 LTS 사용자를 대상으로 작성했습니다.
-
-## 목차
-[1. 설치하기](#1-설치하기)    
-[1.1. Java 설치](#1-1-Java-설치)    
-[1.2. Elasticsearch 설치](#1-2-Elasticsearch-설치)    
-[2. 실행하기](#2-실행하기)    
-[3. 기본 사용법](#3-기본-사용법)    
-
----
 
 # 1. 설치하기
 

@@ -2,26 +2,20 @@
 layout: post
 title: Nodejs Logging (Morgan, Winston)
 date: 2020-03-16 19:40:00 +0900
-description: Template description
-thumbnail: /thumbnails/nodejs.png
-category: 'node'
+cover: /covers/nodejs.png
+disqusId: b13d2cb1de93d79f7a1f735dd11c614aee16fa59
+toc: true
+category: Node
 tags: 
 - node
 - npm
 - morgan
 - winston
-twitter_text: template twitter_text
 ---
 
 Nodejs에서 자주 사용하는 로깅 라이브러리인 Morgan과 Winston을 알아보겠습니다.
 
 <!-- more -->
-
-## 목차
-[1\. Morgan](#1-Morgan)    
-[2\. Winston](#2-Winston)
-
----
 
 # 1. Morgan
 

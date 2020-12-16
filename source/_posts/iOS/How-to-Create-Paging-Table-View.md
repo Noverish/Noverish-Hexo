@@ -2,14 +2,14 @@
 layout: post
 title: Cell의 높이가 변하는 테이블 뷰 만들기
 date: 2017-05-17 15:44:46 +0900
-description: Template description
-thumbnail: /thumbnails/swift.jpg
-category: 'swift'
+cover: /covers/swift.jpg
+disqusId: 62e34215691bd0741d248be9452f0c401508bbcf
+toc: true
+category: iOS
 tags:
 - ios
 - swift
 - uitableview
-twitter_text: template twitter_text
 ---
 
 Cell의 내용에 따라 높이가 변하는 TableView를 만드는 방법을 알아보자

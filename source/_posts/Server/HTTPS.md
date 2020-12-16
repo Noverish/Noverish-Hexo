@@ -2,30 +2,19 @@
 layout: post
 title: 내 서버에 Https 적용하기 (with Nginx)
 date: 2020-03-10 19:36:00 +0900
-description: Template description
-thumbnail: /thumbnails/letsencrypt.jpg
-category: 'server'
+cover: /covers/letsencrypt.jpg
+disqusId: af16fc0b4e27c3b10eac941c2c63ab09c35dc9bd
+toc: true
+category: Server
 tags:
 - https
 - letsencrypt
 - nginx
-twitter_text: template twitter_text
 ---
 
 무료 HTTPS 인증서 발급 기관인 Let's Encrypt를 통해 내 서버에 Https를 적용하는 법을 알아보겠습니다.
 
 <!-- more -->
-
-## 목차
-[1. Certbot 설치](#1-Certbot-설치)    
-[2. 인증서 발급](#2-인증서-발급)    
-[3. Nginx 설정](#3-Nginx-설정)    
-[4. 인증서 갱신](#4-인증서-갱신)    
-[5. Crontab에 등록](#5-Crontab에-등록)    
-[6. 내 사이트 테스트](#6-내-사이트-테스트)    
-[7. \[부록\] 사설 인증서 만들기](#7-부록-사설-인증서-만들기)
-
----
 
 인증서를 얻기 위해서는 해당 서버에 SSH로 접속해야 합니다.
 

@@ -2,9 +2,10 @@
 layout: post
 title: Android에 푸쉬 알림 보내기 - 서버편
 date: 2019-01-02 16:10:38 +0900
-description: Template description
-thumbnail: /thumbnails/firebase-cloud-messaging.jpg
-category: 'android'
+cover: /covers/firebase-cloud-messaging.jpg
+disqusId: 51a6540293b7817c03c58a96a75481d94cab0568
+toc: true
+category: Android
 tags:
 - android
 - kotlin
@@ -16,7 +17,7 @@ Node.js와 Google Firebase를 사용하여 Android에 푸쉬 알림 보내는 �
 
 <!-- more -->
 
-# 1\. Firebase 콘솔에서 비공개 키 받기
+# 1. Firebase 콘솔에서 비공개 키 받기
 
 ![001.jpg](001.jpg)
 
@@ -30,7 +31,7 @@ Node.js와 Google Firebase를 사용하여 Android에 푸쉬 알림 보내는 �
 
 새 비공개 키 생성을 클릭하여 json 파일을 다운로드 받습니다.
 
-# 2\. Node.js 프로젝트에 Firebase 추가
+# 2. Node.js 프로젝트에 Firebase 추가
 
 ```shell
 $ npm install firebase-admin --save
@@ -51,7 +52,7 @@ admin.initializeApp({
 
 위의 코드를 통해 admin을 초기화 합니다.
 
-# 3\. 개별 기기로 메시지 전송
+# 3. 개별 기기로 메시지 전송
 
 ```javascript
 // Registration Token 은 안드로이드 앱에서 나온 Token 입니다.

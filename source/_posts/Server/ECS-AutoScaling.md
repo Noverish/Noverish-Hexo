@@ -2,14 +2,14 @@
 layout: post
 title: EC2 Container Service(ECS) 사용하기 + AutoScaling
 date: 2018-01-30 16:31:30 +0900
-description: Template description
-thumbnail: /thumbnails/aws-ecs.jpg
-category: 'server'
+cover: /covers/aws-ecs.jpg
+disqusId: 0a8e0249df03e6e3183d1f2bd396a7d3af78d703
+toc: true
+category: Server
 tags:
 - aws
 - ecs
 - docker
-twitter_text: template twitter_text
 ---
 
 EC2 Container Service(ECS) 사용하기 + AutoScaling
@@ -24,9 +24,9 @@ EC2 Container Service(ECS) 사용하기 + AutoScaling
 이 서비스는 AWS EC2와 nodejs를 사용하고 있습니다.
 ECS라는 서비스를 사용 하려고 합니다.
 
-### 1\. 도커 이미지 만들기
+# 1. 도커 이미지 만들기
 
-#### Dockerfile
+### Dockerfile
 ```
 FROM ubuntu:16.04
 MAINTAINER Noverish Harold <embrapers263@gmail.com>
@@ -51,8 +51,7 @@ $ docker build --tag main-image .
 ```
 Dockerfile이 있는 위치에서 위의 명령어를 통해 이름이 `main-image`인 도커 이미지를 만들었습니다.
 
-
-### 2\. ECS 설정하기
+# 2. ECS 설정하기
 
 ![image001](001.jpg)
 [AWS ECS](https://ap-northeast-2.console.aws.amazon.com/ecs)에 들어가서 `시작하기`를 누릅니다.
@@ -165,7 +164,7 @@ Load Balancer의 포트 번호가 이미 사용 중이라고 해서 에러가 �
 
 ---
 
-### 2\. AutoScaling 설정하기
+# 2. AutoScaling 설정하기
 
 ![image020](020.jpg)
 `Auto Scaling`을 누릅니다.

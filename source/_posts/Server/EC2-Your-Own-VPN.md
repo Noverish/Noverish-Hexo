@@ -2,13 +2,13 @@
 layout: post
 title: AWS EC2로 나만의 Proxy 서버 만들기
 date: 2018-04-13 20:48:00 +0900
-description: Template description
-thumbnail: /thumbnails/aws-ec2-vpn.jpg
-category: 'server'
+cover: /covers/aws-ec2-vpn.jpg
+disqusId: 0a13fce5b68f99e8e556d24fbd04a71f14923011
+toc: true
+category: Server
 tags:
 - ec2
 - proxy
-twitter_text: template twitter_text
 ---
 
 복잡한 서버 설정 없이 Proxy Server를 만드는 법을 알아봅시다.
@@ -22,11 +22,11 @@ twitter_text: template twitter_text
 시중에 있는 무료 Proxy는 너무 속도가 느리고 그렇다고 유료 Proxy을 쓰자니 돈이 좀 아까운 느낍이 듭니다.
 그래서 EC2로 Proxy Server를 만드는 법을 알려드리도록 하겠습니다.
 
-# 1\. 해외 Region에서 EC2 만들기
+# 1. 해외 Region에서 EC2 만들기
 
 이건 쉬우므로 건너 뛰도록 하겠습니다.
 
-# 2\. Mac에서 VPN 사용하기
+# 2. Mac에서 VPN 사용하기
 
 먼저 터미널을 켜주신 후 pem 파일이 있는 폴더로 가서 아래 명령어를 입력합니다.
 아래 `1.2.3.4`를 본인 EC2의 IP로 바꿔주시길 바랍니다.
@@ -85,7 +85,7 @@ VPN 끌 때
 $ networksetup -setsocksfirewallproxystate "Wi-Fi" off
 ```
 
-# 4\. Windows에서 VPN 사용하기
+# 4. Windows에서 VPN 사용하기
 
 제가 아는 선에서는 Mac과 달리 Windows에서 모든 패킷을 Proxy로 우회하는 방법이 없습니다.
 만약 그런 방법이 있다면 제보해 주시길 바랍니다.

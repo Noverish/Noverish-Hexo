@@ -2,29 +2,17 @@
 layout: post
 title: AWS Cloud9 사용해보기
 date: 2019-06-02 10:40:00 +0900
-description: Template description
-thumbnail: /thumbnails/cloud9.jpg
-category: 'server'
+cover: /covers/cloud9.jpg
+disqusId: 21ba7b57dab0d95431bcfe9c1f043e2479748f82
+toc: true
+category: Server
 tags:
 - cloud9
-twitter_text: template twitter_text
 ---
 
 클라우드 IDE인 Cloud9을 통해 언제 어디서나 웹 브라우저를 통해 내 환경에서 개발하는 방법을 알아보겠습니다.
 
 <!-- more -->
-
-## 목차
-[1. 환경 만들기](#1-환경-만들기)    
-[2. 보안그룹 설정](#2-보안그룹-설정)    
-[3. Apache2 삭제](#3-Apache2-삭제)    
-[4. 기본적으로 설치되어 있는 것들](#4-기본적으로-설치되어-있는-것들)    
-[5. 간단한 노드 서버 만들어 보기](#5-간단한-노드-서버-만들어-보기)    
-[6. 단축키](#6-단축키)    
-[7. 파일 업로드 & 다운로드](#7-파일-업로드-amp-다운로드)    
-
-
----
 
 # 1. 환경 만들기
 

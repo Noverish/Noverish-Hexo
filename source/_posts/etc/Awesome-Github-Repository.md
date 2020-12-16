@@ -2,18 +2,17 @@
 layout: post
 title: Awesome Github Repository
 date: 2019-11-30 08:01:21 +0900
-description: Template description
-thumbnail: /thumbnails/github.png
-category: 'etc'
-tags:
-twitter_text: template twitter_text
+cover: /covers/github.png
+disqusId: b5a7d0731b57e449feb637cf2a22d70d9bb74cb1
+toc: true
+category: 기타
 ---
 
 쓸만한 Github Repository 모음
 
 <!-- more -->
 
-## Web Development Tools
+# Web Development Tools
 
 - [fullPage.js](https://github.com/alvarotrigo/fullPage.js) - 한 화면에서 스크롤 바만 이용해서 화면 전환을 하게 해주는 도구 ([데모](https://alvarotrigo.com/fullPage/ko/))
 - [Tabler](https://github.com/tabler/tabler) - Admin Page를 만들 수 있게 해주는 도구 ([데모](https://preview-dev.tabler.io/))
@@ -55,7 +54,7 @@ twitter_text: template twitter_text
 - [Cleave.js](https://github.com/nosir/cleave.js) - 입력 마스크 라이브러리 ([데모](https://nosir.github.io/cleave.js/))
 - [Docusaurus](https://github.com/facebook/docusaurus) - 문서 사이트 생성기
 
-## UI Components
+# UI Components
 
 - [Elastic UI](https://github.com/elastic/eui) - Elastic Stack에서 사용하는 UI Components
 - [chakra](https://github.com/chakra-ui/chakra-ui)
@@ -71,14 +70,14 @@ twitter_text: template twitter_text
 - [React Suite](https://github.com/rsuite/rsuite)
 - [Rebass](https://github.com/rebassjs/rebass)
 
-## Boilerplates & Samples
+# Boilerplates & Samples
 
 - [React Boilerplate](https://github.com/react-boilerplate/react-boilerplate)
 - [POS](https://github.com/NHadi/Pos) - Sample Application DDD Reactive Microservices with CQRS(Command Query Responsibility Segregation) & Event Sourcing
 - [Suspense Demo for Library Authors](https://github.com/gaearon/suspense-experimental-github-demo) - 'Suspense for Data Fetching'과 'Concurrent UI Patterns' 예제
 - [Relay Examples](https://github.com/relayjs/relay-examples) - Relay 예제
 
-## Awesome Seires
+# Awesome Seires
 
 - [Awesome Selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted) - 본인의 머신에서 구동할 수 있는 유용한 패키지들 모음
 - [Awesome Mac](https://github.com/jaywcjlove/awesome-mac) - 맥에서 설치할 수 있는 프로그램 모음
@@ -89,7 +88,7 @@ twitter_text: template twitter_text
 - [Awesome Piracy](https://github.com/Igglybuff/awesome-piracy) - 저작권을 무시하는 링크/데이터/프로그램 모음
 - [Public APIs](https://github.com/public-apis/public-apis) - 무료 공공 API 모음
 
-## Study
+# Study
 
 - [What the f*ck JavaScript?](https://github.com/denysdovhan/wtfjs) - Javascript에 재밌고 이해하기 힘든 예제 모음
 - [주니어 개발자 채용정보](https://github.com/jojoldu/junior-recruit-scheduler) - 한국 주니어 개발자를 위한 취업 정보 모음
@@ -102,7 +101,7 @@ twitter_text: template twitter_text
 - [Didact](https://github.com/pomber/didact) - Step-by-step 으로 나만의 리액트를 만들 수 있음
 - [Front-End Developer Handbook 2019](https://github.com/FrontendMasters/front-end-handbook-2019) ([사이트](https://frontendmasters.com/books/front-end-handbook/2019))
 
-#### Study - 면접 대비
+## Study - 면접 대비
 
 - [\[영어\] Tech Interview Handbook](https://github.com/yangshun/tech-interview-handbook) ([사이트](https://yangshun.github.io/tech-interview-handbook/introduction))
 - [\[영어\] 30 Seconds of Interviews](https://github.com/30-seconds/30-seconds-of-interviews) ([사이트](https://30secondsofinterviews.org/))
@@ -113,7 +112,7 @@ twitter_text: template twitter_text
 - [\[한글\] 기술 냉장고](https://github.com/GimunLee/tech-refrigerator)
 
 
-## Visulization
+# Visulization
 
 - [ApexCharts.js](https://github.com/apexcharts/apexcharts.js) - Interactive SVG Charts ([데모](https://apexcharts.com/react-chart-demos/))
 - [nivo](https://github.com/plouc/nivo) - ([데모](https://nivo.rocks/components))
@@ -127,7 +126,7 @@ twitter_text: template twitter_text
 - [vis-network](https://github.com/visjs/vis-network) - 네트워크 생성기 ([데모](https://visjs.github.io/vis-network/examples/))
 - [React Financial Charts](https://github.com/reactivemarkets/react-financial-charts) - 금융 주식 차트 ([데모](https://reactivemarkets.github.io/react-financial-charts))
 
-## Programs & Websites & Self-hosted
+# Programs & Websites & Self-hosted
 
 - [Hyper](https://github.com/zeit/hyper) - Electron 베이스 터미널 프로그램
 - [nuclear](https://github.com/nukeop/nuclear) - 공공 무료 소스를 이용한 음악 플레이어
@@ -144,14 +143,14 @@ twitter_text: template twitter_text
 - [Terminus](https://github.com/Eugeny/terminus) - 터미널 프로그램
 - [YouTube-Music](https://github.com/steve228uk/YouTube-Music) - Youtube Music Mac Desktop Application
 
-## Util Libraries
+# Util Libraries
 
 - [Day.js](https://github.com/iamkun/dayjs) - Moment.js의 대체재로 2KB의 작은 시간/날짜 라이브러리
 - [Yup](https://github.com/jquense/yup) - Javascript Object 스키마 검증 라이브러리
 - [Nano ID](https://github.com/ai/nanoid) - 작고, 안전하고, URL 친화적인 Unique ID 생성기 ([데모](https://zelark.github.io/nano-id-cc/))
 - [faker.js](https://github.com/Marak/faker.js) - 더미 데이터 생성기 ([데모](https://rawgit.com/Marak/faker.js/master/examples/browser/index.html))
 
-## Etc
+# Etc
 
 - [WebGL Fluid Simulation](https://github.com/PavelDoGreat/WebGL-Fluid-simulation) - WebGL을 이용하여 유체를 시뮬레이션한 예제 ([데모](https://paveldogreat.github.io/WebGL-Fluid-Simulation/))
 - [Github Trending Archive](https://github.com/larsbijl/trending_archive)

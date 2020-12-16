@@ -2,13 +2,13 @@
 layout: post
 title: ElasticSearch - Index 편
 date: 2019-04-13 20:06:00 +0900
-description: Template description
-thumbnail: /thumbnails/elasticsearch.png
-category: 'server'
+cover: /covers/elasticsearch.png
+disqusId: 6910f3f6640efb25ba607bc7113c3a509a9f4705
+toc: true
+category: Server
 tags:
 - elk
 - elasticsearch
-twitter_text: template twitter_text
 ---
 
 ElasticSearch - Index 편

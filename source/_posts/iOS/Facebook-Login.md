@@ -2,13 +2,13 @@
 layout: post
 title: Facebook으로 로그인하기
 date: 2018-01-18 21:35:42 +0900
-description: Template description
-thumbnail: /thumbnails/swift.jpg
-category: 'ios'
+cover: /covers/swift.jpg
+disqusId: 74340695f6f7f3174850864d6cbcfa8f7594e4bb
+toc: true
+category: iOS
 tags:
 - swift
 - facebook
-twitter_text: template twitter_text
 ---
 
 Facebook으로 로그인하기
@@ -16,7 +16,7 @@ Facebook으로 로그인하기
 <!-- more -->
 
 
-### 1\. 앱 기본 설정
+# 1. 앱 기본 설정
 
 ![image](000.jpg)
 [페이스북 개발자 사이트](https://developers.facebook.com/)에 접속해서 새 앱을 추가합니다.
@@ -115,7 +115,7 @@ func application(_ application: UIApplication,
 여기까지 앱의 기본 설정을 마쳤습니다.    
 위의 7, 8, 9, 10번 단계는 밑에서 설명 하므로 넘어가셔도 됩니다.
 
-### 2\. Facebook 권한 요청
+# 2. Facebook 권한 요청
 
 Facebook 아주 기본적인 로그인(userID)을 제외하고 다른 기능을 사용 하려면 로그인 할 때 따로 권한 요청을 해야 합니다.
 사용자의 프로필(프로필 사진 등)과 이메일을 얻으려고 하면 따로 권한 요청을 해야 합니다.
@@ -127,7 +127,7 @@ Facebook 아주 기본적인 로그인(userID)을 제외하고 다른 기능을 
 자세한 사항은 [여기](https://developers.facebook.com/docs/facebook-login/permissions/)
 를 참고해 주세요.
 
-### 3\. Facebook SDK 버튼으로 로그인 하기
+# 3. Facebook SDK 버튼으로 로그인 하기
 
 Facebook SDK에서 제공하는 기본 버튼으로 로그인 하는 방법을 살펴보겠습니다.    
 커스텀 버튼으로 로그인 하길 원하시는 분은 건너 뛰셔도 됩니다.
@@ -204,7 +204,7 @@ loginButtonWillLogin 함수는 로그인 버튼이 클릭될 때 호출 되는 �
 그리고 나면 다시 앱으로 돌아와서 로그인 버튼이 로그아웃 버튼으로 바뀌어 있습니다.
 이 버튼을 클릭하면 로그아웃이 되고 `loginButtonDidLogOut` 함수가 호출 됩니다.
 
-### 4\. Custom 버튼으로 로그인 하기
+# 4. Custom 버튼으로 로그인 하기
 
 ```swift
 let fbLoginManager = FBSDKLoginManager()
@@ -236,7 +236,7 @@ callback함수인 FBSDKLoginManagerRequestTokenHandler은 위와 같이 정의�
 [FBSDKLoginManagerLoginResult](https://developers.facebook.com/docs/reference/ios/current/class/FBSDKLoginManagerLoginResult/)
 를 확인해 주세요.
 
-### 5\. 로그인 여부 확인하기
+# 5. 로그인 여부 확인하기
 
 ```swift
 import FBSDKLoginKit

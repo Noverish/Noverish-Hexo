@@ -2,25 +2,17 @@
 layout: post
 title: Docker Hub에 도커 이미지 배포해보기
 date: 2020-03-28 18:32:00 +0900
-description: Template description
-thumbnail: /thumbnails/docker.png
-category: 'docker'
+cover: /covers/docker.png
+disqusId: 36f91b87d065a925ec1f11ff95e4d78ddcbfd118
+toc: true
+category: Docker
 tags:
 - docker
-twitter_text: template twitter_text
 ---
 
 Github Repository와 연동하여 나만의 Docker Image를 Docker Hub에 배포하는 법을 알아보도록 하겠습니다.
 
 <!-- more -->
-
-## 목차
-[1. Repository 생성](#1-Repository-생성)    
-[2. Docker Hub와 Gitub 연동](#2-Docker-Hub와-Gitub-연동)    
-[3. 실행해보기](#3-실행해보기)    
-[4. Docker Hub Readme](#4-Docker-Hub-Readme)    
-
----
 
 # 1. Repository 생성
 

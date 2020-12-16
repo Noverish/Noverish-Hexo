@@ -2,28 +2,15 @@
 layout: post
 title: CircleCI 사용해보기
 date: 2020-03-25 17:59:00 +0900
-description: Template description
-thumbnail: /thumbnails/circleci.png
-category: 'etc'
-tags:
-- CircleCI
-- CI/CD
-twitter_text: template twitter_text
+cover: /covers/circleci.png
+disqusId: c0df3d71aa8b7976235ae74c956bb28c9210e277
+toc: true
+category: CI/CD
 ---
 
 CircleCI를 이용하여 내 Node 프로젝트를 자동으로 테스트하고 Docker Image로 빌드해서 원격 서버에 배포해 보자!
 
 <!-- more -->
-
-## 목차
-[1\. 일단 해보기](#1-일단-해보기)    
-[2\. config.yml 설명](#2-다양한-Actions)    
-[3\. 용어 설명](#3-용어-설명)    
-[4\. Docker Image 빌드](#4-Docker-Image-빌드)    
-[5\. rsync로 원격 서버에 배포하기](#4-rsync로-원격-서버에-배포하기)    
-[6\. 특정 branch에서만 동작하도록 하기](#6-특정-branch에서만-동작하도록-하기)    
-
----
 
 # 1. 일단 해보기
 

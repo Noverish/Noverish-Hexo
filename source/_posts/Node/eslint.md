@@ -2,28 +2,20 @@
 layout: post
 title: ESLint + Typescript
 date: 2020-03-10 18:33:00 +0900
-description: Template description
-thumbnail: /thumbnails/eslint.jpg
-category: 'node'
+cover: /covers/eslint.jpg
+disqusId: aa61df86aab781f889a4623b4ec92de37f7b5bba
+toc: true
+category: Node
 tags: 
 - node
 - npm
 - eslint
 - typescript
-twitter_text: template twitter_text
 ---
 
 Typescript 프로젝트에서 airbnb 스타일로 eslint를 적용해 보자!
 
 <!-- more -->
-
-## 목차
-[1\. ESLint 설치](#1-ESLint-설치)    
-[2\. Typescript용 airbnb 스타일 설치하기](#2-Typescript용-airbnb-스타일-설치하기)    
-[3\. Typescript 절대 경로 Import](#3-Typescript-절대-경로-Import)    
-[4\. TL; DR](#4-TL-DR)
-
----
 
 # 1. ESLint 설치
 

@@ -2,12 +2,12 @@
 layout: post
 title: Elastic Stack - Kibana 편
 date: 2019-05-21 22:25:00 +0900
-description: Template description
-thumbnail: /thumbnails/elastic-stack.png
-category: 'server'
+cover: /covers/elastic-stack.png
+disqusId: e7773531bce52f1856313456ddc76d81b8387f8a
+toc: true
+category: Server
 tags:
 - elk
-twitter_text: template twitter_text
 ---
 
 정형 및 비정형 데이터를 시각화하고 분석하는데 용이한 Elastic Stack을 사용하는 법을 알아보겠습니다.
@@ -15,16 +15,6 @@ twitter_text: template twitter_text
 <!-- more -->
 
 이 글은 Ubuntu 18.04.2 LTS 사용자를 대상으로 작성했습니다.
-
-## 목차
-[1. Kibana 설치](#1-Kibana-설치)    
-[2. Elasticsearch와 연동하기](#2-Elasticsearch와-연동하기)    
-[3. 실행하기](#3-실행하기)    
-[4. 로그 보기](#4-로그-보기)    
-[5. Elasticsearch 데이터 보기](#5-Elasticsearch-데이터-보기)    
-[6. 80번 포트로 실행시키기](#6-80번-포트로-실행시키기)    
-
----
 
 # 1. Kibana 설치
 

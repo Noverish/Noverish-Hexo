@@ -2,13 +2,13 @@
 layout: post
 title: Server-Sent Event
 date: 2019-11-11 18:31:02 +0900
-description: Template description
-thumbnail: /thumbnails/nodejs.png
-category: 'node'
+cover: /covers/nodejs.png
+disqusId: 22dd95045dfbdf620db6d4403e96481571020b44
+toc: true
+category: Node
 tags:
 - node
 - sse
-twitter_text: template twitter_text
 ---
 
 Nodejs에서 Sever-Sent Event를 사용하는 법을 알아보겠습니다.
@@ -16,26 +16,15 @@ Nodejs에서 Sever-Sent Event를 사용하는 법을 알아보겠습니다.
 
 <!-- more -->
 
-## 목차
-[1. 시작](#1-시작)    
-[2. Cookie 전송](#2-Cookie-전송)    
-[3. 각 이벤트마다 ID 부여](#3-각-이벤트마다-ID-부여)    
-[4. 각 이벤트마다 타입 부여](#4-각-이벤트마다-타입-부여)    
-[5. Client에서 연결 종료](#5-Client에서-연결-종료)    
-[6. Server에서 연결 종료](#6-Server에서-연결-종료)    
-[7. Nginx를 통해 통신 (proxy_pass를 사용하는 경우)](#7-Nginx를-통해-통신-proxy-pass를-사용하는-경우)
-
----
-
 # 1. 시작
 
-### 1.1. ssestream 설치
+## 1.1. ssestream 설치
 
 ```shell
 $ npm install ssestream
 ```
 
-### 1.2. Server-Side
+## 1.2. Server-Side
 
 서버에 아래의 코드를 작성합니다.
 
@@ -64,7 +53,7 @@ app.listen(8080);
 여기서 10번째 줄에 data에는 string을 넣어도 되고 object를 넣어도 됩니다.
 ssestream 내부에서 object를 JSON.stringify 함수를 통해 string으로 바꿔줍니다.
 
-### 1.3. Client-Side
+## 1.3. Client-Side
 
 ```javascript
 const es = new EventSource('http://localhost:8080/sse');

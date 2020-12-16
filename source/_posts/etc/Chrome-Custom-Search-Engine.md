@@ -2,13 +2,13 @@
 layout: post
 title: 크롬에서 나만의 검색 엔진 사용하기
 date: 2018-04-13 20:48:00 +0900
-description: Template description
-thumbnail: /thumbnails/chrome.jpg
-category: 'etc'
+cover: /covers/chrome.jpg
+disqusId: 07db2d4f75eaf8641731913bb32385af86a4fc14
+toc: true
+category: 기타
 tags:
 - chrome
 - tip
-twitter_text: template twitter_text
 ---
 
 크롬에서 나만의 검색 엔진 사용하기

@@ -2,13 +2,13 @@
 layout: post
 title: tsconfig.json 파헤치기
 date: 2019-09-08 18:17:00 +0900
-description: Template description
-thumbnail: /thumbnails/typescript.png
-category: 'node'
+cover: /covers/typescript.png
+disqusId: 756521d76a4ebf227f4c110a47266ac8fa299218
+toc: true
+category: Node
 tags:
 - node
 - typescript
-twitter_text: template twitter_text
 ---
 
 tsconfig.json 파일에는 정말 많은 옵션들이 있습니다. 그 중에 제가 자주 사용하는 옵션들을 설명해 보겠습니다.

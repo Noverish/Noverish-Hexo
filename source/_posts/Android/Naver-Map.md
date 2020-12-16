@@ -2,33 +2,22 @@
 layout: post
 title: Android에서 네이버 지도 SDK 사용하기
 date: 2018-07-18 14:41:00 +0900
-description: Template description
-thumbnail: /thumbnails/naver-map.jpg
-titleImage: ./title-image.jpg
-category: 'android'
+cover: /covers/naver-map.jpg
+disqusId: cf79dc6989e574aea2d46c89d6ae518ebd8b1779
+toc: true
+category: Android
 tags:
 - android
 - kotlin
 - naver
 - map
-twitter_text: template twitter_text
 ---
 
 Android에서 네이버 지도 SDK 사용하기
 
 <!-- more -->
 
-## 목차
-[1\. 앱 등록하기](#1-앱-등록하기)    
-[2\. 준비하기](#2-준비하기)    
-[3-1\. Activity에서 네이버 지도 사용하기](#3-1-activity에서-네이버-지도-사용하기)    
-[3-2\. Fragment에서 네이버 지도 사용하기](#3-2-fragment에서-네이버-지도-사용하기)    
-[4\. 지도 배율 설정하기](#4-지도-배율-설정하기)    
-[5\. 지도에 마커 표시하기](#5-지도에-마커-표시하기)
-
----
-
-### 1\. 앱 등록하기
+# 1. 앱 등록하기
 
 ![](001.jpg)
 
@@ -54,7 +43,7 @@ minimum SDK는 19로 했습니다.
 
 ---
 
-### 2\. 준비하기
+# 2. 준비하기
 
 App Level의 `build.gradle`의 `dependencies`에 아래의 내용을 추가합나디.
 
@@ -76,7 +65,9 @@ implementation 'com.naver.maps.open:naver-map-api:2.1.2@aar'
 
 ---
 
-### 3-1\. Activity에서 네이버 지도 사용하기
+# 3. 네이버 지도 사용하기
+
+## 3.1. Activity에서 네이버 지도 사용하기
 
 NMapView : 안드로이드 ViewGroup 클래스를 상속받은 클래스로서 지도 데이터를 화면에 표시합니다.
 
@@ -121,7 +112,7 @@ NMapActivity는 AppCompatActivity를 상속하는 것이 아니므로 툴바가 
 
 ---
 
-### 3-2\. Fragment에서 네이버 지도 사용하기
+## 3.2. Fragment에서 네이버 지도 사용하기
 
 Fragment에서 NMapView를 사용하려면 아래와 같이 모든 lifecycle 마다 NMapContext를 호출해야 합니다.
 
@@ -178,7 +169,7 @@ class MainFragment : Fragment() {
 
 ---
 
-### 4\. 지도 배율 설정하기
+# 4. 지도 배율 설정하기
 
 <img src="005.jpg" width="300">
 
@@ -220,7 +211,7 @@ mapHD = true                                               | mapHD = false
 
 ---
 
-### 5\. 지도에 마커 표시하기
+# 5. 지도에 마커 표시하기
 
 `NMapResourceProvider`는 지도 위의 오버레이 객체 드로잉에 필요한 리소스 데이터를 제공하기 위한 추상 클래스입니다.
 따라서 지도에 뭔가를 표시하려면 이를 상속하는 클래스를 만들어서 사용해야 합니다.

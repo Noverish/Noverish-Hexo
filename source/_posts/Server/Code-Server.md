@@ -2,26 +2,20 @@
 layout: post
 title: VSCode 원격으로 사용해보기
 date: 2020-03-16 19:59:00 +0900
-description: Template description
-thumbnail: /thumbnails/vscode.png
-category: 'server'
+cover: /covers/vscode.png
+disqusId: 7f0193f5e0c5347d3eb3cbccbf14d22f8e7fc535
+toc: true
+category: Server
 tags: 
 - server
 - vscode
 - code-server
-twitter_text: template twitter_text
 ---
 
 서버에 VSCode를 설치 한 후 브라우저를 통해서 접속할 수 있는 프로젝트가 있습니다.
 바로 [code-server](https://github.com/cdr/code-server)라는 프로젝트입니다. 이를 사용할 수 있는 방법을 알아보겠습니다.
 
 <!-- more -->
-
-## 목차
-[1\. 빠르게 Docker로 시작해 보기](#1-빠르게-Docker로-시작해-보기)    
-[2\. 서버에 설치해서 사용하기](#2-서버에-설치해서-사용하기)    
-[3\. Run over HTTPS](#3-Run-over-HTTPS)
----
 
 # 1. 빠르게 Docker로 시작해 보기
 

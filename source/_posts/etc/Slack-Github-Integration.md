@@ -2,27 +2,20 @@
 layout: post
 title: 슬랙과 깃허브 연동하기
 date: 2018-07-26 14:15:00 +0900
-description: Template description
-thumbnail: /thumbnails/slack.jpg
-category: 'etc'
+cover: /covers/slack.jpg
+disqusId: 7e933709ed18685b5244e8849ac8a30ec139aeee
+toc: true
+category: 기타
 tags:
 - slack
 - github
-twitter_text: template twitter_text
 ---
 
 슬랙과 깃허브 연동하기
 
 <!-- more -->
 
-## 목차
-[1\. Slack에 Github 앱 추가하기](#1-Slack에-Github-앱-추가하기)    
-[2\. Github Repository와 연동하기](#2-Github-Repository와-연동하기)    
-[3\. Slack에서 Github Issue 만들기](#3-Slack에서-Github-Issue-만들기) 
-
----
-
-### 1\. Slack에 Github 앱 추가하기
+# 1. Slack에 Github 앱 추가하기
 
 먼저 좌상단의 워크스페이스 이름을 클릭한 후 `Administration` - `Manage apps`를 클릭합니다.
 
@@ -61,7 +54,7 @@ twitter_text: template twitter_text
 
 ---
 
-### 2\. Github Repository와 연동하기
+# 2. Github Repository와 연동하기
 
 ![](./008.jpg)
 `/github subscribe [연동하고 싶은 Repository URL]`    
@@ -99,7 +92,7 @@ twitter_text: template twitter_text
 
 ---
 
-### 3\. Slack에서 Github Issue 만들기
+# 3. Slack에서 Github Issue 만들기
 
 ![](./016.jpg)
 `/github open [Issue를 만들고 싶은 Repository URL]`    

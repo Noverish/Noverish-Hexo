@@ -11370,6 +11370,9 @@ figure.highlight .section {
   top: 1.5rem;
   z-index: 99;
 }
+#toc .level-item {
+  word-break: break-all;
+}
 .donate {
   position: relative;
 }

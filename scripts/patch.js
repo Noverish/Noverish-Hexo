@@ -73,5 +73,8 @@ patch(
     position: -webkit-sticky;
     position: sticky;
     top: 1.5rem;
-    z-index: 99;\n`,
+    z-index: 99;
+    
+    .level-item
+        word-break: break-all;\n`,
 )

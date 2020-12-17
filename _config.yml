@@ -107,3 +107,7 @@ deploy:
   repo: git@github.com:Noverish/Blog.git
   branch: gh-pages
   message:
+
+marked:
+  gfm: true
+  breaks: false

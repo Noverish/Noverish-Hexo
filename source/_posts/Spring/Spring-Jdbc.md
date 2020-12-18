@@ -219,3 +219,17 @@ batchUpdate 메서드를 사용하면 많은 양의 SQL 구문을 한 번에 처
 ### JdbcTemplate.execute
 
 execute 메서드를 사용하면 DDL 구문을 처리할 수 있습니다.
+
+# 9. 기본 실행 SQL 파일
+
+resources 루트 경로에 `schema.sql`, `data.sql`을 둠으로써 어플리케이션이 실행될 때 마다 실행될 SQL 구문을 지정할 수 있습니다.
+일반적으로 `schema.sql`에는 DDL을 `data.sql`에는 DML을 작성합니다.
+이 기능을 사용하려면 `application.properties` 파일에 아래와 같은 프로퍼티를 설정해야 합니다.
+
+```text application.properties
+spring.datasource.initialization-mode=always
+```
+
+자세한 정보는
+[공식 문서](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-initialize-a-database-using-spring-jdbc)
+를 참고해 주세요.

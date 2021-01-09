@@ -219,7 +219,7 @@ module.exports = {
 +   rules: [
 +     {
 +       test: /\.(js|jsx)$/,
-+       exclude: /node_module/,
++       exclude: /node_modules/,
 +       use: {
 +         loader: 'babel-loader',
 +         options: {
@@ -262,7 +262,7 @@ module.exports = {
     rules: [
 +     {
 +       test: /\.ts$/,
-+       exclude: /node_module/,
++       exclude: /node_modules/,
 +       use: ['ts-loader'],
 +     },
     ]
@@ -315,7 +315,7 @@ module.exports = {
       {
 -       test: /\.ts$/,
 +       test: /\.(ts|tsx)$/,
-        exclude: /node_module/,
+        exclude: /node_modules/,
         use: ['ts-loader'],
       },
     ]
@@ -335,7 +335,7 @@ module.exports = {
     rules: [
 +     {
 +       test: /\.css$/,
-+       exclude: /node_module/,
++       exclude: /node_modules/,
 +       use: ['style-loader', 'css-loader'],
 +     },
     ]

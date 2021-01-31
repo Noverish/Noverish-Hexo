@@ -182,7 +182,7 @@ docker Orb를 불러옵니다.
       build-and-test:
         jobs:
           - build-and-test 
-+         - docker
++         - docker:
 +             requires:
 +               - test
 ```
@@ -239,7 +239,7 @@ Project Settings - SSH Keys에 들어가서
       build-and-test:
         jobs:
           - build-and-test 
-          - docker
+          - docker:
               requires:
                 - test
 +             filters:	

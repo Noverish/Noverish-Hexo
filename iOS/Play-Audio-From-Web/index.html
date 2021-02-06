@@ -43,27 +43,14 @@
   <script>
   (() => {
     function switchTab() {
-      if (!location.hash) {
-        return;
-      }
-      Array
-          .from(document.querySelectorAll('.tab-content'))
-          .forEach($tab => {
-            $tab.classList.add('is-hidden');
-          });
-      Array
-          .from(document.querySelectorAll('.tabs li'))
-          .forEach($tab => {
-            $tab.classList.remove('is-active');
-          });
-      const $activeTab = document.querySelector(location.hash);
-      if ($activeTab) {
-        $activeTab.classList.remove('is-hidden');
-      }
-      const $tabMenu = document.querySelector(`a[href="${location.hash}"]`);
-      if ($tabMenu) {
-        $tabMenu.parentElement.classList.add('is-active');
-      }
+      const defaultTab = document.querySelector('.tabs li a').getAttribute('href').slice(1);
+      const activeTab = (location.hash) ? location.hash.slice(1) : defaultTab;
+
+      document.querySelectorAll('.tab-content').forEach(v => v.classList.add('is-hidden'));
+      document.querySelectorAll('.tabs li').forEach(v => v.classList.remove('is-active'));
+
+      document.querySelectorAll('.' + activeTab).forEach(v => v.classList.remove('is-hidden'));
+      document.querySelectorAll(`a[href="#${activeTab}"]`).forEach(v => v.parentElement.classList.add('is-active'));
     }
     switchTab();
     window.addEventListener('hashchange', switchTab, false);

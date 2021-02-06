@@ -227,7 +227,7 @@ widgets:
         # Whether to collapse sub-headings when they are out-of-view
         collapsed: false
         # Maximum level of headings to show (1-6)
-        depth: 2
+        depth: 1
 # Plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/
 plugins:

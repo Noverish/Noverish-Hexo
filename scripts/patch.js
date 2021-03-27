@@ -1,4 +1,4 @@
-const { writeFileSync, readFileSync } = require('fs');
+const { writeFileSync, readFileSync, copyFileSync } = require('fs');
 
 function patch(path, searchValue, replaceValue) {
   writeFileSync(path, readFileSync(path).toString().replace(searchValue, replaceValue));
@@ -77,4 +77,23 @@ patch(
     
     .level-item
         word-break: break-all;\n`,
+)
+
+const highlightAliasJsonPath = 'node_modules/hexo-util/highlight_alias.json';
+const highlightAliasJson = JSON.parse(readFileSync(highlightAliasJsonPath).toString());
+if (!highlightAliasJson.languages.includes('graphql')) {
+  highlightAliasJson.languages.push('graphql');
+}
+highlightAliasJson.aliases['graphql'] = 'graphql';
+highlightAliasJson.aliases['gql'] = 'graphql';
+writeFileSync(highlightAliasJsonPath, JSON.stringify(highlightAliasJson, null, 2));
+
+const graphqlLanguageFilePathSrc = 'scripts/highlight.js/graphql.js';
+const graphqlLanguageFilePathDist = 'node_modules/highlight.js/lib/languages/graphql.js';
+copyFileSync(graphqlLanguageFilePathSrc, graphqlLanguageFilePathDist);
+
+patch(
+  'node_modules/highlight.js/lib/index.js',
+  `hljs.registerLanguage('zephir', require('./languages/zephir'));\n\n`,
+  `hljs.registerLanguage('zephir', require('./languages/zephir'));\nhljs.registerLanguage('graphql', require('./languages/graphql'));\n\n`,
 )

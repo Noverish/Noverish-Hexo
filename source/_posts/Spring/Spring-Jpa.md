@@ -26,7 +26,7 @@ dependencies {
 
 # 2. 설정
 
-```text application.properties
+```ini application.properties
 spring.jpa.hibernate.ddl-auto=create
 spring.datasource.url=jdbc:mysql://localhost:3306/mydb?serverTimezone=Asia/Seoul
 spring.datasource.username=username

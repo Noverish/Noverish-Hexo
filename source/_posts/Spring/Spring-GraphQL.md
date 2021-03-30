@@ -254,3 +254,126 @@ dependencies {
 </dependencies>
 ```
 </div>
+
+# 6. GraphQL SPQR
+
+[GraphQL SPQR](https://github.com/leangen/graphql-spqr-spring-boot-starter)은
+간단히 말해서 Annotation 만으로 GraphQL 스키마 파일(*.graphqls)을 자동으로 생성해주는 라이브러리입니다.
+
+GraphQL을 이용하여 개발을 하다보면 수정이 일어날 때 마다 GraphQL 스키마 파일과 스프링 내부적으로 사용하는 클래스에 2번씩 수정해야 합니다.
+이 라이브러리를 사용하면 이러한 수고를 덜 수 있습니다.
+
+위에서 설치한 디펜던시를 전부 지우고 아래의 디펜던시를 추가합니다.
+보시다시피 이 라이브러리의 버전은 아직 `0.0.6`으로 초기 단계입니다. 따라서 릴리즈하는 프로젝트에는 적합하지 않습니다.
+
+<div class="tabs is-boxed my-3">
+  <ul class="mx-0 my-0">
+    <li>
+      <a href="#gradle">
+        <span>Gradle</span>
+      </a>
+    </li>
+    <li>
+      <a href="#maven">
+        <span>Maven</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div class="tab-content gradle">
+```gradle build.gradle
+dependencies {
+  implementation 'io.leangen.graphql:graphql-spqr-spring-boot-starter:0.0.6'
+  implementation 'org.springframework.boot:spring-boot-starter-web'
+}
+```
+</div>
+
+<div class="tab-content maven">
+```xml pom.xml
+<dependencies>
+    <dependency>
+        <groupId>io.leangen.graphql</groupId>
+        <artifactId>graphql-spqr-spring-boot-starter</artifactId>
+        <version>0.0.6</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+</dependencies>
+```
+</div>
+
+다음과 같이 클래스에는 `@GraphQLApi` 어노테이션을, 각 메서드에는 `@GraphQLQuery`, `@GraphQLMutation`을 붙이면 끝입니다!
+
+```java UserGraphQL.java
+import io.leangen.graphql.annotations.GraphQLMutation;
+import io.leangen.graphql.annotations.GraphQLQuery;
+import io.leangen.graphql.spqr.spring.annotations.GraphQLApi;
+
+@Component
+@GraphQLApi
+public class UserGraphQL {
+    @Autowired
+    private UserRepository repository;
+
+    @GraphQLQuery
+    public List<User> getUsers() {
+        return repository.users;
+    }
+
+    @GraphQLQuery
+    public Optional<User> getUser(long id) {
+        return repository.users.stream()
+            .filter(v -> v.getId() == id)
+            .findAny();
+    }
+
+    @GraphQLMutation
+    public User addUser(UserInput input) 
+        User newUser = new User(input.getId(), input.getName(), input.getAge());
+        repository.users.add(newUser);
+        return newUser;
+    }
+}
+```
+
+그러면 다음과 같은 스키마가 자동으로 생성됩니다.
+
+```graphql
+type Mutation {
+  addUser(input: UserInputInput): User
+}
+
+type Query {
+  user(id: Long!): User
+  users: [User]
+}
+
+type User {
+  age: Int!
+  id: Long!
+  name: String
+}
+
+input UserInputInput {
+  age: Int!
+  id: Long!
+  name: String
+}
+```
+
+보면 함수들이 이름이 살짝씩 바뀌어 있고, input 타입도 이름이 바뀌어 있는 것을 볼 수 있습니다.
+이제 다양한 어노테이션을 추가해가면서 스키마를 커스터마이징 할 수 있습니다.
+
+## 6.1. IDE
+
+```ini application.properties
+graphql.spqr.gui.enabled=true
+```
+
+위의 설정을 한 후 `/ide` 경로로 접속하면 아래와 같이 GraphQL을 테스트 할 수 있는 웹 페이지를 볼 수 있습니다.
+
+![GraphQL SPQR의 IDE의 모습](./ide.jpg)
